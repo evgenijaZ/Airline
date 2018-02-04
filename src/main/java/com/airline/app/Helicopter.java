@@ -24,8 +24,8 @@ public class Helicopter extends Aircraft {
      */
     @Override
     public void goUp() {
-        if (isFlying){
-            System.out.println("The helicopter is already flying");
+        if (isFlying) {
+            System.out.println("The helicopter " + modelName + " is already flying.");
             return;
         }
         rotate();
@@ -38,8 +38,8 @@ public class Helicopter extends Aircraft {
      */
     @Override
     public void goDown() {
-        if (!isFlying){
-            System.out.println("The helicopter is not in flight yet");
+        if (!isFlying) {
+            System.out.println("The helicopter " + modelName + " is not in flight yet.");
             return;
         }
         this.velocity_mps = 0;
