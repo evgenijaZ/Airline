@@ -8,29 +8,29 @@ public abstract class Aircraft {
      * the model name of the aircraft,
      * it is defined in the constructor
      */
-    private String modelName;
+    String modelName;
     /**
      * the passenger capacity of the aircraft,
      * it is defined in the constructor
      */
-    private int capacity;
+    int capacity;
     /**
      * maximum carrying capacity of the aircraft in kilograms,
      * it is defined in the constructor
      */
-    private int carryingCapacity_kg;
+    int carryingCapacity_kg;
     /**
      * maximum flight range of the aircraft in kilometers,
      * it is defined in the constructor
      */
-    private int flightRange_km;
+    int flightRange_km;
     /**
      * Is there an airplane in flight,
      * default value is false
      */
-    private boolean isFlying;
+    boolean isFlying;
 
-    public Aircraft(String modelName, int capacity, int carryingCapacity_kg, int flightRange_km) {
+    Aircraft(String modelName, int capacity, int carryingCapacity_kg, int flightRange_km) {
         this.modelName = modelName;
         this.capacity = capacity;
         this.carryingCapacity_kg = carryingCapacity_kg;
