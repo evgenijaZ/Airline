@@ -9,7 +9,7 @@ public class Airship extends Aircraft{
     }
 
     /**
-     * abstract method of takeoff of an aircraft
+     * inherited from Aircraft method of takeoff of an aircraft
      */
     @Override
     public void goUp() {
@@ -23,7 +23,7 @@ public class Airship extends Aircraft{
     }
 
     /**
-     * abstract method of landing an aircraft
+     * inherited from Aircraft method of landing
      */
     @Override
     public void goDown() {

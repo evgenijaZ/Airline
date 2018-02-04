@@ -20,7 +20,7 @@ public class Airplane extends Aircraft {
     }
 
     /**
-     * abstract method of takeoff of an aircraft
+     * inherited method of takeoff of an aircraft
      */
     @Override
     public void goUp() {
@@ -28,9 +28,9 @@ public class Airplane extends Aircraft {
             System.out.println("The airplane " + modelName + " is already flying.");
             return;
         }
-        System.out.println("The airplane " + modelName + " leaves on a runway, accelerates, takes off.");
+        System.out.println("The airplane " + modelName + " is leaving on a runway, accelerating, taking off.");
         isFlying = true;
-        System.out.println("The airplane " + modelName + " gained cruising speed " + this.cruisingSpeed_kmph + "km/h and goes up.");
+        System.out.println("The airplane " + modelName + " has gained cruising speed " + this.cruisingSpeed_kmph + "km/h and flies.");
     }
 
     /**
@@ -44,7 +44,7 @@ public class Airplane extends Aircraft {
         }
         System.out.println("The airplane " + modelName + " lands on the runway.");
         isFlying = false;
-        System.out.println("The airplane " + modelName + " goes down.");
+        System.out.println("The airplane " + modelName + " has landed.");
     }
 
     public double getFuelConsumption_lph() {
