@@ -6,17 +6,23 @@ package com.airline.app;
  * @author Yevheniia Zubrych on 04.02.2018.
  */
 public class PassengerPlane extends Airplane {
+    /**
+     * number of passengers on the plane
+     */
     private int numberOfPassengers;
 
     public PassengerPlane(String modelName, int capacity, int carryingCapacity_kg, int flightRange_km, double fuelConsumption_lph, double cruisingSpeed_kmph) {
         super(modelName, capacity, carryingCapacity_kg, flightRange_km, fuelConsumption_lph, cruisingSpeed_kmph);
         numberOfPassengers = 0;
     }
-
+    /*
+    * the constructor with number of passengers
+    */
     public PassengerPlane(String modelName, int capacity, int numberOfPassengers, int carryingCapacity_kg, int flightRange_km, double fuelConsumption_lph, double cruisingSpeed_kmph) {
         super(modelName, capacity, carryingCapacity_kg, flightRange_km, fuelConsumption_lph, cruisingSpeed_kmph);
         this.numberOfPassengers = numberOfPassengers;
     }
+
     /**
      * inherited from the Airplane method of takeoff
      */
@@ -28,6 +34,7 @@ public class PassengerPlane extends Airplane {
         }
         super.goUp();
     }
+
     /**
      * inherited from the Airplane method of landing
      */
@@ -39,11 +46,12 @@ public class PassengerPlane extends Airplane {
 
     /**
      * to seat the passengers of the plane by places
-     * @return true in case of successful execution, false if something went wrong
+     *
+     * @return true if all passengers are on the board, false if something went wrong
      */
     private boolean seatPassengers() {
         if (numberOfPassengers > capacity) {
-            System.out.println("There are not enough places on board of" + this.modelName +" for " + (numberOfPassengers - capacity) + " passengers (capacity is " + this.capacity + " seats).");
+            System.out.println("There are not enough places on board of" + this.modelName + " for " + (numberOfPassengers - capacity) + " passengers (capacity is " + this.capacity + " seats).");
             return false;
         } else if (numberOfPassengers == 0) {
             System.out.println("There are no passengers on the board of " + this.modelName + " (capacity is " + this.capacity + " seats).");
@@ -55,7 +63,7 @@ public class PassengerPlane extends Airplane {
     /**
      * to release passenger seats
      */
-    private void freeSeats(){
+    private void freeSeats() {
         System.out.println("All passengers left the the board of " + this.modelName);
     }
 }

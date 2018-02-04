@@ -20,7 +20,7 @@ public class Helicopter extends Aircraft {
     }
 
     /**
-     * inherited from Aircraft method of takeoff
+     * inherited from the Aircraft method of takeoff
      */
     @Override
     public void goUp() {
@@ -34,7 +34,7 @@ public class Helicopter extends Aircraft {
     }
 
     /**
-     * inherited from Aircraft method of landing
+     * inherited from the Aircraft method of landing
      */
     @Override
     public void goDown() {

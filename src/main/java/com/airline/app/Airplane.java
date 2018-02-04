@@ -20,7 +20,7 @@ public class Airplane extends Aircraft {
     }
 
     /**
-     * inherited method of takeoff of an aircraft
+     * inherited from the Aircraft method of takeoff
      */
     @Override
     public void goUp() {
@@ -34,7 +34,7 @@ public class Airplane extends Aircraft {
     }
 
     /**
-     * abstract method of landing an aircraft
+     * inherited from the Aircraft method of landing
      */
     @Override
     public void goDown() {
