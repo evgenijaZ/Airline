@@ -23,7 +23,29 @@ public class CargoPlane extends Airplane {
     }
 
     /**
+     * inherited from the Airplane method of takeoff
+     */
+    @Override
+    public void goUp() {
+        if (!loadCargo()) {
+            System.out.println("Takeoff of " + modelName + " is impossible");
+            return;
+        }
+        super.goUp();
+    }
+
+    /**
+     * inherited from the Airplane method of landing
+     */
+    @Override
+    public void goDown() {
+        super.goDown();
+        unloadCargo();
+    }
+
+    /**
      * to load a cargo on the plane
+     *
      * @return true if whole cargo is on the board, false if something went wrong
      */
     private boolean loadCargo() {
@@ -35,4 +57,10 @@ public class CargoPlane extends Airplane {
         return true;
     }
 
+    /**
+     * to unload cargo from the plane
+     */
+    private void unloadCargo() {
+        System.out.println("Whole cargo is unloaded");
+    }
 }
