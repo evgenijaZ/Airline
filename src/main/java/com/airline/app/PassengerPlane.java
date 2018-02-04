@@ -17,7 +17,9 @@ public class PassengerPlane extends Airplane {
         super(modelName, capacity, carryingCapacity_kg, flightRange_km, fuelConsumption_lph, cruisingSpeed_kmph);
         this.numberOfPassengers = numberOfPassengers;
     }
-
+    /**
+     * inherited from the Airplane method of takeoff
+     */
     @Override
     public void goUp() {
         if (!seatPassengers()) {
@@ -26,9 +28,17 @@ public class PassengerPlane extends Airplane {
         }
         super.goUp();
     }
+    /**
+     * inherited from the Airplane method of landing
+     */
+    @Override
+    public void goDown() {
+        super.goDown();
+        freeSeats();
+    }
 
     /**
-     * seat the passengers of the plane by places
+     * to seat the passengers of the plane by places
      * @return true in case of successful execution, false if something went wrong
      */
     private boolean seatPassengers() {
@@ -40,5 +50,12 @@ public class PassengerPlane extends Airplane {
         } else
             System.out.println("All " + numberOfPassengers + " passengers are already on the board of " + this.modelName + " (capacity is " + this.capacity + " seats).");
         return true;
+    }
+
+    /**
+     * to release passenger seats
+     */
+    private void freeSeats(){
+        System.out.println("All passengers left the the board of " + this.modelName);
     }
 }
