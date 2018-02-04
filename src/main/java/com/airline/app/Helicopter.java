@@ -7,11 +7,11 @@ public class Helicopter extends Aircraft {
     /**
      * the main rotor diameter in meters
      */
-    double rotorDiameter_m;
+    private double rotorDiameter_m;
     /**
      * speed of the helicopter blades in meters per second
      */
-    double velocity_mps;
+    private double velocity_mps;
 
     Helicopter(String modelName, int capacity, int carryingCapacity_kg, int flightRange_km, double rotorDiameter_m) {
         super(modelName, capacity, carryingCapacity_kg, flightRange_km);
@@ -24,6 +24,10 @@ public class Helicopter extends Aircraft {
      */
     @Override
     public void goUp() {
+        if (isFlying){
+            System.out.println("The helicopter is already flying");
+            return;
+        }
         rotate();
         isFlying = true;
         System.out.println("The helicopter " + modelName + " goes up.");
@@ -34,6 +38,10 @@ public class Helicopter extends Aircraft {
      */
     @Override
     public void goDown() {
+        if (!isFlying){
+            System.out.println("The helicopter is not in flight yet");
+            return;
+        }
         this.velocity_mps = 0;
         isFlying = false;
         System.out.println("The helicopter " + modelName + " goes down.");
