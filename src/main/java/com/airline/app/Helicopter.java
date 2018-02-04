@@ -50,7 +50,7 @@ public class Helicopter extends Aircraft {
     /**
      * rotate the blades of a helicopter
      */
-    public void rotate() {
+    void rotate() {
         velocity_mps = (rotorDiameter_m / 2) * (3.14 * 190 / 30);
         System.out.println("The helicopter rotates. Speed of the helicopter blades is " + this.velocity_mps + " mps");
     }
@@ -61,5 +61,13 @@ public class Helicopter extends Aircraft {
 
     public void setRotorDiameter_m(double rotorDiameter_m) {
         this.rotorDiameter_m = rotorDiameter_m;
+    }
+
+    public double getVelocity_mps() {
+        return velocity_mps;
+    }
+
+    void setVelocity_mps(double velocity_mps) {
+        this.velocity_mps = velocity_mps;
     }
 }
