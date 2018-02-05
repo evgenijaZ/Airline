@@ -1,5 +1,8 @@
 package com.airline.app;
 
+import com.airline.app.aircrafts.Aircraft;
+import com.airline.app.aircrafts.Airplane;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.airline.app;
+package com.airline.app.aircrafts;
 
 /**
  * passenger version of the airplane

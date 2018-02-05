@@ -1,4 +1,4 @@
-package com.airline.app;
+package com.airline.app.aircrafts;
 
 /**
  * @author Yevheniia Zubrych on 04.02.2018.
