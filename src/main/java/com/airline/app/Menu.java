@@ -7,7 +7,8 @@ import java.util.Scanner;
  */
 class Menu {
     static void execute(Airline airline) {
-        int swValue;
+        int selectedOption;
+        Scanner scanner = new Scanner(System.in);
         System.out.println("=========================================================");
         System.out.println("|                         MENU                          |");
         System.out.println("=========================================================");
@@ -16,11 +17,13 @@ class Menu {
         System.out.println("| 3.Display the list of aircraft sorted by flight range |");
         System.out.println("| 4.Find airplanes corresponding to                     |" +
                 "\n|\t\t   a given range of fuel consumption parameters |");
-        System.out.println("| 5.Exit                                                |");
+        System.out.println("| 5.Go up an airplane                                   |");
+        System.out.println("| 6.Go down an airplane                                 |");
+        System.out.println("| 7.Exit                                                |");
         do {
             System.out.println("=========================================================");
-            swValue = Menu.inInt("Select option: ");
-            switch (swValue) {
+            selectedOption = Menu.inInt("Select option: ");
+            switch (selectedOption) {
                 case 1:
                     airline.print();
                     break;
@@ -34,7 +37,6 @@ class Menu {
                     airline.print();
                     break;
                 case 4:
-                    Scanner scanner = new Scanner(System.in);
                     int min, max;
                     System.out.println("Enter lower bound:");
                     if (scanner.hasNextInt())
@@ -45,24 +47,55 @@ class Menu {
                         continue;
                     }
                     System.out.println("Enter higher bound:");
-                    if (scanner.hasNextInt())
+                    if (scanner.hasNextInt()) {
                         max = scanner.nextInt();
-                    else {
+                        System.out.println("All airplanes corresponding to the specified range of fuel consumption parameters:");
+                        airline.filterByFuelConsumption(min, max).forEach(airplane -> System.out.println(airplane.toString()));
+                    } else {
                         scanner.next();
                         System.out.println("Value should be an integer. Try again");
-                        continue;
                     }
-                    System.out.println("All airplanes corresponding to the specified range of fuel consumption parameters:");
-                    airline.filterByFuelConsumption(min,max).forEach(airplane-> System.out.println(airplane.toString()));
+                    scanner.close();
                     break;
                 case 5:
+                    System.out.println("Enter index of plane:");
+                    int index_up;
+                    scanner = new Scanner(System.in);
+                    if (scanner.hasNextInt()) {
+                        index_up = scanner.nextInt();
+                        try {
+                            airline.getAirplane(index_up).goUp();
+                        } catch (NullPointerException e) {
+                            System.out.println("Invalid index. Null pointer exception. Try again");
+                        }
+                    } else {
+                        scanner.next();
+                        System.out.println("Value should be an integer. Try again");
+                    }
+                    break;
+                case 6:
+                    System.out.println("Enter index of plane:");
+                    int index_down;
+                    scanner = new Scanner(System.in);
+                    if (scanner.hasNextInt()) {
+                        index_down = scanner.nextInt();
+                        try {
+                            airline.getAirplane(index_down).goDown();
+                        } catch (NullPointerException e) {
+                            System.out.println("Invalid index. Null pointer exception. Try again");
+                        }
+                    } else {
+                        scanner.next();
+                        System.out.println("Value should be an integer. Try again");
+                    }
+                    break;
+                case 7:
                     System.out.println("Exit selected");
                     break;
                 default:
                     System.out.println("Invalid selection");
             }
-        } while (swValue != 5);
-
+        } while (selectedOption != 7);
     }
 
     private static void printPrompt(String prompt) {
@@ -100,5 +133,4 @@ class Menu {
         }
         return resultString.toString();
     }
-
 }
