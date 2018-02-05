@@ -9,9 +9,12 @@ import java.util.stream.Collectors;
  * @author Yevheniia Zubrych on 04.02.2018.
  */
 public class Airline {
+    private String name;
+
     private List <Airplane> airplanes;
 
-    public Airline() {
+    public Airline(String name) {
+        this.name = name;
         airplanes = new ArrayList <>();
     }
 
@@ -35,5 +38,12 @@ public class Airline {
     public List <Airplane> filterByFuelConsumption(int minValue, int maxValue) {
         Iterable <Airplane> filtered = airplanes.stream().filter(airplane -> airplane.getFuelConsumption_lph() >= minValue && airplane.getFuelConsumption_lph() <= maxValue).collect(Collectors.toList());
         return (List <Airplane>) filtered;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder("Airline '" + name + "'\n");
+        airplanes.forEach(a -> result.append(a.toString()).append("\n"));
+        return result.toString();
     }
 }
