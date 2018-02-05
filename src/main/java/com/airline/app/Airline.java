@@ -104,6 +104,10 @@ public class Airline {
         return totalCarryingCapacity[0];
     }
 
+    void print(){
+        System.out.println(this.toString());
+    }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("Airline '" + name + "'\n");
