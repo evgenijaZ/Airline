@@ -35,10 +35,23 @@ class Menu {
                     break;
                 case 4:
                     Scanner scanner = new Scanner(System.in);
+                    int min, max;
                     System.out.println("Enter lower bound:");
-                    int min = scanner.nextInt();
+                    if (scanner.hasNextInt())
+                        min = scanner.nextInt();
+                    else {
+                        scanner.next();
+                        System.out.println("Value should be an integer. Try again");
+                        continue;
+                    }
                     System.out.println("Enter higher bound:");
-                    int max = scanner.nextInt();
+                    if (scanner.hasNextInt())
+                        max = scanner.nextInt();
+                    else {
+                        scanner.next();
+                        System.out.println("Value should be an integer. Try again");
+                        continue;
+                    }
                     System.out.println("All airplanes corresponding to the specified range of fuel consumption parameters:");
                     airline.filterByFuelConsumption(min,max).forEach(airplane-> System.out.println(airplane.toString()));
                     break;
