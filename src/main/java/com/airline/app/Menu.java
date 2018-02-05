@@ -8,24 +8,25 @@ import java.util.Scanner;
 class Menu {
     /**
      * The main menu method that executes is
+     *
      * @param airline the airline you need to work with
      */
     static void execute(Airline airline) {
         int selectedOption;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("=========================================================");
-        System.out.println("|                         MENU                          |");
-        System.out.println("=========================================================");
-        System.out.println("| 1.Print the airline                                   |");
-        System.out.println("| 2.Calculate total capacity, total carrying capacity   |");
-        System.out.println("| 3.Display the list of aircraft sorted by flight range |");
-        System.out.println("| 4.Find airplanes corresponding to                     |" +
-                "\n|\t\t   a given range of fuel consumption parameters |");
-        System.out.println("| 5.Go up an airplane                                   |");
-        System.out.println("| 6.Go down an airplane                                 |");
-        System.out.println("| 7.Exit                                                |");
+        System.out.println("===============================================================================");
+        System.out.println("|                         MENU                                                 |");
+        System.out.println("===============================================================================");
+        System.out.println("| 1.Print the airline                                                          |");
+        System.out.println("| 2.Calculate total capacity, total carrying capacity                          |");
+        System.out.println("| 3.Display the list of aircraft sorted by flight range                        |");
+        System.out.println("| 4.Find airplanes corresponding to                                            |" +
+                "\n|\t\t   a given range of fuel consumption parameters                        |");
+        System.out.println("| 5.Go up an airplane                                                          |");
+        System.out.println("| 6.Go down an airplane                                                        |");
+        System.out.println("| 7.Exit                                                                       |");
         do {
-            System.out.println("=========================================================");
+            System.out.println("===============================================================================");
             selectedOption = Menu.inInt("Select option: ");
             switch (selectedOption) {
                 case 1:
@@ -41,7 +42,7 @@ class Menu {
                     airline.print();
                     break;
                 case 4:
-                    int min, max;
+                    int min, max = 0;
                     System.out.println("Enter lower bound:");
                     if (scanner.hasNextInt())
                         min = scanner.nextInt();
@@ -53,13 +54,12 @@ class Menu {
                     System.out.println("Enter higher bound:");
                     if (scanner.hasNextInt()) {
                         max = scanner.nextInt();
-                        System.out.println("All airplanes corresponding to the specified range of fuel consumption parameters:");
-                        airline.filterByFuelConsumption(min, max).forEach(airplane -> System.out.println(airplane.toString()));
                     } else {
                         scanner.next();
                         System.out.println("Value should be an integer. Try again");
                     }
-                    scanner.close();
+                    System.out.println("All airplanes corresponding to the specified range of fuel consumption parameters:");
+                    airline.filterByFuelConsumption(min, max).forEach(airplane -> System.out.println(airplane.toString()));
                     break;
                 case 5:
                     System.out.println("Enter index of plane:");
@@ -104,6 +104,7 @@ class Menu {
 
     /**
      * Display a prompt for option selection
+     *
      * @param prompt the prompt value
      */
     private static void printPrompt(String prompt) {
@@ -113,6 +114,7 @@ class Menu {
 
     /**
      * Convert input data to int
+     *
      * @param prompt prompt for option selection
      * @return value as an integer
      */
@@ -129,6 +131,7 @@ class Menu {
 
     /**
      * Present input data as String
+     *
      * @return data as String
      */
     private static String inString() {
