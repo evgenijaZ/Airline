@@ -1,15 +1,25 @@
 package com.airline.app.aircrafts;
 
 /**
+ * Class Airship
+ *
  * @author Yevheniia Zubrych on 04.02.2018.
  */
-public class Airship extends Aircraft{
+public class Airship extends Aircraft {
+    /**
+     * Constructor for class Airship
+     *
+     * @param modelName           model name
+     * @param capacity            aircraft capacity
+     * @param carryingCapacity_kg carrying capacity
+     * @param flightRange_km      flight range
+     */
     Airship(String modelName, int capacity, int carryingCapacity_kg, int flightRange_km) {
         super(modelName, capacity, carryingCapacity_kg, flightRange_km);
     }
 
     /**
-     * inherited from the Aircraft method of takeoff
+     * Inherited from the Aircraft method of takeoff
      */
     @Override
     public void goUp() {
@@ -23,7 +33,7 @@ public class Airship extends Aircraft{
     }
 
     /**
-     * inherited from the Aircraft method of landing
+     * Inherited from the Aircraft method of landing
      */
     @Override
     public void goDown() {
@@ -37,18 +47,18 @@ public class Airship extends Aircraft{
     }
 
     /**
-     * preparation of an airship for departure
+     * Preparation of an airship for departure
      */
-    private void prepareForLaunch(){
+    private void prepareForLaunch() {
         System.out.println("The balloon is filled with helium");
         System.out.println("Engines are running");
         System.out.println("The airship " + modelName + " is ready for flight.");
     }
 
     /**
-     * preparation of an airship for docking
+     * Preparation of an airship for docking
      */
-    private void prepareForApproach(){
+    private void prepareForApproach() {
         System.out.println("The landing site is freed");
         System.out.println("The ropes are fixed");
         System.out.println("The airship " + modelName + " is ready for docking.");

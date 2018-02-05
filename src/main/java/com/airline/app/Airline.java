@@ -118,6 +118,9 @@ public class Airline {
         return totalCarryingCapacity[0];
     }
 
+    /**
+     * Print airline to console
+     */
     void print() {
         System.out.println(this.toString());
     }

@@ -1,35 +1,45 @@
 package com.airline.app.aircrafts;
 
 /**
+ * Class Aircraft
+ *
  * @author Yevheniia Zubrych on 03.02.2018.
  */
 public abstract class Aircraft {
     /**
-     * the model name of the aircraft,
-     * it is defined in the constructor
+     * The model name of the aircraft,
+     * It is defined in the constructor
      */
     String modelName;
     /**
-     * the passenger capacity of the aircraft,
-     * it is defined in the constructor
+     * The passenger capacity of the aircraft,
+     * It is defined in the constructor
      */
     int capacity;
     /**
-     * maximum carrying capacity of the aircraft in kilograms,
-     * it is defined in the constructor
+     * Maximum carrying capacity of the aircraft in kilograms,
+     * It is defined in the constructor
      */
     int carryingCapacity_kg;
     /**
-     * maximum flight range of the aircraft in kilometers,
-     * it is defined in the constructor
+     * Maximum flight range of the aircraft in kilometers,
+     * It is defined in the constructor
      */
     int flightRange_km;
     /**
      * Is there an airplane in flight,
-     * default value is false
+     * Default value is false
      */
     boolean isFlying;
 
+    /**
+     * Constructor for class Aircraft
+     *
+     * @param modelName           model name
+     * @param capacity            aircraft capacity
+     * @param carryingCapacity_kg carrying capacity
+     * @param flightRange_km      flight range
+     */
     Aircraft(String modelName, int capacity, int carryingCapacity_kg, int flightRange_km) {
         this.modelName = modelName;
         this.capacity = capacity;
@@ -39,31 +49,54 @@ public abstract class Aircraft {
     }
 
     /**
-     * abstract method of takeoff of an aircraft
+     * Abstract method of takeoff of an aircraft
      */
     public abstract void goUp();
 
     /**
-     * abstract method of landing an aircraft
+     * Abstract method of landing an aircraft
      */
     public abstract void goDown();
 
+    /**
+     * Return model name passed to the constructor
+     *
+     * @return model name
+     */
     public String getModelName() {
         return modelName;
     }
 
+    /**
+     * Return capacity passed to the constructor
+     *
+     * @return capacity
+     */
     public int getCapacity() {
         return capacity;
     }
 
+    /**
+     * Return carrying capacity passed to the constructor
+     *
+     * @return carrying capacity
+     */
     public int getCarryingCapacity_kg() {
         return carryingCapacity_kg;
     }
 
+    /**
+     * Return flight range passed to the constructor
+     *
+     * @return flight range
+     */
     public int getFlightRange_km() {
         return flightRange_km;
     }
 
+    /**
+     * @return true if the aircraft is flying
+     */
     public boolean isFlying() {
         return isFlying;
     }
