@@ -6,6 +6,10 @@ import java.util.Scanner;
  * @author Yevheniia Zubrych on 05.02.2018.
  */
 class Menu {
+    /**
+     * The main menu method that executes is
+     * @param airline the airline you need to work with
+     */
     static void execute(Airline airline) {
         int selectedOption;
         Scanner scanner = new Scanner(System.in);
@@ -98,11 +102,20 @@ class Menu {
         } while (selectedOption != 7);
     }
 
+    /**
+     * Display a prompt for option selection
+     * @param prompt the prompt value
+     */
     private static void printPrompt(String prompt) {
         System.out.print(prompt);
         System.out.flush();
     }
 
+    /**
+     * Convert input data to int
+     * @param prompt prompt for option selection
+     * @return value as an integer
+     */
     private static int inInt(String prompt) {
         while (true) {
             printPrompt(prompt);
@@ -114,6 +127,10 @@ class Menu {
         }
     }
 
+    /**
+     * Present input data as String
+     * @return data as String
+     */
     private static String inString() {
         int aChar;
         StringBuilder resultString = new StringBuilder();
