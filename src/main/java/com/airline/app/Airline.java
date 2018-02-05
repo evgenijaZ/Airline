@@ -90,7 +90,7 @@ public class Airline {
      */
     int getTotalCapacity() {
         final int[] totalCapacity = {0};
-        airplanes.forEach(airplane -> totalCapacity[0] = airplane.getCapacity());
+        airplanes.forEach(airplane -> totalCapacity[0] += airplane.getCapacity());
         return totalCapacity[0];
     }
 
@@ -100,7 +100,7 @@ public class Airline {
      */
     int getTotalCarryingCapacity() {
         final int[] totalCarryingCapacity = {0};
-        airplanes.forEach(airplane -> totalCarryingCapacity[0] = airplane.getCarryingCapacity_kg());
+        airplanes.forEach(airplane -> totalCarryingCapacity[0] += airplane.getCarryingCapacity_kg());
         return totalCarryingCapacity[0];
     }
 
