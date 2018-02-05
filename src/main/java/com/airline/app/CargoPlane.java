@@ -9,7 +9,7 @@ public class CargoPlane extends Airplane {
      */
     private int cargoWeight_kg;
 
-    public CargoPlane(String modelName, int carryingCapacity_kg, int flightRange_km, double fuelConsumption_lph, double cruisingSpeed_kmph) {
+    public CargoPlane(String modelName, int carryingCapacity_kg, int flightRange_km, double fuelConsumption_lph, int cruisingSpeed_kmph) {
         super(modelName, 0, carryingCapacity_kg, flightRange_km, fuelConsumption_lph, cruisingSpeed_kmph);
         this.cargoWeight_kg = 0;
     }
@@ -17,7 +17,7 @@ public class CargoPlane extends Airplane {
     /*
     * the constructor with cargo weight
     */
-    public CargoPlane(String modelName, int carryingCapacity_kg, int cargoWeight_kg, int flightRange_km, double fuelConsumption_lph, double cruisingSpeed_kmph) {
+    public CargoPlane(String modelName, int carryingCapacity_kg, int flightRange_km, double fuelConsumption_lph, int cruisingSpeed_kmph, int cargoWeight_kg) {
         super(modelName, 0, carryingCapacity_kg, flightRange_km, fuelConsumption_lph, cruisingSpeed_kmph);
         this.cargoWeight_kg = cargoWeight_kg;
     }
@@ -62,5 +62,11 @@ public class CargoPlane extends Airplane {
      */
     private void unloadCargo() {
         System.out.println("Whole cargo is unloaded");
+    }
+
+    @Override
+    public String toString() {
+        return "The cargo plane " + super.toString() +
+                "\tcargo weight: " + cargoWeight_kg + "kg;\n";
     }
 }

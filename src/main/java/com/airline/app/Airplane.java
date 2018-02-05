@@ -11,9 +11,9 @@ public class Airplane extends Aircraft {
     /**
      * cruising speed of the airplane in kilometre per hour
      */
-    private double cruisingSpeed_kmph;
+    private int cruisingSpeed_kmph;
 
-    public Airplane(String modelName, int capacity, int carryingCapacity_kg, int flightRange_km, double fuelConsumption_lph, double cruisingSpeed_kmph) {
+    public Airplane(String modelName, int capacity, int carryingCapacity_kg, int flightRange_km, double fuelConsumption_lph, int cruisingSpeed_kmph) {
         super(modelName, capacity, carryingCapacity_kg, flightRange_km);
         this.fuelConsumption_lph = fuelConsumption_lph;
         this.cruisingSpeed_kmph = cruisingSpeed_kmph;
@@ -55,11 +55,21 @@ public class Airplane extends Aircraft {
         this.fuelConsumption_lph = fuelConsumption_lph;
     }
 
-    public double getCruisingSpeed_kmph() {
+    public int getCruisingSpeed_kmph() {
         return cruisingSpeed_kmph;
     }
 
-    public void setCruisingSpeed_kmph(double cruisingSpeed_kmph) {
+    public void setCruisingSpeed_kmph(int cruisingSpeed_kmph) {
         this.cruisingSpeed_kmph = cruisingSpeed_kmph;
+    }
+
+    @Override
+    public String toString() {
+        return (modelName + "\n\t" +
+                "capacity: " + capacity + ";\n\t" +
+                "carrying capacity: " + carryingCapacity_kg +"kg;\n\t"+
+                "flight range: "+ flightRange_km+"km;\n\t" +
+                "fuel consumption: " + fuelConsumption_lph+"l/h;\n\t" +
+                "cruising speed: " +cruisingSpeed_kmph+"km/h; \n");
     }
 }

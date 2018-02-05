@@ -11,14 +11,15 @@ public class PassengerPlane extends Airplane {
      */
     private int numberOfPassengers;
 
-    public PassengerPlane(String modelName, int capacity, int carryingCapacity_kg, int flightRange_km, double fuelConsumption_lph, double cruisingSpeed_kmph) {
+    public PassengerPlane(String modelName, int capacity, int carryingCapacity_kg, int flightRange_km, double fuelConsumption_lph, int cruisingSpeed_kmph) {
         super(modelName, capacity, carryingCapacity_kg, flightRange_km, fuelConsumption_lph, cruisingSpeed_kmph);
         numberOfPassengers = 0;
     }
+
     /*
     * the constructor with number of passengers
     */
-    public PassengerPlane(String modelName, int capacity, int numberOfPassengers, int carryingCapacity_kg, int flightRange_km, double fuelConsumption_lph, double cruisingSpeed_kmph) {
+    public PassengerPlane(String modelName, int capacity, int carryingCapacity_kg, int flightRange_km, double fuelConsumption_lph, int cruisingSpeed_kmph, int numberOfPassengers) {
         super(modelName, capacity, carryingCapacity_kg, flightRange_km, fuelConsumption_lph, cruisingSpeed_kmph);
         this.numberOfPassengers = numberOfPassengers;
     }
@@ -65,5 +66,11 @@ public class PassengerPlane extends Airplane {
      */
     private void freeSeats() {
         System.out.println("All passengers left the the board of " + this.modelName);
+    }
+
+    @Override
+    public String toString() {
+        return "The passenger plane " + super.toString() +
+                "\tnumber of passengers: " + numberOfPassengers + ";\n";
     }
 }
