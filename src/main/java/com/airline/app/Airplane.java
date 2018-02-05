@@ -42,7 +42,7 @@ public class Airplane extends Aircraft {
             System.out.println("The airplane " + modelName + " is not in flight yet.");
             return;
         }
-        System.out.println("The airplane " + modelName + " lands on the runway.");
+        System.out.println("The airplane " + modelName + " is going down and landing on the runway.");
         isFlying = false;
         System.out.println("The airplane " + modelName + " has landed.");
     }
