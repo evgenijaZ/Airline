@@ -3,14 +3,50 @@ package com.airline.app;
 /**
  * @author Yevheniia Zubrych on 05.02.2018.
  */
-public class Menu {
+class Menu {
+    static void execute(Airline airline) {
+        int swValue;
+        System.out.println("=========================================================");
+        System.out.println("|                         MENU                          |");
+        System.out.println("=========================================================");
+        System.out.println("| 1.Print the airline                                   |");
+        System.out.println("| 2.Calculate total capacity, total carrying capacity   |");
+        System.out.println("| 3.Display the list of aircraft sorted by flight range |");
+        System.out.println("| 4.Find airplanes corresponding to                     |" +
+                "\n|\t\t   a given range of fuel consumption parameters |");
+        System.out.println("| 5.Exit                                                |");
+        do {
+            System.out.println("=========================================================");
+            swValue = Menu.inInt("Select option: ");
+            switch (swValue) {
+                case 1:
+                    airline.print();
+                    break;
+                case 2:
+                    System.out.println("Total capacity is " + airline.getTotalCapacity());
+                    System.out.println("Total carrying capacity is " + airline.getTotalCarryingCapacity() + "kg");
+                    break;
+                case 3:
+                    System.out.println("Airplanes is sorted by flight range");
+                    airline.sortAirplanesByFlightRange();
+                    airline.print();
+                    break;
+                case 5:
+                    System.out.println("Exit selected");
+                    break;
+                default:
+                    System.out.println("Invalid selection");
+            }
+        } while (swValue != 5);
+
+    }
 
     private static void printPrompt(String prompt) {
         System.out.print(prompt);
         System.out.flush();
     }
 
-    public static int inInt(String prompt) {
+    private static int inInt(String prompt) {
         while (true) {
             printPrompt(prompt);
             try {
