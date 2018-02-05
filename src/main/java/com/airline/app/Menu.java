@@ -1,5 +1,7 @@
 package com.airline.app;
 
+import java.util.Scanner;
+
 /**
  * @author Yevheniia Zubrych on 05.02.2018.
  */
@@ -30,6 +32,15 @@ class Menu {
                     System.out.println("Airplanes is sorted by flight range");
                     airline.sortAirplanesByFlightRange();
                     airline.print();
+                    break;
+                case 4:
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.println("Enter lower bound:");
+                    int min = scanner.nextInt();
+                    System.out.println("Enter higher bound:");
+                    int max = scanner.nextInt();
+                    System.out.println("All airplanes corresponding to the specified range of fuel consumption parameters:");
+                    airline.filterByFuelConsumption(min,max).forEach(airplane-> System.out.println(airplane.toString()));
                     break;
                 case 5:
                     System.out.println("Exit selected");
