@@ -21,26 +21,37 @@ public class Airline {
         airplanes = new ArrayList <>();
     }
 
-    public List <Airplane> getAirplanes() {
+    List <Airplane> getAirplanes() {
         return airplanes;
     }
 
-    public void addAirplane(Airplane airplane) {
+    void addAirplane(Airplane airplane) {
         airplanes.add(airplane);
     }
 
-    public void removeAirplane(Airplane airplane) {
+    void removeAirplane(Airplane airplane) {
         airplanes.remove(airplane);
     }
 
-    public List <Airplane> sortAirplanesByFlightRange() {
+    void sortAirplanesByFlightRange() {
         airplanes.sort(Comparator.comparingInt(Aircraft::getFlightRange_km));
-        return airplanes;
     }
 
-    public List <Airplane> filterByFuelConsumption(int minValue, int maxValue) {
+    List <Airplane> filterByFuelConsumption(int minValue, int maxValue) {
         Iterable <Airplane> filtered = airplanes.stream().filter(airplane -> airplane.getFuelConsumption_lph() >= minValue && airplane.getFuelConsumption_lph() <= maxValue).collect(Collectors.toList());
         return (List <Airplane>) filtered;
+    }
+
+    int getTotalCapacity() {
+        final int[] totalCapacity = {0};
+        airplanes.forEach(airplane -> totalCapacity[0] = airplane.getCapacity());
+        return totalCapacity[0];
+    }
+
+    int getTotalCarryingCapacity() {
+        final int[] totalCarryingCapacity = {0};
+        airplanes.forEach(airplane -> totalCarryingCapacity[0] = airplane.getCarryingCapacity_kg());
+        return totalCarryingCapacity[0];
     }
 
     @Override
