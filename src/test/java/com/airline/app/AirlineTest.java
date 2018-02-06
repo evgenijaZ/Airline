@@ -13,8 +13,15 @@ import static org.junit.Assert.*;
  * @author Yevheniia Zubrych on 06.02.2018.
  */
 public class AirlineTest {
+    /**
+     * Airline
+     */
     private Airline airline;
 
+    /**
+     * Constructor for class AirlineTest
+     * Initialise airline and add few airplanes
+     */
     public AirlineTest() {
         airline = new Airline("UkraineAir");
         airline.addAirplane(new PassengerPlane("Boeing 737-300", 128, 69400, 6230, 2400, 790, 100));
@@ -23,16 +30,24 @@ public class AirlineTest {
         airline.addAirplane(new CargoPlane("Boeing 747-400F", 396890, 8230, 1350, 980, 300000));
     }
 
+    /**
+     * Add a new one airplane to airline, check size
+     */
     @Test
-    public void addAirplane() throws Exception {
+    public void addAirplane() {
         int size = airline.getSize();
         airline.addAirplane(new CargoPlane("An-124-100", 402000, 15700, 12600, 800, 20000));
         assertEquals(airline.getSize(), size + 1);
         assertNotNull(airline.getAirplane(size));
     }
 
+    /**
+     * Sort by flight range
+     * Check whether all elements satisfy order
+     */
     @Test
-    public void sortAirplanesByFlightRange() throws Exception {
+    public void sortAirplanesByFlightRange() {
+
         airline.sortAirplanesByFlightRange();
         List <Airplane> airplanes = airline.getAirplanes();
         boolean flag = true;
@@ -48,6 +63,11 @@ public class AirlineTest {
         }
         assertFalse(flag);
     }
+
+    /**
+     * Filter by fuel consumption
+     * Check if all items meet the filtering conditions
+     */
     @Test
     public void filterByFuelConsumption() throws Exception {
         assertEquals(airline.filterByFuelConsumption(1000, -2000).size(), 0);
@@ -63,8 +83,11 @@ public class AirlineTest {
         assertTrue(flag);
     }
 
+    /**
+     * Check whether the total capacity values are being counted correctly
+     */
     @Test
-    public void getTotalCapacity() throws Exception {
+    public void getTotalCapacity() {
         assertEquals((new Airline("Empty airline")).getTotalCapacity(), 0);
         int totalCapacity = airline.getTotalCapacity();
         airline.addAirplane(new CargoPlane("An-124-100", 402000, 15700, 12600, 800, 20000));
@@ -74,8 +97,12 @@ public class AirlineTest {
 
     }
 
+
+    /**
+     * Check whether the total carrying capacity values are being counted correctly
+     */
     @Test
-    public void getTotalCarryingCapacity() throws Exception {
+    public void getTotalCarryingCapacity() {
         assertEquals((new Airline("Empty airline")).getTotalCarryingCapacity(), 0);
         int totalCarryingCapacity = airline.getTotalCarryingCapacity();
         airline.addAirplane(new CargoPlane("An-124-100", 402000, 15700, 12600, 800, 20000));
