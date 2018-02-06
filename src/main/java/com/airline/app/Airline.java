@@ -124,6 +124,15 @@ public class Airline {
         System.out.println(this.toString());
     }
 
+    /**
+     * Get size of airplanes list
+     *
+     * @return size of airplanes list
+     */
+    public int getSize() {
+        return airplanes.size();
+    }
+
     @Override
     public String toString() {
         final int[] i = {0};
