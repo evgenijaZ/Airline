@@ -127,8 +127,9 @@ public class Airline {
 
     @Override
     public String toString() {
+        final int[] i = {0};
         StringBuilder result = new StringBuilder("Airline '" + name + "'\n");
-        airplanes.forEach(a -> result.append(a.toString()).append("\n"));
+        airplanes.forEach(a -> result.append(i[0]++).append(". ").append(a.toString()).append("\n"));
         return result.toString();
     }
 }
