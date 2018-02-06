@@ -1,4 +1,5 @@
-# Airline
+# Airline  
+[![Build Status](https://travis-ci.org/evgenijaZ/Airline.svg?branch=master)](https://travis-ci.org/evgenijaZ/Airline)  
 This repository contains the console application "Airline". 
 There is a three-level hierarchy of aircraft classes ( the Aircraft class, 
 the Airship class, the Helicopter class, the Airplane class, 
