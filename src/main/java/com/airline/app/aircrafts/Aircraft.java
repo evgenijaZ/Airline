@@ -41,6 +41,8 @@ public abstract class Aircraft {
      * @param flightRange_km      flight range
      */
     Aircraft(String modelName, int capacity, int carryingCapacity_kg, int flightRange_km) {
+        if(capacity<0||carryingCapacity_kg<0||flightRange_km<0)
+            throw new IllegalArgumentException("Arguments should be positive");
         this.modelName = modelName;
         this.capacity = capacity;
         this.carryingCapacity_kg = carryingCapacity_kg;
@@ -56,7 +58,7 @@ public abstract class Aircraft {
     /**
      * Abstract method of landing an aircraft
      */
-    public abstract void goDown();
+    public abstract void goDown() throws Exception;
 
     /**
      * Return model name passed to the constructor

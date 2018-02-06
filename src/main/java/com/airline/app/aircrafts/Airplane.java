@@ -27,6 +27,8 @@ public class Airplane extends Aircraft {
      */
     public Airplane(String modelName, int capacity, int carryingCapacity_kg, int flightRange_km, double fuelConsumption_lph, int cruisingSpeed_kmph) {
         super(modelName, capacity, carryingCapacity_kg, flightRange_km);
+        if (fuelConsumption_lph < 0 || cruisingSpeed_kmph < 0)
+            throw new IllegalArgumentException("Fuel consumption and cruising speed should be not negative");
         this.fuelConsumption_lph = fuelConsumption_lph;
         this.cruisingSpeed_kmph = cruisingSpeed_kmph;
     }
@@ -37,8 +39,7 @@ public class Airplane extends Aircraft {
     @Override
     public void goUp() {
         if (this.isFlying) {
-            System.out.println("The airplane " + modelName + " is already flying.");
-            return;
+            throw new IllegalArgumentException("The airplane " + modelName + " is already flying.");
         }
         System.out.println("The airplane " + modelName + " is leaving on a runway, accelerating, taking off.");
         isFlying = true;
@@ -49,10 +50,9 @@ public class Airplane extends Aircraft {
      * Inherited from the Aircraft method of landing
      */
     @Override
-    public void goDown() {
+    public void goDown(){
         if (!this.isFlying) {
-            System.out.println("The airplane " + modelName + " is not in flight yet.");
-            return;
+            throw new IllegalArgumentException("The airplane " + modelName + " is not in flight yet.");
         }
         System.out.println("The airplane " + modelName + " is going down and landing on the runway.");
         isFlying = false;

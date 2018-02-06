@@ -9,7 +9,7 @@ import com.airline.app.aircrafts.PassengerPlane;
  * @author Yevheniia Zubrych on 03.02.2018.
  */
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
         Airline airline = new Airline("UkraineAir");
         airline.addAirplane(new PassengerPlane("Boeing 737-300", 128, 69400, 6230, 2400, 790, 100));

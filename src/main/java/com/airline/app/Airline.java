@@ -53,8 +53,7 @@ public class Airline {
      */
     Airplane getAirplane(int index) {
         if (index < 0 || index >= airplanes.size()) {
-            System.out.println("Incorrect index. Value should be between 0 and " + (airplanes.size() - 1));
-            return null;
+            throw new IndexOutOfBoundsException("Incorrect index. Value should be between 0 and " + (airplanes.size() - 1));
         }
         return airplanes.get(index);
     }
