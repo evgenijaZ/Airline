@@ -56,7 +56,7 @@ public class CargoPlane extends Airplane {
      * Inherited from the Airplane method of landing
      */
     @Override
-    public void goDown() {
+    public void goDown(){
         super.goDown();
         unloadCargo();
     }

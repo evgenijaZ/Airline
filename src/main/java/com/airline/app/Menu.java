@@ -68,8 +68,10 @@ class Menu {
                         index_up = scanner.nextInt();
                         try {
                             airline.getAirplane(index_up).goUp();
+                        } catch (IndexOutOfBoundsException e) {
+                            System.out.println(e.toString()+ ". Try again");
                         } catch (NullPointerException e) {
-                            System.out.println("Invalid index. Null pointer exception. Try again");
+                            System.out.println("Null pointer exception. Try again");
                         }
                     } else {
                         scanner.next();
@@ -86,6 +88,10 @@ class Menu {
                             airline.getAirplane(index_down).goDown();
                         } catch (NullPointerException e) {
                             System.out.println("Invalid index. Null pointer exception. Try again");
+                        } catch (IllegalArgumentException e) {
+                            System.out.println(e.toString());
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     } else {
                         scanner.next();
