@@ -20,8 +20,7 @@ class Menu {
         System.out.println("| 1.Print the airline                                                          |");
         System.out.println("| 2.Calculate total capacity, total carrying capacity                          |");
         System.out.println("| 3.Display the list of aircraft sorted by flight range                        |");
-        System.out.println("| 4.Find airplanes corresponding to                                            |" +
-                "\n|\t\t   a given range of fuel consumption parameters                        |");
+        System.out.println("| 4.Find airplanes corresponding to range of fuel consumption parameters       |");
         System.out.println("| 5.Go up an airplane                                                          |");
         System.out.println("| 6.Go down an airplane                                                        |");
         System.out.println("| 7.Exit                                                                       |");
