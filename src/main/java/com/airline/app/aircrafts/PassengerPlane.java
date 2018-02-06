@@ -76,7 +76,7 @@ public class PassengerPlane extends Airplane {
         } else if (numberOfPassengers == 0) {
             System.out.println("There are no passengers on the board of " + this.modelName + " (capacity is " + this.capacity + " seats).");
         } else
-            System.out.println("All " + numberOfPassengers + " passengers are already on the board of " + this.modelName + " (capacity is " + this.capacity + " seats).");
+            System.out.println("All " + numberOfPassengers + " passengers are already on the board of " + this.modelName + ".");
         return true;
     }
 

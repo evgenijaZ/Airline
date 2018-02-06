@@ -11,10 +11,12 @@ If the Airplane class has other heirs, they can also be stored in the Airline.
 It also has methods for calculating total capacity and carrying capacity of all the aircraft in the airline,
 for sorting the airplanes by flight range (from smaller to larger) 
 and for filtering airplanes corresponding to the specified range of fuel consumption parameters (liters per hour).  
-##Getting started  
+## Getting started  
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.  
-###Prerequisites  
+### Prerequisites  
 In order to install and run the project you must have installed [Java 8](https://www.java.com/en/download/help/download_options.xml) and [Maven](https://maven.apache.org/install.html).  
-###Installing
+### Installing
 Download and unzip this repository, or clone it using Git:  
-`git clone https://github.com/evgenijaZ/Airline.git`
+```
+git clone https://github.com/evgenijaZ/Airline.git  
+```

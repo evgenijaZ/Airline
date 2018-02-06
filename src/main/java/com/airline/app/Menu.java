@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 class Menu {
     /**
-     * The main menu method that executes is
+     * The main menu method that executes it
      *
      * @param airline the airline you need to work with
      */
