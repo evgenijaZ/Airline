@@ -1,17 +1,19 @@
-package com.airline.app;
+package com.airline.app.services;
+
+import com.airline.app.entities.Airline;
 
 import java.util.Scanner;
 
 /**
  * @author Yevheniia Zubrych on 05.02.2018.
  */
-class Menu {
+public class Menu {
     /**
      * The main menu method that executes it
      *
      * @param airline the airline you need to work with
      */
-    static void execute(Airline airline) {
+   public static void execute(Airline airline) {
         int selectedOption;
         Scanner scanner = new Scanner(System.in);
         System.out.println("===============================================================================");
@@ -19,7 +21,7 @@ class Menu {
         System.out.println("===============================================================================");
         System.out.println("| 1.Print the airline                                                          |");
         System.out.println("| 2.Calculate total capacity, total carrying capacity                          |");
-        System.out.println("| 3.Display the list of aircraft sorted by flight range                        |");
+        System.out.println("| 3.Display the list of aircraftList sorted by flight range                        |");
         System.out.println("| 4.Find airplanes corresponding to range of fuel consumption parameters       |");
         System.out.println("| 5.Go up an airplane                                                          |");
         System.out.println("| 6.Go down an airplane                                                        |");
@@ -32,12 +34,12 @@ class Menu {
                     airline.print();
                     break;
                 case 2:
-                    System.out.println("Total capacity is " + airline.getTotalCapacity());
-                    System.out.println("Total carrying capacity is " + airline.getTotalCarryingCapacity() + "kg");
+                    System.out.println("Total capacity is " + AirlineService.getTotalPassengerCapacity(airline));
+                    System.out.println("Total carrying capacity is " +  AirlineService.getTotalCarryingCapacity(airline)+ "kg");
                     break;
                 case 3:
                     System.out.println("Airplanes is sorted by flight range");
-                    airline.sortAirplanesByFlightRange();
+                    AirlineService.sortAirplanesByFlightRange(airline);
                     airline.print();
                     break;
                 case 4:
@@ -58,7 +60,7 @@ class Menu {
                         System.out.println("Value should be an integer. Try again");
                     }
                     System.out.println("All airplanes corresponding to the specified range of fuel consumption parameters:");
-                    airline.filterByFuelConsumption(min, max).forEach(airplane -> System.out.println(airplane.toString()));
+                    AirlineService.filterByFuelConsumption(airline, min, max).forEach(airplane -> System.out.println(airplane.toString()));
                     break;
                 case 5:
                     System.out.println("Enter index of plane:");
@@ -67,7 +69,7 @@ class Menu {
                     if (scanner.hasNextInt()) {
                         index_up = scanner.nextInt();
                         try {
-                            airline.getAirplane(index_up).goUp();
+                            airline.getAircraft(index_up).goUp();
                         } catch (IndexOutOfBoundsException e) {
                             System.out.println(e.toString()+ ". Try again");
                         } catch (NullPointerException e) {
@@ -85,7 +87,7 @@ class Menu {
                     if (scanner.hasNextInt()) {
                         index_down = scanner.nextInt();
                         try {
-                            airline.getAirplane(index_down).goDown();
+                            airline.getAircraft(index_down).goDown();
                         } catch (NullPointerException e) {
                             System.out.println("Invalid index. Null pointer exception. Try again");
                         } catch (IllegalArgumentException e) {

@@ -1,7 +1,9 @@
 package com.airline.app;
 
-import com.airline.app.aircrafts.CargoPlane;
-import com.airline.app.aircrafts.PassengerPlane;
+import com.airline.app.entities.Airline;
+import com.airline.app.entities.builders.CargoPlaneBuilder;
+import com.airline.app.entities.builders.PassengerPlaneBuilder;
+import com.airline.app.services.Menu;
 
 /**
  * Main class of the airline application
@@ -9,15 +11,71 @@ import com.airline.app.aircrafts.PassengerPlane;
  * @author Yevheniia Zubrych on 03.02.2018.
  */
 public class App {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        Airline airline = new Airline("UkraineAir");
-        airline.addAirplane(new PassengerPlane("Boeing 737-300", 128, 69400, 6230, 2400, 790, 100));
-        airline.addAirplane(new PassengerPlane("Boeing 737-800", 103, 52400, 5200, 2480, 840));
-        airline.addAirplane(new PassengerPlane("Embraer E-190", 114, 51800, 4537, 1850, 852, 105));
-        airline.addAirplane(new CargoPlane("Boeing 747-400F", 396890, 8230, 1350, 980, 300000));
-        airline.addAirplane(new CargoPlane("An-124-100", 402000, 15700, 12600, 800, 20000));
-        airline.sortAirplanesByFlightRange();
+        Airline airline = Airline.getInstance();
+        airline.setName("UkraineAir");
+
+        PassengerPlaneBuilder passengerPlaneBuilder = new PassengerPlaneBuilder();
+        CargoPlaneBuilder cargoPlaneBuilder = new CargoPlaneBuilder();
+
+        airline.addAircraft(
+                ((PassengerPlaneBuilder) passengerPlaneBuilder
+                        .setModelName("Boeing 737-300")
+                        .setPassengerCapacity(128)
+                        .setCarryingCapacity(69_400)
+                        .setFlightRange(6230)
+                        .setFuelConsumption(2400)
+                        .setCruisingSpeed(790))
+                        .setNumberOfPassengers(100)
+                        .build()
+        );
+
+        airline.addAircraft(
+                ((PassengerPlaneBuilder) passengerPlaneBuilder
+                        .setModelName("Boeing 737-800")
+                        .setPassengerCapacity(103)
+                        .setCarryingCapacity(52_400)
+                        .setFlightRange(5200)
+                        .setFuelConsumption(2480)
+                        .setCruisingSpeed(840))
+                        .setNumberOfPassengers(0)
+                        .build()
+        );
+
+        airline.addAircraft(
+                ((PassengerPlaneBuilder) passengerPlaneBuilder
+                        .setModelName("Embraer E-190")
+                        .setPassengerCapacity(114)
+                        .setCarryingCapacity(51_800)
+                        .setFlightRange(4537)
+                        .setFuelConsumption(1850)
+                        .setCruisingSpeed(852))
+                        .setNumberOfPassengers(105)
+                        .build()
+        );
+
+        airline.addAircraft(
+                ((CargoPlaneBuilder) cargoPlaneBuilder
+                        .setModelName("Boeing 747-400F")
+                        .setCarryingCapacity(396_890)
+                        .setFlightRange(8230)
+                        .setFuelConsumption(1350)
+                        .setCruisingSpeed(980))
+                        .setCargoWeight(300_000)
+                        .build()
+        );
+
+        airline.addAircraft(
+                ((CargoPlaneBuilder) cargoPlaneBuilder
+                        .setModelName("An-124-100")
+                        .setCarryingCapacity(402_000)
+                        .setFlightRange(15700)
+                        .setFuelConsumption(12_600)
+                        .setCruisingSpeed(800))
+                        .setCargoWeight(20_000)
+                        .build()
+        );
 
         Menu.execute(airline);
     }

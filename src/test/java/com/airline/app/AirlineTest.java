@@ -1,8 +1,12 @@
 package com.airline.app;
 
-import com.airline.app.aircrafts.Airplane;
-import com.airline.app.aircrafts.CargoPlane;
-import com.airline.app.aircrafts.PassengerPlane;
+import com.airline.app.entities.Aircraft;
+import com.airline.app.entities.Airline;
+import com.airline.app.entities.CargoPlane;
+import com.airline.app.entities.PassengerPlane;
+import com.airline.app.entities.builders.CargoPlaneBuilder;
+import com.airline.app.entities.builders.PassengerPlaneBuilder;
+import com.airline.app.services.AirlineService;
 import org.junit.Test;
 
 import java.util.List;
@@ -17,17 +21,76 @@ public class AirlineTest {
      * Airline
      */
     private Airline airline;
+    private PassengerPlaneBuilder passengerPlaneBuilder = new PassengerPlaneBuilder();
+    private CargoPlaneBuilder cargoPlaneBuilder = new CargoPlaneBuilder();
 
     /**
      * Constructor for class AirlineTest
      * Initialise airline and add few airplanes
      */
     public AirlineTest() {
-        airline = new Airline("UkraineAir");
-        airline.addAirplane(new PassengerPlane("Boeing 737-300", 128, 69400, 6230, 2400, 790, 100));
-        airline.addAirplane(new PassengerPlane("Boeing 737-800", 103, 52400, 5200, 2480, 840));
-        airline.addAirplane(new PassengerPlane("Embraer E-190", 114, 51800, 4537, 1850, 852, 105));
-        airline.addAirplane(new CargoPlane("Boeing 747-400F", 396890, 8230, 1350, 980, 300000));
+        airline = Airline.getInstance();
+        airline.setName("UkraineAir");
+
+
+        airline.addAircraft(
+                ((PassengerPlaneBuilder) passengerPlaneBuilder
+                        .setModelName("Boeing 737-300")
+                        .setPassengerCapacity(128)
+                        .setCarryingCapacity(69_400)
+                        .setFlightRange(6230)
+                        .setFuelConsumption(2400)
+                        .setCruisingSpeed(790))
+                        .setNumberOfPassengers(100)
+                        .build()
+        );
+
+        airline.addAircraft(
+                ((PassengerPlaneBuilder) passengerPlaneBuilder
+                        .setModelName("Boeing 737-800")
+                        .setPassengerCapacity(103)
+                        .setCarryingCapacity(52_400)
+                        .setFlightRange(5200)
+                        .setFuelConsumption(2480)
+                        .setCruisingSpeed(840))
+                        .setNumberOfPassengers(0)
+                        .build()
+        );
+
+        airline.addAircraft(
+                ((PassengerPlaneBuilder) passengerPlaneBuilder
+                        .setModelName("Embraer E-190")
+                        .setPassengerCapacity(114)
+                        .setCarryingCapacity(51_800)
+                        .setFlightRange(4537)
+                        .setFuelConsumption(1850)
+                        .setCruisingSpeed(852))
+                        .setNumberOfPassengers(105)
+                        .build()
+        );
+
+        airline.addAircraft(
+                ((CargoPlaneBuilder) cargoPlaneBuilder
+                        .setModelName("Boeing 747-400F")
+                        .setCarryingCapacity(396_890)
+                        .setFlightRange(8230)
+                        .setFuelConsumption(1350)
+                        .setCruisingSpeed(980))
+                        .setCargoWeight(300_000)
+                        .build()
+        );
+
+        airline.addAircraft(
+                ((CargoPlaneBuilder) cargoPlaneBuilder
+                        .setModelName("An-124-100")
+                        .setCarryingCapacity(402_000)
+                        .setFlightRange(15700)
+                        .setFuelConsumption(12_600)
+                        .setCruisingSpeed(800))
+                        .setCargoWeight(20_000)
+                        .build()
+        );
+
     }
 
     /**
@@ -36,9 +99,18 @@ public class AirlineTest {
     @Test
     public void addAirplane() {
         int size = airline.getSize();
-        airline.addAirplane(new CargoPlane("An-124-100", 402000, 15700, 12600, 800, 20000));
+        airline.addAircraft(
+                ((CargoPlaneBuilder) cargoPlaneBuilder
+                        .setModelName("An-124-100")
+                        .setCarryingCapacity(402_000)
+                        .setFlightRange(15700)
+                        .setFuelConsumption(12_600)
+                        .setCruisingSpeed(800))
+                        .setCargoWeight(20_000)
+                        .build()
+        );
         assertEquals(airline.getSize(), size + 1);
-        assertNotNull(airline.getAirplane(size));
+        assertNotNull(airline.getAircraft(size));
     }
 
     /**
@@ -48,17 +120,26 @@ public class AirlineTest {
     @Test
     public void sortAirplanesByFlightRange() {
 
-        airline.sortAirplanesByFlightRange();
-        List <Airplane> airplanes = airline.getAirplanes();
+        AirlineService.sortAirplanesByFlightRange(airline);
+        List<Aircraft> airplanes = airline.getAircraftList();
         boolean flag = true;
         for (int i = 1; i < airplanes.size(); i++) {
-            if (airplanes.get(i - 1).getFlightRange_km() > airplanes.get(i).getFlightRange_km())
+            if (airplanes.get(i - 1).getFlightRange() > airplanes.get(i).getFlightRange())
                 flag = false;
         }
         assertTrue(flag);
-        airplanes.add(new CargoPlane("An-124-100", 402000, 0, 12600, 800, 20000));
+        airline.addAircraft(
+                ((CargoPlaneBuilder) cargoPlaneBuilder
+                        .setModelName("An-124-100")
+                        .setCarryingCapacity(402_000)
+                        .setFlightRange(14700)
+                        .setFuelConsumption(12_600)
+                        .setCruisingSpeed(800))
+                        .setCargoWeight(20_000)
+                        .build()
+        );
         for (int i = 1; i < airplanes.size(); i++) {
-            if (airplanes.get(i - 1).getFlightRange_km() > airplanes.get(i).getFlightRange_km())
+            if (airplanes.get(i - 1).getFlightRange() > airplanes.get(i).getFlightRange())
                 flag = false;
         }
         assertFalse(flag);
@@ -70,14 +151,14 @@ public class AirlineTest {
      */
     @Test
     public void filterByFuelConsumption() throws Exception {
-        assertEquals(airline.filterByFuelConsumption(1000, -2000).size(), 0);
+        assertEquals(AirlineService.filterByFuelConsumption(airline, 1000, -2000).size(), 0);
         int min = 1000;
         int max = 2000;
-        List <Airplane> airplanes = airline.filterByFuelConsumption(min, max);
+        List<Aircraft> airplanes = AirlineService.filterByFuelConsumption(airline, min, max);
         boolean flag = true;
         for (int i = 1; i < airplanes.size(); i++) {
-            if (min > airplanes.get(i).getFuelConsumption_lph() ||
-                    airplanes.get(i).getFuelConsumption_lph() > max)
+            if (min > airplanes.get(i).getFuelConsumption() ||
+                    airplanes.get(i).getFuelConsumption() > max)
                 flag = false;
         }
         assertTrue(flag);
@@ -88,13 +169,30 @@ public class AirlineTest {
      */
     @Test
     public void getTotalCapacity() {
-        assertEquals((new Airline("Empty airline")).getTotalCapacity(), 0);
-        int totalCapacity = airline.getTotalCapacity();
-        airline.addAirplane(new CargoPlane("An-124-100", 402000, 15700, 12600, 800, 20000));
-        assertEquals(totalCapacity, airline.getTotalCapacity());
-        airline.addAirplane(new PassengerPlane("Embraer E-190", 114, 51800, 4537, 1850, 852, 105));
-        assertEquals(totalCapacity + 114, airline.getTotalCapacity());
-
+        // assertEquals(Airline.getInstance()).getTotalCapacity(), 0);
+        int totalCapacity = AirlineService.getTotalPassengerCapacity(airline);
+        airline.addAircraft(((CargoPlaneBuilder) cargoPlaneBuilder
+                .setModelName("An-124-100")
+                .setCarryingCapacity(402_000)
+                .setFlightRange(15700)
+                .setFuelConsumption(12_600)
+                .setCruisingSpeed(800))
+                .setCargoWeight(20_000)
+                .build()
+        );
+        assertEquals(totalCapacity, AirlineService.getTotalPassengerCapacity(airline));
+        airline.addAircraft(
+                ((PassengerPlaneBuilder) passengerPlaneBuilder
+                        .setModelName("Embraer E-190")
+                        .setPassengerCapacity(114)
+                        .setCarryingCapacity(51_800)
+                        .setFlightRange(4537)
+                        .setFuelConsumption(1850)
+                        .setCruisingSpeed(852))
+                        .setNumberOfPassengers(105)
+                        .build()
+        );
+        assertEquals(totalCapacity+114, AirlineService.getTotalPassengerCapacity(airline));
     }
 
 
@@ -103,14 +201,30 @@ public class AirlineTest {
      */
     @Test
     public void getTotalCarryingCapacity() {
-        assertEquals((new Airline("Empty airline")).getTotalCarryingCapacity(), 0);
-        int totalCarryingCapacity = airline.getTotalCarryingCapacity();
-        airline.addAirplane(new CargoPlane("An-124-100", 402000, 15700, 12600, 800, 20000));
-        totalCarryingCapacity += 402000;
-        assertEquals(totalCarryingCapacity, airline.getTotalCarryingCapacity());
-        airline.addAirplane(new PassengerPlane("Embraer E-190", 114, 51800, 4537, 1850, 852, 105));
-        totalCarryingCapacity += 51800;
-        assertEquals(totalCarryingCapacity, airline.getTotalCarryingCapacity());
+        int totalCapacity = AirlineService.getTotalCarryingCapacity(airline);
+        airline.addAircraft(((CargoPlaneBuilder) cargoPlaneBuilder
+                .setModelName("An-124-100")
+                .setCarryingCapacity(402_000)
+                .setFlightRange(15700)
+                .setFuelConsumption(12_600)
+                .setCruisingSpeed(800))
+                .setCargoWeight(20_000)
+                .build()
+        );
+
+        assertEquals(totalCapacity+402_000, AirlineService.getTotalCarryingCapacity(airline));
+        airline.addAircraft(
+                ((PassengerPlaneBuilder) passengerPlaneBuilder
+                        .setModelName("Embraer E-190")
+                        .setPassengerCapacity(114)
+                        .setCarryingCapacity(51_800)
+                        .setFlightRange(4537)
+                        .setFuelConsumption(1850)
+                        .setCruisingSpeed(852))
+                        .setNumberOfPassengers(105)
+                        .build()
+        );
+        assertEquals(totalCapacity+402_000+51_800, AirlineService.getTotalCarryingCapacity(airline));
 
     }
 
