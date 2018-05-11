@@ -1,66 +1,77 @@
 package com.airline.app.services;
 
-import com.airline.app.entities.Airline;
 import com.airline.app.entities.Aircraft;
+import com.airline.app.entities.Airline;
+import com.airline.app.repositories.AirlineRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class AirlineService {
+@Service
+public class AirlineService implements AirlineServiceInterface {
+    private final AirlineRepository airlineRepository;
 
-    /**
-     * Calculate total passenger capacity of all aircraftList in the airline
-     *
-     * @param airline the airline
-     * @return total capacity
-     */
-    public static int getTotalPassengerCapacity(Airline airline) {
-        List<Aircraft> aircraftList = airline.getAircraftList();
-        int totalCapacity = 0;
-        for (Aircraft airplane : aircraftList) {
-            totalCapacity += airplane.getPassengerCapacity();
-        }
-        return totalCapacity;
+    @Autowired
+    public AirlineService(AirlineRepository airlineRepository) {
+        this.airlineRepository = airlineRepository;
+    }
+
+    @Override
+    public Airline getById(long id) {
+        return airlineRepository.getOne(id);
+    }
+
+    @Override
+    public Airline searchByName(String name) {
+        return airlineRepository.findByName(name);
+    }
+
+    @Override
+    @Transactional
+    public Aircraft addAircraft(long id, Aircraft aircraft) {
+        Airline airline = airlineRepository.getOne(id);
+        airline.addAircraft(aircraft);
+        airlineRepository.save(airline);
+        return aircraft;
+    }
+
+    @Override
+    public List<Aircraft> getAircraftList(long airlineId) {
+        Airline airline = airlineRepository.getOne(airlineId);
+        airlineRepository.save(airline);
+        return airline.getAircraftList();
     }
 
 
-    /**
-     * Calculate total carrying capacity of all aircraftList in the airline
-     *
-     * @param airline the airline
-     * @return total carrying capacity
-     */
-    public static int getTotalCarryingCapacity(Airline airline) {
-        List<Aircraft> aircraftList = airline.getAircraftList();
-        int totalCapacity = 0;
-        for (Aircraft airplane : aircraftList) {
-            totalCapacity += airplane.getCarryingCapacity();
-        }
-        return totalCapacity;
+    @Override
+    public int getTotalPassengerCapacityById(long id) {
+        Airline airline = airlineRepository.getOne(id);
+        return AirlineUtilService.getTotalPassengerCapacity(airline);
     }
 
-    /**
-     * Sort all airplanes in the airline by flight range from smaller to larger
-     *
-     * @param airline the airline
-     */
-    public static void sortAirplanesByFlightRange(Airline airline) {
-        List<Aircraft> aircraftList = airline.getAircraftList();
-        aircraftList.sort(Comparator.comparingInt(Aircraft::getFlightRange));
+    @Override
+    public int getTotalCarryingCapacityById(long id) {
+        Airline airline = airlineRepository.getOne(id);
+        return AirlineUtilService.getTotalCarryingCapacity(airline);
     }
 
-    /**
-     * Find  all airplanes corresponding to the specified range of fuel consumption parameters (liters per hour)
-     *
-     * @param airline  the airline
-     * @param minValue lower bound of fuel consumption values
-     * @param maxValue higher bound of fuel consumption values
-     * @return list of elements that satisfy the conditions
-     */
-    public static List<Aircraft> filterByFuelConsumption(Airline airline, int minValue, int maxValue) {
-        List<Aircraft> aircraftList = airline.getAircraftList();
-        Iterable<Aircraft> filtered = aircraftList.stream().filter(airplane -> airplane.getFuelConsumption() >= minValue && airplane.getFuelConsumption() <= maxValue).collect(Collectors.toList());
-        return (List<Aircraft>) filtered;
+    @Override
+    public List<Aircraft> getSortedByFlightRangeAircraftList(long id) {
+        Airline airline = airlineRepository.getOne(id);
+        return AirlineUtilService.getSortedByFlightRangeAircraftList(airline);
+    }
+
+    @Override
+    public List<Aircraft> getFilteredByFuelConsumptionAircraftList(long id, int min, int max) {
+        Airline airline = airlineRepository.getOne(id);
+        return AirlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, min, max);
+    }
+
+    @Override
+    public List<Aircraft> getFilteredByPassengerCapacityAndFlightRangeAircraftList(long id, int passengerCapacity, int flightRange) {
+        Airline airline = airlineRepository.getOne(id);
+        return AirlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, passengerCapacity, flightRange);
     }
 }

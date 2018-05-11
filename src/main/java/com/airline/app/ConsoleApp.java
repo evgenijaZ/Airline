@@ -10,10 +10,11 @@ import com.airline.app.services.Menu;
  *
  * @author Yevheniia Zubrych on 03.02.2018.
  */
-public class App {
+public class ConsoleApp {
     public static void main(String[] args) {
 
-        Airline airline = Airline.getInstance();
+//        Airline airline = Airline.getInstance();
+        Airline airline = new Airline();
         airline.setName("UkraineAir");
 
         PassengerPlaneBuilder passengerPlaneBuilder = new PassengerPlaneBuilder();

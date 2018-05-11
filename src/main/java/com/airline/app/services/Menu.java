@@ -34,12 +34,12 @@ public class Menu {
                     airline.print();
                     break;
                 case 2:
-                    System.out.println("Total capacity is " + AirlineService.getTotalPassengerCapacity(airline));
-                    System.out.println("Total carrying capacity is " +  AirlineService.getTotalCarryingCapacity(airline)+ "kg");
+                    System.out.println("Total capacity is " + AirlineUtilService.getTotalPassengerCapacity(airline));
+                    System.out.println("Total carrying capacity is " +  AirlineUtilService.getTotalCarryingCapacity(airline)+ "kg");
                     break;
                 case 3:
                     System.out.println("Airplanes is sorted by flight range");
-                    AirlineService.sortAirplanesByFlightRange(airline);
+                    AirlineUtilService.getSortedByFlightRangeAircraftList(airline);
                     airline.print();
                     break;
                 case 4:
@@ -60,7 +60,7 @@ public class Menu {
                         System.out.println("Value should be an integer. Try again");
                     }
                     System.out.println("All airplanes corresponding to the specified range of fuel consumption parameters:");
-                    AirlineService.filterByFuelConsumption(airline, min, max).forEach(airplane -> System.out.println(airplane.toString()));
+                    AirlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, min, max).forEach(airplane -> System.out.println(airplane.toString()));
                     break;
                 case 5:
                     System.out.println("Enter index of plane:");
