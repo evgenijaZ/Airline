@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+
 /**
  * Class CargoPlane
  *
@@ -14,6 +16,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@Entity
 public class CargoPlane extends Airplane {
     /**
      * The cargo weight in kilograms

@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+
 /**
  * Class passenger plane
  * passenger version of the airplane
@@ -15,6 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@Entity
 public class PassengerPlane extends Airplane {
     /**
      * Number of passengers on the plane
@@ -27,7 +30,7 @@ public class PassengerPlane extends Airplane {
     @Override
     public void goUp() {
         if (!seatPassengers()) {
-           throw new IllegalStateException("Flying of " + getModelName() + " is impossible");
+            throw new IllegalStateException("Flying of " + getModelName() + " is impossible");
         }
         super.goUp();
     }

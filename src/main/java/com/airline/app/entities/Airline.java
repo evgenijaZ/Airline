@@ -1,8 +1,11 @@
 package com.airline.app.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,28 +19,39 @@ import java.util.List;
  */
 @Getter
 @Setter
+@Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Airline {
-    private static class AirlineHolder {
-        static final Airline HOLDER_INSTANCE = new Airline();
-    }
-
-    public static Airline getInstance() {
-        return AirlineHolder.HOLDER_INSTANCE;
-    }
-
-    private Airline() {
-        aircraftList = new ArrayList<>();
-    }
-
+//    private static class AirlineHolder {
+//        static final Airline HOLDER_INSTANCE = new Airline();
+//    }
+//
+//    public static Airline getInstance() {
+//        return AirlineHolder.HOLDER_INSTANCE;
+//    }
+//
+    @Id
+    @GeneratedValue
+    private long id;
     /**
      * Name of the airline
      */
     private String name = "";
+
     /**
      * List of aircraftList,
      * an airline can contain both passenger and cargo aircraftList
      */
+    @OneToMany(targetEntity = AbstractAircraft.class)
+    @JoinTable(
+            joinColumns = @JoinColumn(name = "company_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "aircraft_id", referencedColumnName = "id"))
+    @Setter(AccessLevel.NONE)
     private List<Aircraft> aircraftList;
+
+    public Airline() {
+        aircraftList = new ArrayList<>();
+    }
 
     /**
      * Get aircraftList by index

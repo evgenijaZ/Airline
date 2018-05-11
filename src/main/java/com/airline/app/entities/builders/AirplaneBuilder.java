@@ -40,23 +40,18 @@ public class AirplaneBuilder {
         return this;
     }
 
-    public Airplane build(){
+    public Airplane build() {
         Airplane airplane = new Airplane();
-        airplane.setModelName(modelName);
-        airplane.setPassengerCapacity(passengerCapacity);
-        airplane.setCarryingCapacity(carryingCapacity);
-        airplane.setFlightRange(flightRange);
-        airplane.setCruisingSpeed(cruisingSpeed);
-        airplane.setFuelConsumption(fuelConsumption);
+        copyProperties(airplane);
         return airplane;
     }
 
-    void copyProperties(Airplane parentAirplane, Airplane plane){
-        plane.setModelName(parentAirplane.getModelName());
-        plane.setPassengerCapacity(parentAirplane.getPassengerCapacity());
-        plane.setCarryingCapacity(parentAirplane.getCarryingCapacity());
-        plane.setCruisingSpeed(parentAirplane.getCruisingSpeed());
-        plane.setFlightRange(parentAirplane.getFlightRange());
-        plane.setFuelConsumption(parentAirplane.getFuelConsumption());
+    void copyProperties(Airplane plane) {
+        plane.setModelName(this.modelName);
+        plane.setPassengerCapacity(this.passengerCapacity);
+        plane.setCarryingCapacity(this.carryingCapacity);
+        plane.setCruisingSpeed(this.cruisingSpeed);
+        plane.setFlightRange(this.flightRange);
+        plane.setFuelConsumption(this.fuelConsumption);
     }
 }

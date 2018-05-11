@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+
 /**
  * Class Helicopter
  *
@@ -14,6 +16,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@Entity
 public class Helicopter extends AbstractAircraft {
     /**
      * The main rotor diameter in meters
@@ -30,7 +33,7 @@ public class Helicopter extends AbstractAircraft {
     @Override
     public void goUp() {
         if (isFlying()) {
-            throw new IsAlreadyFlyingException("helicopter",getModelName());
+            throw new IsAlreadyFlyingException("helicopter", getModelName());
         }
         rotate();
         setFlying(true);
@@ -43,7 +46,7 @@ public class Helicopter extends AbstractAircraft {
     @Override
     public void goDown() {
         if (!isFlying()) {
-            throw new IsNotFlyingYetException("helicopter",getModelName());
+            throw new IsNotFlyingYetException("helicopter", getModelName());
         }
         this.velocity = 0;
         setFlying(false);

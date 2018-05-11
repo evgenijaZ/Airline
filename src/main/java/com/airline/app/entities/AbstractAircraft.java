@@ -1,8 +1,13 @@
 package com.airline.app.entities;
 
+import com.airline.app.AircraftDeserializer;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
 
 /**
  * Class AbstractAircraft
@@ -10,13 +15,20 @@ import lombok.Setter;
  * @author Yevheniia Zubrych on 03.02.2018.
  */
 @Getter
+@Setter
 @NoArgsConstructor
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonDeserialize(using = AircraftDeserializer.class)
 public abstract class AbstractAircraft implements Aircraft {
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    long id;
     /**
      * The model name of the aircraftList,
      * It is defined in the constructor
      */
-    @Setter
     private String modelName;
     /**
      * The passenger passengerCapacity of the aircraftList,
@@ -41,27 +53,11 @@ public abstract class AbstractAircraft implements Aircraft {
      * Is there an airplane in flight,
      * Default value is false
      */
-    @Setter
     private boolean isFlying;
 
     @Override
     public int getPassengerCapacity() {
         return passengerCapacity;
-    }
-
-    @Override
-    public int getCarryingCapacity() {
-        return carryingCapacity;
-    }
-
-    @Override
-    public int getFlightRange() {
-        return flightRange;
-    }
-
-    @Override
-    public float getFuelConsumption() {
-        return fuelConsumption;
     }
 
     public void setPassengerCapacity(int passengerCapacity) {
@@ -70,16 +66,31 @@ public abstract class AbstractAircraft implements Aircraft {
         else throw new IllegalArgumentException("Passenger capacity cannot be negative: " + passengerCapacity + "<0");
     }
 
+    @Override
+    public int getCarryingCapacity() {
+        return carryingCapacity;
+    }
+
     public void setCarryingCapacity(int carryingCapacity) {
         if (carryingCapacity >= 0)
             this.carryingCapacity = carryingCapacity;
         else throw new IllegalArgumentException("Carrying capacity cannot be negative: " + carryingCapacity + "<0");
     }
 
+    @Override
+    public int getFlightRange() {
+        return flightRange;
+    }
+
     public void setFlightRange(int flightRange) {
         if (flightRange >= 0)
             this.flightRange = flightRange;
         else throw new IllegalArgumentException("Flight range cannot be negative: " + flightRange + "<0");
+    }
+
+    @Override
+    public float getFuelConsumption() {
+        return fuelConsumption;
     }
 
     public void setFuelConsumption(float fuelConsumption) {

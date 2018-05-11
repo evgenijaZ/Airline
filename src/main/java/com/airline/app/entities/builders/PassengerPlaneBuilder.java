@@ -13,10 +13,13 @@ public class PassengerPlaneBuilder extends AirplaneBuilder {
 
     @Override
     public PassengerPlane build() {
-        Airplane airplane = super.build();
         PassengerPlane passengerPlane = new PassengerPlane();
-        copyProperties(airplane, passengerPlane);
-        passengerPlane.setNumberOfPassengers(numberOfPassengers);
+        copyProperties( passengerPlane);
         return passengerPlane;
+    }
+
+    void copyProperties(PassengerPlane plane) {
+        super.copyProperties(plane);
+        plane.setNumberOfPassengers(this.numberOfPassengers);
     }
 }

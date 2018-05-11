@@ -2,11 +2,9 @@ package com.airline.app;
 
 import com.airline.app.entities.Aircraft;
 import com.airline.app.entities.Airline;
-import com.airline.app.entities.CargoPlane;
-import com.airline.app.entities.PassengerPlane;
 import com.airline.app.entities.builders.CargoPlaneBuilder;
 import com.airline.app.entities.builders.PassengerPlaneBuilder;
-import com.airline.app.services.AirlineService;
+import com.airline.app.services.AirlineUtilService;
 import org.junit.Test;
 
 import java.util.List;
@@ -29,7 +27,8 @@ public class AirlineTest {
      * Initialise airline and add few airplanes
      */
     public AirlineTest() {
-        airline = Airline.getInstance();
+//      airline = Airline.getInstance();
+        airline = new Airline();
         airline.setName("UkraineAir");
 
 
@@ -120,8 +119,7 @@ public class AirlineTest {
     @Test
     public void sortAirplanesByFlightRange() {
 
-        AirlineService.sortAirplanesByFlightRange(airline);
-        List<Aircraft> airplanes = airline.getAircraftList();
+        List<Aircraft> airplanes = AirlineUtilService.getSortedByFlightRangeAircraftList(airline);
         boolean flag = true;
         for (int i = 1; i < airplanes.size(); i++) {
             if (airplanes.get(i - 1).getFlightRange() > airplanes.get(i).getFlightRange())
@@ -150,11 +148,11 @@ public class AirlineTest {
      * Check if all items meet the filtering conditions
      */
     @Test
-    public void filterByFuelConsumption() throws Exception {
-        assertEquals(AirlineService.filterByFuelConsumption(airline, 1000, -2000).size(), 0);
+    public void filterByFuelConsumption() {
+        assertEquals(AirlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, 1000, -2000).size(), 0);
         int min = 1000;
         int max = 2000;
-        List<Aircraft> airplanes = AirlineService.filterByFuelConsumption(airline, min, max);
+        List<Aircraft> airplanes = AirlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, min, max);
         boolean flag = true;
         for (int i = 1; i < airplanes.size(); i++) {
             if (min > airplanes.get(i).getFuelConsumption() ||
@@ -170,7 +168,7 @@ public class AirlineTest {
     @Test
     public void getTotalCapacity() {
         // assertEquals(Airline.getInstance()).getTotalCapacity(), 0);
-        int totalCapacity = AirlineService.getTotalPassengerCapacity(airline);
+        int totalCapacity = AirlineUtilService.getTotalPassengerCapacity(airline);
         airline.addAircraft(((CargoPlaneBuilder) cargoPlaneBuilder
                 .setModelName("An-124-100")
                 .setCarryingCapacity(402_000)
@@ -180,7 +178,7 @@ public class AirlineTest {
                 .setCargoWeight(20_000)
                 .build()
         );
-        assertEquals(totalCapacity, AirlineService.getTotalPassengerCapacity(airline));
+        assertEquals(totalCapacity, AirlineUtilService.getTotalPassengerCapacity(airline));
         airline.addAircraft(
                 ((PassengerPlaneBuilder) passengerPlaneBuilder
                         .setModelName("Embraer E-190")
@@ -192,7 +190,7 @@ public class AirlineTest {
                         .setNumberOfPassengers(105)
                         .build()
         );
-        assertEquals(totalCapacity+114, AirlineService.getTotalPassengerCapacity(airline));
+        assertEquals(totalCapacity + 114, AirlineUtilService.getTotalPassengerCapacity(airline));
     }
 
 
@@ -201,7 +199,7 @@ public class AirlineTest {
      */
     @Test
     public void getTotalCarryingCapacity() {
-        int totalCapacity = AirlineService.getTotalCarryingCapacity(airline);
+        int totalCapacity = AirlineUtilService.getTotalCarryingCapacity(airline);
         airline.addAircraft(((CargoPlaneBuilder) cargoPlaneBuilder
                 .setModelName("An-124-100")
                 .setCarryingCapacity(402_000)
@@ -212,7 +210,7 @@ public class AirlineTest {
                 .build()
         );
 
-        assertEquals(totalCapacity+402_000, AirlineService.getTotalCarryingCapacity(airline));
+        assertEquals(totalCapacity + 402_000, AirlineUtilService.getTotalCarryingCapacity(airline));
         airline.addAircraft(
                 ((PassengerPlaneBuilder) passengerPlaneBuilder
                         .setModelName("Embraer E-190")
@@ -224,7 +222,7 @@ public class AirlineTest {
                         .setNumberOfPassengers(105)
                         .build()
         );
-        assertEquals(totalCapacity+402_000+51_800, AirlineService.getTotalCarryingCapacity(airline));
+        assertEquals(totalCapacity + 402_000 + 51_800, AirlineUtilService.getTotalCarryingCapacity(airline));
 
     }
 

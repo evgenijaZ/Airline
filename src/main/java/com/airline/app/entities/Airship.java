@@ -3,11 +3,14 @@ package com.airline.app.entities;
 import com.airline.app.entities.exceptions.IsAlreadyFlyingException;
 import com.airline.app.entities.exceptions.IsNotFlyingYetException;
 
+import javax.persistence.Entity;
+
 /**
  * Class Airship
  *
  * @author Yevheniia Zubrych on 04.02.2018.
  */
+@Entity
 public class Airship extends AbstractAircraft {
     /**
      * Inherited from the AbstractAircraft method of takeoff
@@ -15,7 +18,7 @@ public class Airship extends AbstractAircraft {
     @Override
     public void goUp() {
         if (isFlying()) {
-            throw new IsAlreadyFlyingException("airship",getModelName());
+            throw new IsAlreadyFlyingException("airship", getModelName());
         }
         prepareForLaunch();
         setFlying(true);
@@ -28,7 +31,7 @@ public class Airship extends AbstractAircraft {
     @Override
     public void goDown() {
         if (!isFlying()) {
-            throw new IsNotFlyingYetException("airship",getModelName());
+            throw new IsNotFlyingYetException("airship", getModelName());
         }
         prepareForApproach();
         setFlying(false);
