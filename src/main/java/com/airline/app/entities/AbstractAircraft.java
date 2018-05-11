@@ -1,6 +1,6 @@
 package com.airline.app.entities;
 
-import com.airline.app.AircraftDeserializer;
+import com.airline.app.config.AircraftDeserializer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
