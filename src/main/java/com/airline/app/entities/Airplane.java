@@ -2,6 +2,8 @@ package com.airline.app.entities;
 
 import com.airline.app.entities.exceptions.IsAlreadyFlyingException;
 import com.airline.app.entities.exceptions.IsNotFlyingYetException;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +19,8 @@ import javax.persistence.Entity;
 @Setter
 @NoArgsConstructor
 @Entity
-public class Airplane extends AbstractAircraft {
+@JsonDeserialize(using=JsonDeserializer.None.class)
+public class Airplane extends Aircraft {
 
     /**
      * Cruising speed of the airplane in kilometre per hour
@@ -25,7 +28,7 @@ public class Airplane extends AbstractAircraft {
     private int cruisingSpeed;
 
     /**
-     * Inherited from the AbstractAircraft method of takeoff
+     * Inherited from the Aircraft method of takeoff
      */
     @Override
     public void goUp() {
@@ -38,7 +41,7 @@ public class Airplane extends AbstractAircraft {
     }
 
     /**
-     * Inherited from the AbstractAircraft method of landing
+     * Inherited from the Aircraft method of landing
      */
     @Override
     public void goDown() {

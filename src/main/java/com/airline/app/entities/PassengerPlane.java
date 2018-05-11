@@ -2,6 +2,8 @@ package com.airline.app.entities;
 
 import com.airline.app.entities.exceptions.NoPassengersOnBoardException;
 import com.airline.app.entities.exceptions.NotEnoughPlacesException;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +20,7 @@ import javax.persistence.Entity;
 @Setter
 @NoArgsConstructor
 @Entity
+@JsonDeserialize(using=JsonDeserializer.None.class)
 public class PassengerPlane extends Airplane {
     /**
      * Number of passengers on the plane

@@ -1,10 +1,12 @@
 package com.airline.app.services;
 
-import com.airline.app.entities.AbstractAircraft;
 import com.airline.app.entities.Aircraft;
+import com.airline.app.entities.IAircraft;
 import com.airline.app.repositories.AircraftRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AircraftService {
@@ -15,16 +17,20 @@ public class AircraftService {
         this.repository = repository;
     }
 
-    public void add(AbstractAircraft aircraft){
-        repository.save(aircraft);
+    public Aircraft save(Aircraft aircraft) {
+        return repository.save(aircraft);
     }
 
-    public void update(AbstractAircraft aircraft){
-        repository.save(aircraft);
+    public void delete(long id) {
+        repository.deleteById(id);
     }
 
-    public void delete(AbstractAircraft aircraft){
-        repository.delete(aircraft);
+    public Aircraft get(long id) {
+        return repository.getOne(id);
+    }
+
+    public List<Aircraft> getAll() {
+        return repository.findAll();
     }
 
 }

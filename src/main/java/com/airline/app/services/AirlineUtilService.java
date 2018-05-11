@@ -1,7 +1,7 @@
 package com.airline.app.services;
 
 import com.airline.app.entities.Airline;
-import com.airline.app.entities.Aircraft;
+import com.airline.app.entities.IAircraft;
 
 import java.util.Comparator;
 import java.util.List;
@@ -16,9 +16,9 @@ public class AirlineUtilService {
      * @return total capacity
      */
     public static int getTotalPassengerCapacity(Airline airline) {
-        List<Aircraft> aircraftList = airline.getAircraftList();
+        List<IAircraft> aircraftList = airline.getAircraftList();
         int totalCapacity = 0;
-        for (Aircraft airplane : aircraftList) {
+        for (IAircraft airplane : aircraftList) {
             totalCapacity += airplane.getPassengerCapacity();
         }
         return totalCapacity;
@@ -32,9 +32,9 @@ public class AirlineUtilService {
      * @return total carrying capacity
      */
     public static int getTotalCarryingCapacity(Airline airline) {
-        List<Aircraft> aircraftList = airline.getAircraftList();
+        List<IAircraft> aircraftList = airline.getAircraftList();
         int totalCapacity = 0;
-        for (Aircraft airplane : aircraftList) {
+        for (IAircraft airplane : aircraftList) {
             totalCapacity += airplane.getCarryingCapacity();
         }
         return totalCapacity;
@@ -45,9 +45,9 @@ public class AirlineUtilService {
      *
      * @param airline the airline
      */
-    public static List<Aircraft> getSortedByFlightRangeAircraftList(Airline airline) {
-        List<Aircraft> aircraftList = airline.getAircraftList();
-        aircraftList.sort(Comparator.comparingInt(Aircraft::getFlightRange));
+    public static List<IAircraft> getSortedByFlightRangeAircraftList(Airline airline) {
+        List<IAircraft> aircraftList = airline.getAircraftList();
+        aircraftList.sort(Comparator.comparingInt(IAircraft::getFlightRange));
         return aircraftList;
     }
 
@@ -59,16 +59,16 @@ public class AirlineUtilService {
      * @param maxValue higher bound of fuel consumption values
      * @return list of elements that satisfy the conditions
      */
-    public static List<Aircraft> getFilteredByFuelConsumptionAircraftList(Airline airline, int minValue, int maxValue) {
-        List<Aircraft> aircraftList = airline.getAircraftList();
-        Iterable<Aircraft> filtered = aircraftList.stream().filter(airplane -> airplane.getFuelConsumption() >= minValue && airplane.getFuelConsumption() <= maxValue).collect(Collectors.toList());
-        return (List<Aircraft>) filtered;
+    public static List<IAircraft> getFilteredByFuelConsumptionAircraftList(Airline airline, int minValue, int maxValue) {
+        List<IAircraft> aircraftList = airline.getAircraftList();
+        Iterable<IAircraft> filtered = aircraftList.stream().filter(airplane -> airplane.getFuelConsumption() >= minValue && airplane.getFuelConsumption() <= maxValue).collect(Collectors.toList());
+        return (List<IAircraft>) filtered;
     }
 
 
-    public static List<Aircraft> getFilteredByPassengerCapacityAndFlightRangeAircraftList(Airline airline, int passengerCapacity, int flightRange) {
-        List<Aircraft> aircraftList = airline.getAircraftList();
-        Iterable<Aircraft> filtered = aircraftList.stream().filter(airplane -> airplane.getPassengerCapacity() == passengerCapacity && airplane.getFlightRange() == flightRange).collect(Collectors.toList());
-        return (List<Aircraft>) filtered;
+    public static List<IAircraft> getFilteredByPassengerCapacityAndFlightRangeAircraftList(Airline airline, int passengerCapacity, int flightRange) {
+        List<IAircraft> aircraftList = airline.getAircraftList();
+        Iterable<IAircraft> filtered = aircraftList.stream().filter(airplane -> airplane.getPassengerCapacity() == passengerCapacity && airplane.getFlightRange() == flightRange).collect(Collectors.toList());
+        return (List<IAircraft>) filtered;
     }
 }

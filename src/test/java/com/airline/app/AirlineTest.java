@@ -1,6 +1,6 @@
 package com.airline.app;
 
-import com.airline.app.entities.Aircraft;
+import com.airline.app.entities.IAircraft;
 import com.airline.app.entities.Airline;
 import com.airline.app.entities.builders.CargoPlaneBuilder;
 import com.airline.app.entities.builders.PassengerPlaneBuilder;
@@ -119,7 +119,7 @@ public class AirlineTest {
     @Test
     public void sortAirplanesByFlightRange() {
 
-        List<Aircraft> airplanes = AirlineUtilService.getSortedByFlightRangeAircraftList(airline);
+        List<IAircraft> airplanes = AirlineUtilService.getSortedByFlightRangeAircraftList(airline);
         boolean flag = true;
         for (int i = 1; i < airplanes.size(); i++) {
             if (airplanes.get(i - 1).getFlightRange() > airplanes.get(i).getFlightRange())
@@ -152,7 +152,7 @@ public class AirlineTest {
         assertEquals(AirlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, 1000, -2000).size(), 0);
         int min = 1000;
         int max = 2000;
-        List<Aircraft> airplanes = AirlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, min, max);
+        List<IAircraft> airplanes = AirlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, min, max);
         boolean flag = true;
         for (int i = 1; i < airplanes.size(); i++) {
             if (min > airplanes.get(i).getFuelConsumption() ||

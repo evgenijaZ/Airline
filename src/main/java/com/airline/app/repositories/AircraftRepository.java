@@ -1,7 +1,7 @@
 package com.airline.app.repositories;
 
-import com.airline.app.entities.AbstractAircraft;
+import com.airline.app.entities.Aircraft;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AircraftRepository extends JpaRepository<AbstractAircraft, Long> {
+public interface AircraftRepository extends JpaRepository<Aircraft, Long> {
 }

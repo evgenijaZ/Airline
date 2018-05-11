@@ -1,6 +1,7 @@
 package com.airline.app.services;
 
 import com.airline.app.entities.Aircraft;
+import com.airline.app.entities.IAircraft;
 import com.airline.app.entities.Airline;
 import com.airline.app.repositories.AirlineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,14 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class AirlineService implements AirlineServiceInterface {
+public class AirlineService implements IAirlineService {
     private final AirlineRepository airlineRepository;
+    private final AircraftService aircraftService;
 
     @Autowired
-    public AirlineService(AirlineRepository airlineRepository) {
+    public AirlineService(AirlineRepository airlineRepository, AircraftService aircraftService) {
         this.airlineRepository = airlineRepository;
+        this.aircraftService = aircraftService;
     }
 
     @Override
@@ -30,17 +33,18 @@ public class AirlineService implements AirlineServiceInterface {
 
     @Override
     @Transactional
-    public Aircraft addAircraft(long id, Aircraft aircraft) {
+    public IAircraft addAircraft(long id, Aircraft aircraft) {
         Airline airline = airlineRepository.getOne(id);
+        aircraft = aircraftService.save(aircraft);
         airline.addAircraft(aircraft);
         airlineRepository.save(airline);
         return aircraft;
     }
 
     @Override
-    public List<Aircraft> getAircraftList(long airlineId) {
+    public List<IAircraft> getAircraftList(long airlineId) {
         Airline airline = airlineRepository.getOne(airlineId);
-        airlineRepository.save(airline);
+        airlineRepository.saveAndFlush(airline);
         return airline.getAircraftList();
     }
 
@@ -58,19 +62,19 @@ public class AirlineService implements AirlineServiceInterface {
     }
 
     @Override
-    public List<Aircraft> getSortedByFlightRangeAircraftList(long id) {
+    public List<IAircraft> getSortedByFlightRangeAircraftList(long id) {
         Airline airline = airlineRepository.getOne(id);
         return AirlineUtilService.getSortedByFlightRangeAircraftList(airline);
     }
 
     @Override
-    public List<Aircraft> getFilteredByFuelConsumptionAircraftList(long id, int min, int max) {
+    public List<IAircraft> getFilteredByFuelConsumptionAircraftList(long id, int min, int max) {
         Airline airline = airlineRepository.getOne(id);
         return AirlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, min, max);
     }
 
     @Override
-    public List<Aircraft> getFilteredByPassengerCapacityAndFlightRangeAircraftList(long id, int passengerCapacity, int flightRange) {
+    public List<IAircraft> getFilteredByPassengerCapacityAndFlightRangeAircraftList(long id, int passengerCapacity, int flightRange) {
         Airline airline = airlineRepository.getOne(id);
         return AirlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, passengerCapacity, flightRange);
     }

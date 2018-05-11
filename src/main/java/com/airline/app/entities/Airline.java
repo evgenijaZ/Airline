@@ -42,12 +42,12 @@ public class Airline {
      * List of aircraftList,
      * an airline can contain both passenger and cargo aircraftList
      */
-    @OneToMany(targetEntity = AbstractAircraft.class)
+    @OneToMany(targetEntity = Aircraft.class)
     @JoinTable(
-            joinColumns = @JoinColumn(name = "company_id", referencedColumnName = "id"),
+            joinColumns = @JoinColumn(name = "airline_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "aircraft_id", referencedColumnName = "id"))
     @Setter(AccessLevel.NONE)
-    private List<Aircraft> aircraftList;
+    private List<IAircraft> aircraftList;
 
     public Airline() {
         aircraftList = new ArrayList<>();
@@ -58,7 +58,7 @@ public class Airline {
      *
      * @return index of the aircraftList
      */
-    public Aircraft getAircraft(int index) {
+    public IAircraft getAircraft(int index) {
         if (index < 0 || index >= aircraftList.size()) {
             throw new IndexOutOfBoundsException("Incorrect index. Value should be between 0 and " + (aircraftList.size() - 1));
         }
@@ -70,7 +70,7 @@ public class Airline {
      *
      * @param aircraft a new one aircraft
      */
-    public void addAircraft(Aircraft aircraft) {
+    public void addAircraft(IAircraft aircraft) {
         aircraftList.add(aircraft);
     }
 
@@ -79,7 +79,7 @@ public class Airline {
      *
      * @param aircraft an aircraft to remove
      */
-    void removeAircraft(Aircraft aircraft) {
+    void removeAircraft(IAircraft aircraft) {
         aircraftList.remove(aircraft);
     }
 
@@ -103,7 +103,7 @@ public class Airline {
     public String toString() {
         int i = 0;
         StringBuilder result = new StringBuilder("Airline '" + name + "'\n");
-        for (Aircraft a : aircraftList) {
+        for (IAircraft a : aircraftList) {
             result.append(i++).append(". ").append(a.toString()).append("\n");
         }
         return result.toString();

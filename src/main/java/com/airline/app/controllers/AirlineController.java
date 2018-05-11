@@ -1,17 +1,17 @@
 package com.airline.app.controllers;
 
 import com.airline.app.entities.Airline;
-import com.airline.app.services.AirlineServiceInterface;
+import com.airline.app.services.IAirlineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("airlines")
 public class AirlineController {
-    private final AirlineServiceInterface airlineService;
+    private final IAirlineService airlineService;
 
     @Autowired
-    public AirlineController(AirlineServiceInterface airlineService) {
+    public AirlineController(IAirlineService airlineService) {
         this.airlineService = airlineService;
     }
 
@@ -29,7 +29,7 @@ public class AirlineController {
         return airlineService.getTotalPassengerCapacityById(id);
     }
 
-    @GetMapping("/{id}/total-cargo-capacity")
+    @GetMapping("/{id}/total-carrying-capacity")
     public int getTotalCarryingCapacity(@PathVariable("id") Long id) {
         return airlineService.getTotalCarryingCapacityById(id);
     }

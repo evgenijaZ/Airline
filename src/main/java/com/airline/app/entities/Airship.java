@@ -2,6 +2,9 @@ package com.airline.app.entities;
 
 import com.airline.app.entities.exceptions.IsAlreadyFlyingException;
 import com.airline.app.entities.exceptions.IsNotFlyingYetException;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 
@@ -11,9 +14,11 @@ import javax.persistence.Entity;
  * @author Yevheniia Zubrych on 04.02.2018.
  */
 @Entity
-public class Airship extends AbstractAircraft {
+@NoArgsConstructor
+@JsonDeserialize(using=JsonDeserializer.None.class)
+public class Airship extends Aircraft {
     /**
-     * Inherited from the AbstractAircraft method of takeoff
+     * Inherited from the Aircraft method of takeoff
      */
     @Override
     public void goUp() {
@@ -26,7 +31,7 @@ public class Airship extends AbstractAircraft {
     }
 
     /**
-     * Inherited from the AbstractAircraft method of landing
+     * Inherited from the Aircraft method of landing
      */
     @Override
     public void goDown() {

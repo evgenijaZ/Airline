@@ -10,9 +10,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import java.io.IOException;
 
-public class AircraftDeserializer extends JsonDeserializer<AbstractAircraft> {
+public class AircraftDeserializer extends JsonDeserializer<Aircraft> {
     @Override
-    public AbstractAircraft deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+    public Aircraft deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
         ObjectCodec codec = jsonParser.getCodec();
         JsonNode tree = codec.readTree(jsonParser);
 
@@ -27,6 +27,9 @@ public class AircraftDeserializer extends JsonDeserializer<AbstractAircraft> {
         }
         if (tree.has("rotorDiameter") && tree.has("velocity")) {
             return codec.treeToValue(tree, Helicopter.class);
+        }
+        if(tree.has("carryingCapacity")){
+            return codec.treeToValue(tree, Airship.class);
         }
         throw new UnsupportedOperationException("Cannot deserialize to a known type");
     }

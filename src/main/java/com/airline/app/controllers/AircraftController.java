@@ -1,40 +1,48 @@
 package com.airline.app.controllers;
 
-import com.airline.app.entities.AbstractAircraft;
 import com.airline.app.entities.Aircraft;
-import com.airline.app.repositories.AircraftRepository;
+import com.airline.app.entities.IAircraft;
+import com.airline.app.services.AircraftService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("aircraft")
 public class AircraftController {
-    private final AircraftRepository aircraftRepository;
+    private final AircraftService aircraftService;
 
     @Autowired
-    public AircraftController(AircraftRepository aircraftRepository) {
-        this.aircraftRepository = aircraftRepository;
+    public AircraftController(AircraftService aircraftService) {
+        this.aircraftService = aircraftService;
     }
 
+    @GetMapping
+    public List<Aircraft> getAll() {
+        return aircraftService.getAll();
+    }
+
+
     @GetMapping("/{id}")
-    public Aircraft getById(@PathVariable("id") long id) {
-        return aircraftRepository.getOne(id);
+    public IAircraft getById(@PathVariable("id") long id) {
+        return aircraftService.get(id);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
                  produces = MediaType.APPLICATION_JSON_VALUE)
-    public Aircraft add(@RequestBody AbstractAircraft aircraft) {
-        return aircraftRepository.save(aircraft);
+    public IAircraft add(@RequestBody Aircraft aircraft) {
+        return aircraftService.save(aircraft);
     }
 
     @PutMapping
-    public Aircraft update(@RequestBody AbstractAircraft aircraft) {
-        return aircraftRepository.save(aircraft);
+    public IAircraft update(@RequestBody Aircraft aircraft) {
+        return aircraftService.save(aircraft);
     }
 
     @DeleteMapping
     public void delete(@RequestParam long id) {
-        aircraftRepository.deleteById(id);
+        aircraftService.delete(id);
     }
 }

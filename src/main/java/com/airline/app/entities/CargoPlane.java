@@ -2,6 +2,8 @@ package com.airline.app.entities;
 
 import com.airline.app.entities.exceptions.IllegalPassengerCapacityForCargoPlaneException;
 import com.airline.app.entities.exceptions.IsTooHeavyException;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +19,7 @@ import javax.persistence.Entity;
 @Setter
 @NoArgsConstructor
 @Entity
+@JsonDeserialize(using=JsonDeserializer.None.class)
 public class CargoPlane extends Airplane {
     /**
      * The cargo weight in kilograms
