@@ -1,6 +1,7 @@
 package com.airline.app.services;
 
 import com.airline.app.entities.Airline;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Scanner;
 
@@ -8,6 +9,8 @@ import java.util.Scanner;
  * @author Yevheniia Zubrych on 05.02.2018.
  */
 public class Menu {
+    @Autowired
+    private static AirlineUtilService airlineUtilService;
     /**
      * The main menu method that executes it
      *
@@ -34,12 +37,12 @@ public class Menu {
                     airline.print();
                     break;
                 case 2:
-                    System.out.println("Total capacity is " + AirlineUtilService.getTotalPassengerCapacity(airline));
-                    System.out.println("Total carrying capacity is " +  AirlineUtilService.getTotalCarryingCapacity(airline)+ "kg");
+                    System.out.println("Total capacity is " + airlineUtilService.getTotalPassengerCapacity(airline));
+                    System.out.println("Total carrying capacity is " +  airlineUtilService.getTotalCarryingCapacity(airline)+ "kg");
                     break;
                 case 3:
                     System.out.println("Airplanes is sorted by flight range");
-                    AirlineUtilService.getSortedByFlightRangeAircraftList(airline);
+                    airlineUtilService.getSortedByFlightRangeAircraftList(airline);
                     airline.print();
                     break;
                 case 4:
@@ -60,7 +63,7 @@ public class Menu {
                         System.out.println("Value should be an integer. Try again");
                     }
                     System.out.println("All airplanes corresponding to the specified range of fuel consumption parameters:");
-                    AirlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, min, max).forEach(airplane -> System.out.println(airplane.toString()));
+                    airlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, min, max).forEach(airplane -> System.out.println(airplane.toString()));
                     break;
                 case 5:
                     System.out.println("Enter index of plane:");

@@ -108,4 +108,8 @@ public class Airline {
         }
         return result.toString();
     }
+
+    public void setAircraftList(List<IAircraft> aircraftList) {
+        this.aircraftList = aircraftList;
+    }
 }

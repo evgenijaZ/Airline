@@ -4,7 +4,9 @@ import com.airline.app.entities.Aircraft;
 import com.airline.app.entities.IAircraft;
 import com.airline.app.services.AircraftService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,9 +33,13 @@ public class AircraftController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
-                 produces = MediaType.APPLICATION_JSON_VALUE)
-    public IAircraft add(@RequestBody Aircraft aircraft) {
-        return aircraftService.save(aircraft);
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Aircraft> add(@RequestBody Aircraft aircraft) {
+        Aircraft created = aircraftService.save(aircraft);
+        if (created != null)
+            return ResponseEntity.status(HttpStatus.CREATED).body(created);
+        else
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
 
     @PutMapping

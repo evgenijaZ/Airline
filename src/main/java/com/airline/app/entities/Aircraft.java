@@ -94,7 +94,7 @@ public abstract class Aircraft implements IAircraft {
     }
 
     public void setFuelConsumption(float fuelConsumption) {
-        if (flightRange >= 0)
+        if (fuelConsumption >= 0)
             this.fuelConsumption = fuelConsumption;
         else throw new IllegalArgumentException("Fuel consumption cannot be negative: " + fuelConsumption + "<0");
     }

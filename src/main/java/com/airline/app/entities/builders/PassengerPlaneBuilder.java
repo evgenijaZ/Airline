@@ -1,8 +1,9 @@
 package com.airline.app.entities.builders;
 
-import com.airline.app.entities.Airplane;
 import com.airline.app.entities.PassengerPlane;
+import org.springframework.stereotype.Component;
 
+@Component("passengerPlaneBuilder")
 public class PassengerPlaneBuilder extends AirplaneBuilder {
     private int numberOfPassengers;
 
@@ -14,7 +15,7 @@ public class PassengerPlaneBuilder extends AirplaneBuilder {
     @Override
     public PassengerPlane build() {
         PassengerPlane passengerPlane = new PassengerPlane();
-        copyProperties( passengerPlane);
+        copyProperties(passengerPlane);
         return passengerPlane;
     }
 

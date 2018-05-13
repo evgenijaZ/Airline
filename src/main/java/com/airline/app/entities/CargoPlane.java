@@ -19,7 +19,7 @@ import javax.persistence.Entity;
 @Setter
 @NoArgsConstructor
 @Entity
-@JsonDeserialize(using=JsonDeserializer.None.class)
+@JsonDeserialize(using = JsonDeserializer.None.class)
 public class CargoPlane extends Airplane {
     /**
      * The cargo weight in kilograms
@@ -31,10 +31,8 @@ public class CargoPlane extends Airplane {
      */
     @Override
     public void goUp() {
-        if (!loadCargo()) {
-            throw new IllegalStateException("Flying of " + getModelName() + " is impossible");
-        }
-        super.goUp();
+        if (loadCargo())
+            super.goUp();
     }
 
     /**
@@ -51,7 +49,7 @@ public class CargoPlane extends Airplane {
      *
      * @return true if whole cargo is on the board, false if something went wrong
      */
-    private boolean loadCargo() {
+    boolean loadCargo() {
         if (cargoWeight > getCarryingCapacity()) {
             throw new IsTooHeavyException(getModelName(), cargoWeight, getCarryingCapacity());
         } else
@@ -62,7 +60,7 @@ public class CargoPlane extends Airplane {
     /**
      * Unload cargo from the plane
      */
-    private void unloadCargo() {
+    void unloadCargo() {
         System.out.println("Whole cargo is unloaded");
     }
 

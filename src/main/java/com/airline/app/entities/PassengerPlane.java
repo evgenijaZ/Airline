@@ -20,7 +20,7 @@ import javax.persistence.Entity;
 @Setter
 @NoArgsConstructor
 @Entity
-@JsonDeserialize(using=JsonDeserializer.None.class)
+@JsonDeserialize(using = JsonDeserializer.None.class)
 public class PassengerPlane extends Airplane {
     /**
      * Number of passengers on the plane
@@ -32,10 +32,8 @@ public class PassengerPlane extends Airplane {
      */
     @Override
     public void goUp() {
-        if (!seatPassengers()) {
-            throw new IllegalStateException("Flying of " + getModelName() + " is impossible");
-        }
-        super.goUp();
+        if (seatPassengers())
+            super.goUp();
     }
 
     /**
@@ -52,7 +50,7 @@ public class PassengerPlane extends Airplane {
      *
      * @return true if all passengers are on the board, false if something went wrong
      */
-    private boolean seatPassengers() {
+    public boolean seatPassengers() {
         if (numberOfPassengers > getPassengerCapacity()) {
             throw new NotEnoughPlacesException(numberOfPassengers, getPassengerCapacity(), getModelName());
         } else if (numberOfPassengers == 0) {

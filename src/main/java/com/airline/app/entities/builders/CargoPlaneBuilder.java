@@ -19,7 +19,7 @@ public class CargoPlaneBuilder extends AirplaneBuilder {
         return cargoPlane;
     }
 
-    void copyProperties(CargoPlane plane) {
+    protected void copyProperties(CargoPlane plane) {
         super.copyProperties(plane);
         plane.setCargoWeight(this.cargoWeight);
     }

@@ -1,6 +1,7 @@
 package com.airline.app;
 
 import com.airline.app.entities.Airline;
+import com.airline.app.entities.builders.AirplaneBuilder;
 import com.airline.app.entities.builders.CargoPlaneBuilder;
 import com.airline.app.entities.builders.PassengerPlaneBuilder;
 import com.airline.app.services.Menu;
@@ -21,59 +22,67 @@ public class ConsoleApp {
         CargoPlaneBuilder cargoPlaneBuilder = new CargoPlaneBuilder();
 
         airline.addAircraft(
-                ((PassengerPlaneBuilder) passengerPlaneBuilder
-                        .setModelName("Boeing 737-300")
-                        .setPassengerCapacity(128)
-                        .setCarryingCapacity(69_400)
-                        .setFlightRange(6230)
-                        .setFuelConsumption(2400)
-                        .setCruisingSpeed(790))
+                ((PassengerPlaneBuilder)
+                        ((AirplaneBuilder)
+                                passengerPlaneBuilder
+                                        .setModelName("Boeing 737-300")
+                                        .setPassengerCapacity(128)
+                                        .setCarryingCapacity(69_400)
+                                        .setFlightRange(6230)
+                                        .setFuelConsumption(2400))
+                                .setCruisingSpeed(790))
                         .setNumberOfPassengers(100)
                         .build()
         );
 
         airline.addAircraft(
-                ((PassengerPlaneBuilder) passengerPlaneBuilder
-                        .setModelName("Boeing 737-800")
-                        .setPassengerCapacity(103)
-                        .setCarryingCapacity(52_400)
-                        .setFlightRange(5200)
-                        .setFuelConsumption(2480)
-                        .setCruisingSpeed(840))
+                ((PassengerPlaneBuilder)
+                        ((AirplaneBuilder) passengerPlaneBuilder
+                                .setModelName("Boeing 737-800")
+                                .setPassengerCapacity(103)
+                                .setCarryingCapacity(52_400)
+                                .setFlightRange(5200)
+                                .setFuelConsumption(2480))
+                                .setCruisingSpeed(840))
                         .setNumberOfPassengers(0)
                         .build()
         );
 
         airline.addAircraft(
-                ((PassengerPlaneBuilder) passengerPlaneBuilder
-                        .setModelName("Embraer E-190")
-                        .setPassengerCapacity(114)
-                        .setCarryingCapacity(51_800)
-                        .setFlightRange(4537)
-                        .setFuelConsumption(1850)
-                        .setCruisingSpeed(852))
+                ((PassengerPlaneBuilder)
+                        ((AirplaneBuilder)
+                                passengerPlaneBuilder
+                                        .setModelName("Embraer E-190")
+                                        .setPassengerCapacity(114)
+                                        .setCarryingCapacity(51_800)
+                                        .setFlightRange(4537)
+                                        .setFuelConsumption(1850))
+                                .setCruisingSpeed(852))
                         .setNumberOfPassengers(105)
                         .build()
         );
 
         airline.addAircraft(
-                ((CargoPlaneBuilder) cargoPlaneBuilder
-                        .setModelName("Boeing 747-400F")
-                        .setCarryingCapacity(396_890)
-                        .setFlightRange(8230)
-                        .setFuelConsumption(1350)
-                        .setCruisingSpeed(980))
+                ((CargoPlaneBuilder)
+                        ((AirplaneBuilder) cargoPlaneBuilder
+                                .setModelName("Boeing 747-400F")
+                                .setCarryingCapacity(396_890)
+                                .setFlightRange(8230)
+                                .setFuelConsumption(1350))
+                                .setCruisingSpeed(980))
                         .setCargoWeight(300_000)
                         .build()
         );
 
         airline.addAircraft(
-                ((CargoPlaneBuilder) cargoPlaneBuilder
-                        .setModelName("An-124-100")
-                        .setCarryingCapacity(402_000)
-                        .setFlightRange(15700)
-                        .setFuelConsumption(12_600)
-                        .setCruisingSpeed(800))
+                ((CargoPlaneBuilder)
+                        ((AirplaneBuilder)
+                                cargoPlaneBuilder
+                                        .setModelName("An-124-100")
+                                        .setCarryingCapacity(402_000)
+                                        .setFlightRange(15700)
+                                        .setFuelConsumption(12_600))
+                                .setCruisingSpeed(800))
                         .setCargoWeight(20_000)
                         .build()
         );

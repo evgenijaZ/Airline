@@ -1,8 +1,8 @@
 package com.airline.app.services;
 
 import com.airline.app.entities.Aircraft;
-import com.airline.app.entities.IAircraft;
 import com.airline.app.entities.Airline;
+import com.airline.app.entities.IAircraft;
 import com.airline.app.repositories.AirlineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +14,7 @@ import java.util.List;
 public class AirlineService implements IAirlineService {
     private final AirlineRepository airlineRepository;
     private final AircraftService aircraftService;
+    @Autowired AirlineUtilService airlineUtilService;
 
     @Autowired
     public AirlineService(AirlineRepository airlineRepository, AircraftService aircraftService) {
@@ -44,7 +45,7 @@ public class AirlineService implements IAirlineService {
     @Override
     public List<IAircraft> getAircraftList(long airlineId) {
         Airline airline = airlineRepository.getOne(airlineId);
-        airlineRepository.saveAndFlush(airline);
+        //airlineRepository.saveAndFlush(airline);
         return airline.getAircraftList();
     }
 
@@ -52,30 +53,30 @@ public class AirlineService implements IAirlineService {
     @Override
     public int getTotalPassengerCapacityById(long id) {
         Airline airline = airlineRepository.getOne(id);
-        return AirlineUtilService.getTotalPassengerCapacity(airline);
+        return airlineUtilService.getTotalPassengerCapacity(airline);
     }
 
     @Override
     public int getTotalCarryingCapacityById(long id) {
         Airline airline = airlineRepository.getOne(id);
-        return AirlineUtilService.getTotalCarryingCapacity(airline);
+        return airlineUtilService.getTotalCarryingCapacity(airline);
     }
 
     @Override
     public List<IAircraft> getSortedByFlightRangeAircraftList(long id) {
         Airline airline = airlineRepository.getOne(id);
-        return AirlineUtilService.getSortedByFlightRangeAircraftList(airline);
+        return airlineUtilService.getSortedByFlightRangeAircraftList(airline);
     }
 
     @Override
     public List<IAircraft> getFilteredByFuelConsumptionAircraftList(long id, int min, int max) {
         Airline airline = airlineRepository.getOne(id);
-        return AirlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, min, max);
+        return airlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, min, max);
     }
 
     @Override
     public List<IAircraft> getFilteredByPassengerCapacityAndFlightRangeAircraftList(long id, int passengerCapacity, int flightRange) {
         Airline airline = airlineRepository.getOne(id);
-        return AirlineUtilService.getFilteredByFuelConsumptionAircraftList(airline, passengerCapacity, flightRange);
+        return airlineUtilService.getFilteredByPassengerCapacityAndFlightRangeAircraftList(airline, passengerCapacity, flightRange);
     }
 }

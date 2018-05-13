@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AircraftService {
+public class AircraftService implements IAircraftService{
     private final AircraftRepository repository;
 
     @Autowired
@@ -31,6 +31,11 @@ public class AircraftService {
 
     public List<Aircraft> getAll() {
         return repository.findAll();
+    }
+
+    @Override
+    public Aircraft getByModelName(String modelName) {
+        return repository.findByModelName(modelName);
     }
 
 }
