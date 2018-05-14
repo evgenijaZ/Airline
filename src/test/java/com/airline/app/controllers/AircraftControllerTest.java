@@ -31,7 +31,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(AircraftController.class)
 @EnableWebMvc
 public class AircraftControllerTest {
-
     @Autowired
     private MockMvc mockMvc;
 
@@ -40,13 +39,13 @@ public class AircraftControllerTest {
 
     @Test
     public void shouldReturnAircraftList() throws Exception {
+        // given
         Aircraft airplane = new Airplane();
         airplane.setId(10L);
-
         List<Aircraft> aircraftList = Collections.singletonList(airplane);
-
         given(aircraftService.getAll()).willReturn(aircraftList);
 
+        // when, then
         mockMvc.perform(get("/aircraft")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -56,14 +55,14 @@ public class AircraftControllerTest {
 
     @Test
     public void shouldReturnAircraftById() throws Exception {
+        // given
         long id = 10;
         Aircraft airplane = new Airplane();
         airplane.setId(id);
         airplane.setModelName("Boeing");
-
-
         given(aircraftService.get(airplane.getId())).willReturn(airplane);
 
+        //when, then
         mockMvc.perform(get("/aircraft/" + id)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -72,6 +71,7 @@ public class AircraftControllerTest {
 
     @Test
     public void shouldSaveAndReturnAircraft() throws Exception {
+        // given
         CargoPlane airplane = new CargoPlane();
         airplane.setModelName("Boeing 747-400F");
         airplane.setCarryingCapacity(396890);
@@ -82,6 +82,7 @@ public class AircraftControllerTest {
 
         when(aircraftService.save(any(Aircraft.class))).thenReturn(airplane);
 
+        // when, then
         String aircraftJsonRequest = "{\"modelName\":\"Boeing 747-400F\",\"passengerCapacity\":0,\"carryingCapacity\":396890,\"flightRange\":8230,\"fuelConsumption\":1350.0,\"cruisingSpeed\":980,\"cargoWeight\":300000,\"flying\":false}";
         mockMvc.perform(post("/aircraft")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -89,6 +90,5 @@ public class AircraftControllerTest {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.modelName", is(airplane.getModelName())))
                 .andExpect(jsonPath("$.cargoWeight", is(airplane.getCargoWeight())));
-
     }
 }

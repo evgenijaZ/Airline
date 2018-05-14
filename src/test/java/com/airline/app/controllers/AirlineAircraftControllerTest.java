@@ -32,6 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(AirlineAircraftController.class)
 @EnableWebMvc
 public class AirlineAircraftControllerTest {
+
     @MockBean
     AirlineService airlineService;
     @MockBean
@@ -41,6 +42,7 @@ public class AirlineAircraftControllerTest {
 
     @Test
     public void shouldReturnAircraftList() throws Exception {
+        // given
         long airlineId = 1, aircraftId = 10;
         Airline airline = new Airline();
         airline.setId(airlineId);
@@ -48,9 +50,8 @@ public class AirlineAircraftControllerTest {
         airplane.setId(aircraftId);
 
         List<IAircraft> aircraftList = Collections.singletonList(airplane);
-
         when(airlineService.getAircraftList(airlineId)).thenReturn(aircraftList);
-
+        // when, then
         mockMvc.perform(get("/airlines/{id}/aircraft", airlineId)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -60,6 +61,7 @@ public class AirlineAircraftControllerTest {
 
     @Test
     public void shouldReturnFilteredByFuelConsumptionAircraftList() throws Exception {
+        // given
         long airlineId = 1, airplaneId = 10, helicopterId = 10;
         Airline airline = new Airline();
         airline.setId(airlineId);
@@ -73,6 +75,7 @@ public class AirlineAircraftControllerTest {
         int minConsumption = 300, maxConsumption = 500;
         when(airlineService.getFilteredByFuelConsumptionAircraftList(airlineId, minConsumption, maxConsumption)).thenReturn(aircraftList);
 
+        // when, then
         mockMvc.perform(get("/airlines/{id}/aircraft/filtered-by-fuel-consumption?min=" + minConsumption + "&max=" + maxConsumption, airlineId)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -83,6 +86,7 @@ public class AirlineAircraftControllerTest {
 
     @Test
     public void shouldReturnFilteredByCapacityAndrangeAircraftList() throws Exception {
+        // given
         long airlineId = 1, airplaneId = 10, helicopterId = 10;
         Airline airline = new Airline();
         airline.setId(airlineId);
@@ -95,7 +99,7 @@ public class AirlineAircraftControllerTest {
 
         int capacity = 300, range = 500;
         when(airlineService.getFilteredByPassengerCapacityAndFlightRangeAircraftList(airlineId, capacity, range)).thenReturn(aircraftList);
-
+        // when, then
         mockMvc.perform(get("/airlines/{id}/aircraft/filtered-by-passenger-capacity-and-flight-range?capacity=" + capacity + "&range=" + range, airlineId)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -106,6 +110,7 @@ public class AirlineAircraftControllerTest {
 
     @Test
     public void shouldReturnSortedAircraftList() throws Exception {
+        // given
         long airlineId = 1, airplaneId = 10, helicopterId = 10;
         Airline airline = new Airline();
         airline.setId(airlineId);
@@ -118,6 +123,7 @@ public class AirlineAircraftControllerTest {
 
         when(airlineService.getSortedByFlightRangeAircraftList(airlineId)).thenReturn(aircraftList);
 
+        // when, then
         mockMvc.perform(get("/airlines/{id}/aircraft/sorted-by-flight-range", airlineId)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -125,7 +131,4 @@ public class AirlineAircraftControllerTest {
                 .andExpect(jsonPath("$[0].id", is((int) airplaneId)))
                 .andExpect(jsonPath("$[1].id", is((int) helicopterId)));
     }
-
-
-
 }

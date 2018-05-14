@@ -19,7 +19,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
 @RunWith(SpringRunner.class)
 @WebMvcTest(AirlineController.class)
 @EnableWebMvc
@@ -32,14 +31,15 @@ public class AirlineControllerTest {
 
     @Test
     public void shouldReturnTotalPassengerCapacity() throws Exception {
+        // given
         long airlineId = 1;
         Airline airline = new Airline();
         airline.setId(airlineId);
 
-
         int passengerCapacity = 500;
         when(airlineService.getTotalPassengerCapacityById(airlineId)).thenReturn(passengerCapacity);
 
+        // when, then
         mockMvc.perform(get("/airlines/{id}/total-passenger-capacity", airlineId)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -48,14 +48,15 @@ public class AirlineControllerTest {
 
     @Test
     public void shouldReturnTotalCarryingCapacity() throws Exception {
+        // given
         long airlineId = 1;
         Airline airline = new Airline();
         airline.setId(airlineId);
 
-
         int carryingCapacity = 50000;
         when(airlineService.getTotalCarryingCapacityById(airlineId)).thenReturn(carryingCapacity);
 
+        // when, then
         mockMvc.perform(get("/airlines/{id}/total-carrying-capacity", airlineId)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -65,14 +66,15 @@ public class AirlineControllerTest {
 
     @Test
     public void shouldReturnAirlineById() throws Exception {
+        // given
         long id = 10;
         Airline airline = new Airline();
         airline.setId(id);
         airline.setName("UkraineAir");
 
-
         given(airlineService.getById(airline.getId())).willReturn(airline);
 
+        // when, then
         mockMvc.perform(get("/airlines/" + id)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
