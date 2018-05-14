@@ -15,7 +15,9 @@ It also has methods for calculating total passengerCapacity and carrying passeng
 for sorting the airplanes by flight range (from smaller to larger) 
 and for filtering airplanes corresponding to the specified range of fuel consumption parameters (liters per hour).  
 
-##RESTful web service
+## RESTful web service
+The diagram of classes is presented below.  
+![Diagram of classes](https://github.com/evgenijaZ/Airline/raw/master/docs/classDiagramREST.png) 
 
 ### Getting started  
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.  
@@ -45,6 +47,7 @@ If you are using Maven, you can run the application using ```./mvnw spring-boot:
 It should be available under [http://localhost:8080](http://localhost:8080)  
 
 #### REST API Usage  
+##### Airline  
 *URL*: [/airlines](http://localhost:8080/airlines)  
 *Method*: GET  
 *MediaType*:  application_json  
@@ -95,11 +98,44 @@ It should be available under [http://localhost:8080](http://localhost:8080)
 *Method*: GET  
 *MediaType*:  application_json  
 *Description*: Get total carrying capacity of the airline by airline id  
+  
+##### Aircraft  
+*URL*: [/aircraft](http://localhost:8080/aircraft)  
+*Method*: GET  
+*MediaType*:  application_json  
+*Description*: Get all aircraft  
 
+*URL*: [/aircraft/{id}](http://localhost:8080/aircraft/1)  
+*Method*: GET  
+*MediaType*:  application_json  
+*Description*: Get aircraft by id 
 
+*URL*: [/aircraft](http://localhost:8080/aircraft)  
+*Method*: POST  
+*MediaType*:  application_json  
+*Description*: Add aircraft  
+*Request body example*:  
+```json
+{"modelName":"Boeing 747-400F","passengerCapacity":0,"carryingCapacity":396890,"flightRange":8230,"fuelConsumption":1350.0,"cruisingSpeed":980,"cargoWeight":300000,"flying":false}
+```
+
+*URL*: [/aircraft](http://localhost:8080/aircraft)  
+*Method*: PUT  
+*MediaType*:  application_json  
+*Description*: Update aircraft  
+*Request body example*:  
+```json
+{"id":1,"modelName":"Boeing 747-400F","passengerCapacity":0,"carryingCapacity":396890,"flightRange":8230,"fuelConsumption":1350.0,"cruisingSpeed":980,"cargoWeight":300000,"flying":false}
+```
+
+*URL*: [/aircraft/{id}](http://localhost:8080/aircraft/1)  
+*Method*: DELETE  
+*MediaType*:  application_json  
+*Description*: Delete aircraft by id 
+ 
 ### Running tests
 Folder [src/test](src/test) contains automated tests for this application.
-You may run it separatuly, using following command:  
+You may run it separately, using following command:  
 ```
 mvn test
 ```
