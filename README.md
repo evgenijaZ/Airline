@@ -1,5 +1,7 @@
 # Airline  
-[![Build Status](https://travis-ci.org/evgenijaZ/Airline.svg?branch=master)](https://travis-ci.org/evgenijaZ/Airline)  
+[![Build Status](https://travis-ci.org/evgenijaZ/Airline.svg?branch=master)](https://travis-ci.org/evgenijaZ/Airline)
+[![codecov](https://codecov.io/gh/evgenijaZ/Airline/branch/master/graph/badge.svg)](https://codecov.io/gh/evgenijaZ/Airline)   
+
 This repository contains the console application and RESTful web service "Airline". 
 
 ## Console application  
