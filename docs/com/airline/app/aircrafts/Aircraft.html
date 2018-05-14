@@ -49,7 +49,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.aircrafts"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.entities"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?com/airline/app/aircrafts/Aircraft.html" target="_top">Frames</a></li>
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">com.airline.app.aircrafts</div>
+<div class="subTitle">com.airline.app.entities</div>
 <h2 title="Class Aircraft" class="title">Class Aircraft</h2>
 </div>
 <div class="contentContainer">
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>com.airline.app.aircrafts.Aircraft</li>
+<li>com.airline.app.entities.Aircraft</li>
 </ul>
 </li>
 </ul>
@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.aircrafts">Airplane</a>, <a href="../../../../com/airline/app/aircrafts/Airship.html" title="class in com.airline.app.aircrafts">Airship</a>, <a href="../../../../com/airline/app/aircrafts/Helicopter.html" title="class in com.airline.app.aircrafts">Helicopter</a></dd>
+<dd><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.entities">Airplane</a>, <a href="../../../../com/airline/app/aircrafts/Airship.html" title="class in com.airline.app.entities">Airship</a>, <a href="../../../../com/airline/app/aircrafts/Helicopter.html" title="class in com.airline.app.entities">Helicopter</a></dd>
 </dl>
 <hr>
 <br>
@@ -140,13 +140,13 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/airline/app/aircrafts/Aircraft.html#getCapacity--">getCapacity</a></span>()</code>
-<div class="block">Return capacity passed to the constructor</div>
+<div class="block">Return passengerCapacity passed to the constructor</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/airline/app/aircrafts/Aircraft.html#getCarryingCapacity_kg--">getCarryingCapacity_kg</a></span>()</code>
-<div class="block">Return carrying capacity passed to the constructor</div>
+<div class="block">Return carrying passengerCapacity passed to the constructor</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -164,13 +164,13 @@ extends java.lang.Object</pre>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>abstract void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/airline/app/aircrafts/Aircraft.html#goDown--">goDown</a></span>()</code>
-<div class="block">Abstract method of landing an aircraft</div>
+<div class="block">Abstract method of landing an aircraftList</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>abstract void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/airline/app/aircrafts/Aircraft.html#goUp--">goUp</a></span>()</code>
-<div class="block">Abstract method of takeoff of an aircraft</div>
+<div class="block">Abstract method of takeoff of an aircraftList</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
@@ -206,7 +206,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>goUp</h4>
 <pre>public abstract&nbsp;void&nbsp;goUp()</pre>
-<div class="block">Abstract method of takeoff of an aircraft</div>
+<div class="block">Abstract method of takeoff of an aircraftList</div>
 </li>
 </ul>
 <a name="goDown--">
@@ -217,7 +217,7 @@ extends java.lang.Object</pre>
 <h4>goDown</h4>
 <pre>public abstract&nbsp;void&nbsp;goDown()
                      throws java.lang.Exception</pre>
-<div class="block">Abstract method of landing an aircraft</div>
+<div class="block">Abstract method of landing an aircraftList</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.Exception</code></dd>
@@ -245,10 +245,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getCapacity</h4>
 <pre>public&nbsp;int&nbsp;getCapacity()</pre>
-<div class="block">Return capacity passed to the constructor</div>
+<div class="block">Return passengerCapacity passed to the constructor</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>capacity</dd>
+<dd>passengerCapacity</dd>
 </dl>
 </li>
 </ul>
@@ -259,10 +259,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getCarryingCapacity_kg</h4>
 <pre>public&nbsp;int&nbsp;getCarryingCapacity_kg()</pre>
-<div class="block">Return carrying capacity passed to the constructor</div>
+<div class="block">Return carrying passengerCapacity passed to the constructor</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>carrying capacity</dd>
+<dd>carrying passengerCapacity</dd>
 </dl>
 </li>
 </ul>
@@ -289,7 +289,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;boolean&nbsp;isFlying()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if the aircraft is flying</dd>
+<dd>true if the aircraftList is flying</dd>
 </dl>
 </li>
 </ul>
@@ -321,7 +321,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.aircrafts"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.entities"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?com/airline/app/aircrafts/Aircraft.html" target="_top">Frames</a></li>

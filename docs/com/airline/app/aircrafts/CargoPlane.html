@@ -48,8 +48,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../com/airline/app/aircrafts/Airship.html" title="class in com.airline.app.aircrafts"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../com/airline/app/aircrafts/Helicopter.html" title="class in com.airline.app.aircrafts"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../com/airline/app/aircrafts/Airship.html" title="class in com.airline.app.entities"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../com/airline/app/aircrafts/Helicopter.html" title="class in com.airline.app.entities"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?com/airline/app/aircrafts/CargoPlane.html" target="_top">Frames</a></li>
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">com.airline.app.aircrafts</div>
+<div class="subTitle">com.airline.app.entities</div>
 <h2 title="Class CargoPlane" class="title">Class CargoPlane</h2>
 </div>
 <div class="contentContainer">
@@ -99,13 +99,13 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../com/airline/app/aircrafts/Aircraft.html" title="class in com.airline.app.aircrafts">com.airline.app.aircrafts.Aircraft</a></li>
+<li><a href="../../../../com/airline/app/aircrafts/Aircraft.html" title="class in com.airline.app.entities">com.airline.app.entities.Aircraft</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.aircrafts">com.airline.app.aircrafts.Airplane</a></li>
+<li><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.entities">com.airline.app.entities.Airplane</a></li>
 <li>
 <ul class="inheritance">
-<li>com.airline.app.aircrafts.CargoPlane</li>
+<li>com.airline.app.entities.CargoPlane</li>
 </ul>
 </li>
 </ul>
@@ -119,7 +119,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">CargoPlane</span>
-extends <a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.aircrafts">Airplane</a></pre>
+extends <a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.entities">Airplane</a></pre>
 <div class="block">Class CargoPlane</div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
@@ -144,21 +144,21 @@ extends <a href="../../../../com/airline/app/aircrafts/Airplane.html" title="cla
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../com/airline/app/aircrafts/CargoPlane.html#CargoPlane-java.lang.String-int-int-double-int-">CargoPlane</a></span>(java.lang.String&nbsp;modelName,
-          int&nbsp;carryingCapacity_kg,
-          int&nbsp;flightRange_km,
+          int&nbsp;carryingCapacity,
+          int&nbsp;flightRange,
           double&nbsp;fuelConsumption_lph,
-          int&nbsp;cruisingSpeed_kmph)</code>
-<div class="block">Constructor for class CargoPlane, capacity is always 0, cargo is 0 here</div>
+          int&nbsp;cruisingSpeed)</code>
+<div class="block">Constructor for class CargoPlane, passengerCapacity is always 0, cargo is 0 here</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../com/airline/app/aircrafts/CargoPlane.html#CargoPlane-java.lang.String-int-int-double-int-int-">CargoPlane</a></span>(java.lang.String&nbsp;modelName,
-          int&nbsp;carryingCapacity_kg,
-          int&nbsp;flightRange_km,
+          int&nbsp;carryingCapacity,
+          int&nbsp;flightRange,
           double&nbsp;fuelConsumption_lph,
-          int&nbsp;cruisingSpeed_kmph,
-          int&nbsp;cargoWeight_kg)</code>
-<div class="block">Constructor for class CargoPlane with cargo weight, capacity is always 0</div>
+          int&nbsp;cruisingSpeed,
+          int&nbsp;cargoWeight)</code>
+<div class="block">Constructor for class CargoPlane with cargo weight, passengerCapacity is always 0</div>
 </td>
 </tr>
 </table>
@@ -199,14 +199,14 @@ extends <a href="../../../../com/airline/app/aircrafts/Airplane.html" title="cla
 <li class="blockList"><a name="methods.inherited.from.class.com.airline.app.aircrafts.Airplane">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;com.airline.app.aircrafts.<a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.aircrafts">Airplane</a></h3>
+<h3>Methods inherited from class&nbsp;com.airline.app.entities.<a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.entities">Airplane</a></h3>
 <code><a href="../../../../com/airline/app/aircrafts/Airplane.html#getCruisingSpeed_kmph--">getCruisingSpeed_kmph</a>, <a href="../../../../com/airline/app/aircrafts/Airplane.html#getFuelConsumption_lph--">getFuelConsumption_lph</a>, <a href="../../../../com/airline/app/aircrafts/Airplane.html#setFuelConsumption_lph-double-">setFuelConsumption_lph</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.airline.app.aircrafts.Aircraft">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;com.airline.app.aircrafts.<a href="../../../../com/airline/app/aircrafts/Aircraft.html" title="class in com.airline.app.aircrafts">Aircraft</a></h3>
+<h3>Methods inherited from class&nbsp;com.airline.app.entities.<a href="../../../../com/airline/app/aircrafts/Aircraft.html" title="class in com.airline.app.entities">Aircraft</a></h3>
 <code><a href="../../../../com/airline/app/aircrafts/Aircraft.html#getCapacity--">getCapacity</a>, <a href="../../../../com/airline/app/aircrafts/Aircraft.html#getCarryingCapacity_kg--">getCarryingCapacity_kg</a>, <a href="../../../../com/airline/app/aircrafts/Aircraft.html#getFlightRange_km--">getFlightRange_km</a>, <a href="../../../../com/airline/app/aircrafts/Aircraft.html#getModelName--">getModelName</a>, <a href="../../../../com/airline/app/aircrafts/Aircraft.html#isFlying--">isFlying</a></code></li>
 </ul>
 <ul class="blockList">
@@ -237,18 +237,18 @@ extends <a href="../../../../com/airline/app/aircrafts/Airplane.html" title="cla
 <li class="blockList">
 <h4>CargoPlane</h4>
 <pre>public&nbsp;CargoPlane(java.lang.String&nbsp;modelName,
-                  int&nbsp;carryingCapacity_kg,
-                  int&nbsp;flightRange_km,
+                  int&nbsp;carryingCapacity,
+                  int&nbsp;flightRange,
                   double&nbsp;fuelConsumption_lph,
-                  int&nbsp;cruisingSpeed_kmph)</pre>
-<div class="block">Constructor for class CargoPlane, capacity is always 0, cargo is 0 here</div>
+                  int&nbsp;cruisingSpeed)</pre>
+<div class="block">Constructor for class CargoPlane, passengerCapacity is always 0, cargo is 0 here</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>modelName</code> - model name</dd>
-<dd><code>carryingCapacity_kg</code> - carrying capacity</dd>
-<dd><code>flightRange_km</code> - flight range</dd>
+<dd><code>carryingCapacity</code> - carrying passengerCapacity</dd>
+<dd><code>flightRange</code> - flight range</dd>
 <dd><code>fuelConsumption_lph</code> - fuel consumption</dd>
-<dd><code>cruisingSpeed_kmph</code> - cruising speed</dd>
+<dd><code>cruisingSpeed</code> - cruising speed</dd>
 </dl>
 </li>
 </ul>
@@ -259,20 +259,20 @@ extends <a href="../../../../com/airline/app/aircrafts/Airplane.html" title="cla
 <li class="blockList">
 <h4>CargoPlane</h4>
 <pre>public&nbsp;CargoPlane(java.lang.String&nbsp;modelName,
-                  int&nbsp;carryingCapacity_kg,
-                  int&nbsp;flightRange_km,
+                  int&nbsp;carryingCapacity,
+                  int&nbsp;flightRange,
                   double&nbsp;fuelConsumption_lph,
-                  int&nbsp;cruisingSpeed_kmph,
-                  int&nbsp;cargoWeight_kg)</pre>
-<div class="block">Constructor for class CargoPlane with cargo weight, capacity is always 0</div>
+                  int&nbsp;cruisingSpeed,
+                  int&nbsp;cargoWeight)</pre>
+<div class="block">Constructor for class CargoPlane with cargo weight, passengerCapacity is always 0</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>modelName</code> - model name</dd>
-<dd><code>carryingCapacity_kg</code> - carrying capacity</dd>
-<dd><code>flightRange_km</code> - flight range</dd>
+<dd><code>carryingCapacity</code> - carrying passengerCapacity</dd>
+<dd><code>flightRange</code> - flight range</dd>
 <dd><code>fuelConsumption_lph</code> - fuel consumption</dd>
-<dd><code>cruisingSpeed_kmph</code> - cruising speed</dd>
-<dd><code>cargoWeight_kg</code> - cargo weight</dd>
+<dd><code>cruisingSpeed</code> - cruising speed</dd>
+<dd><code>cargoWeight</code> - cargo weight</dd>
 </dl>
 </li>
 </ul>
@@ -294,7 +294,7 @@ extends <a href="../../../../com/airline/app/aircrafts/Airplane.html" title="cla
 <div class="block">Inherited from the Airplane method of takeoff</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../com/airline/app/aircrafts/Airplane.html#goUp--">goUp</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.aircrafts">Airplane</a></code></dd>
+<dd><code><a href="../../../../com/airline/app/aircrafts/Airplane.html#goUp--">goUp</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.entities">Airplane</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -308,7 +308,7 @@ extends <a href="../../../../com/airline/app/aircrafts/Airplane.html" title="cla
 <div class="block">Inherited from the Airplane method of landing</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../com/airline/app/aircrafts/Airplane.html#goDown--">goDown</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.aircrafts">Airplane</a></code></dd>
+<dd><code><a href="../../../../com/airline/app/aircrafts/Airplane.html#goDown--">goDown</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.entities">Airplane</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -322,7 +322,7 @@ extends <a href="../../../../com/airline/app/aircrafts/Airplane.html" title="cla
 <div class="block">Represents the cargo plane as string</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../com/airline/app/aircrafts/Airplane.html#toString--">toString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.aircrafts">Airplane</a></code></dd>
+<dd><code><a href="../../../../com/airline/app/aircrafts/Airplane.html#toString--">toString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/airline/app/aircrafts/Airplane.html" title="class in com.airline.app.entities">Airplane</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>plane as string</dd>
 </dl>
@@ -355,8 +355,8 @@ extends <a href="../../../../com/airline/app/aircrafts/Airplane.html" title="cla
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../com/airline/app/aircrafts/Airship.html" title="class in com.airline.app.aircrafts"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../com/airline/app/aircrafts/Helicopter.html" title="class in com.airline.app.aircrafts"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../com/airline/app/aircrafts/Airship.html" title="class in com.airline.app.entities"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../com/airline/app/aircrafts/Helicopter.html" title="class in com.airline.app.entities"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?com/airline/app/aircrafts/CargoPlane.html" target="_top">Frames</a></li>

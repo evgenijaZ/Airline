@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="6429.325077911217" y="2441.5">com.airline.app.services.AirlineUtilService</node>
+    <node x="2827.304313390826" y="1887.5">com.airline.app.entities.builders.AircraftBuilder</node>
+    <node x="3579.12238969583" y="1965.0">com.airline.app.services.IAircraftService</node>
+    <node x="8320.921057968708" y="3358.0">com.airline.app.entities.builders.PassengerPlaneBuilderTest</node>
+    <node x="4710.83341124455" y="2397.5">com.airline.app.services.IAirlineService</node>
+    <node x="5679.059889695829" y="3369.5">com.airline.app.ConsoleApp</node>
+    <node x="293.50223005749194" y="199.0">com.airline.app.entities.exceptions.IllegalPassengerCapacityForCargoPlaneException</node>
+    <node x="708.5022300574919" y="520.5">com.airline.app.entities.AirplaneTest</node>
+    <node x="1658.4861682728797" y="132.0">com.airline.app.entities.Airplane</node>
+    <node x="5897.434889695829" y="3204.0">com.airline.app.services.AirlineServiceTest</node>
+    <node x="3441.851556362496" y="3314.0">com.airline.app.ApplicationTest</node>
+    <node x="1717.220980057492" y="2452.0">com.airline.app.entities.builders.AirplaneBuilder</node>
+    <node x="4029.05988969583" y="2009.0">com.airline.app.repositories.AircraftRepository</node>
+    <node x="769.3771612445507" y="3358.0">com.airline.app.entities.builders.CargoPlaneBuilderTest</node>
+    <node x="4331.791666666668" y="2832.0">com.airline.app.controllers.AirlineAircraftController</node>
+    <node x="1524.220980057492" y="2887.5">com.airline.app.entities.builders.AirplaneBuilderTest</node>
+    <node x="2133.8876467241594" y="2474.5">com.airline.app.entities.builders.AirshipBuilder</node>
+    <node x="8601.421057968708" y="923.0">com.airline.app.entities.PassengerPlaneTest</node>
+    <node x="5811.027834939547" y="1843.0">com.airline.app.entities.Airline</node>
+    <node x="4217.559889695829" y="2463.0">com.airline.app.repositories.AircraftRepositoryTest</node>
+    <node x="5968.325077911217" y="2485.5">com.airline.app.repositories.AirlineRepository</node>
+    <node x="2852.1720476081873" y="967.5">com.airline.app.config.AircraftDeserializer</node>
+    <node x="7765.075077911217" y="2876.5">com.airline.app.entities.builders.HelicopterBuilderTest</node>
+    <node x="7730.575077911217" y="2430.0">com.airline.app.entities.builders.HelicopterBuilder</node>
+    <node x="6778.575077911217" y="2766.5">com.airline.app.services.AirlineUtilServiceTest</node>
+    <node x="7329.575077911217" y="912.0">com.airline.app.entities.HelicopterTest</node>
+    <node x="2330.30988969583" y="553.5">com.airline.app.entities.Airship</node>
+    <node x="2099.8876467241594" y="2843.5">com.airline.app.entities.builders.AirshipBuilderTest</node>
+    <node x="5276.950077911217" y="2766.0">com.airline.app.services.AirlineService</node>
+    <node x="52.60155636249692" y="890.0">com.airline.app.entities.CargoPlaneTest</node>
+    <node x="3944.55988969583" y="2418.5">com.airline.app.services.AircraftService</node>
+    <node x="4990.950077911217" y="2843.0">com.airline.app.controllers.AirlineController</node>
+    <node x="8317.116666666667" y="509.0">com.airline.app.entities.PassengerPlane</node>
+    <node x="3236.55988969583" y="2397.0">com.airline.app.services.AircraftServiceTest</node>
+    <node x="8181.075077911217" y="2865.5">com.airline.app.entities.builders.PassengerPlaneBuilder</node>
+    <node x="3636.0320016062133" y="1227.0">com.airline.app.entities.Aircraft</node>
+    <node x="3600.55988969583" y="2430.0">com.airline.app.entities.AirlineTest</node>
+    <node x="8710.827230057492" y="199.0">com.airline.app.entities.exceptions.NotEnoughPlacesException</node>
+    <node x="2045.5903349395458" y="0.0">com.airline.app.entities.exceptions.IsNotFlyingYetException</node>
+    <node x="6213.325077911217" y="2876.5">com.airline.app.repositories.AirlineRepositoryTest</node>
+    <node x="681.2417445778833" y="0.0">com.airline.app.entities.exceptions.IsAlreadyFlyingException</node>
+    <node x="7524.597389695829" y="498.0">com.airline.app.entities.Helicopter</node>
+    <node x="0.0" y="199.0">com.airline.app.entities.exceptions.IsTooHeavyException</node>
+    <node x="3846.268223029163" y="2832.0">com.airline.app.controllers.AircraftController</node>
+    <node x="270.00223005749194" y="498.0">com.airline.app.entities.CargoPlane</node>
+    <node x="1844.5543133908254" y="912.0">com.airline.app.entities.AirshipTest</node>
+    <node x="5677.388946050658" y="912.5">com.airline.app.entities.IAircraft</node>
+    <node x="5840.950077911217" y="2854.5">com.airline.app.services.Menu</node>
+    <node x="2575.304313390826" y="2009.0">com.airline.app.config.ObjectMapperConfiguration</node>
+    <node x="1225.220980057492" y="2865.5">com.airline.app.entities.builders.CargoPlaneBuilder</node>
+    <node x="0.0" y="3632.0">com.airline.app.Application</node>
+    <node x="8289.116666666667" y="199.0">com.airline.app.entities.exceptions.NoPassengersOnBoardException</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.airline.app.services.AirlineService" target="com.airline.app.entities.Aircraft">
+      <point x="-59.111111111111086" y="-159.0" />
+      <point x="5483.8389668001055" y="2746.0" />
+      <point x="5442.555633466773" y="2746.0" />
+      <point x="5442.555633466773" y="2257.0" />
+      <point x="4937.003205128206" y="2257.0" />
+      <point x="4937.003205128206" y="1783.0" />
+      <point x="3847.4550785292904" y="1783.0" />
+      <point x="91.92307692307713" y="258.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.PassengerPlaneBuilderTest" target="com.airline.app.entities.PassengerPlane">
+      <point x="118.0" y="-37.5" />
+      <point x="8674.921057968708" y="3184.0" />
+      <point x="8590.921057968708" y="3184.0" />
+      <point x="8590.921057968708" y="870.0" />
+      <point x="8488.304166666667" y="870.0" />
+      <point x="46.6875" y="115.0" />
+    </edge>
+    <edge source="com.airline.app.services.AircraftServiceTest" target="com.airline.app.entities.Airship">
+      <point x="-68.80000000000018" y="-114.5" />
+      <point x="3339.7598896958298" y="2337.0" />
+      <point x="2542.3876467241594" y="2337.0" />
+      <point x="2542.3876467241594" y="850.0" />
+      <point x="2464.05988969583" y="850.0" />
+      <point x="26.75" y="70.5" />
+    </edge>
+    <edge source="com.airline.app.entities.Airship" target="com.airline.app.entities.Aircraft">
+      <point x="62.41666666666697" y="70.5" />
+      <point x="2499.726556362497" y="830.0" />
+      <point x="2830.6720476081873" y="830.0" />
+      <point x="2830.6720476081873" y="1187.0" />
+      <point x="3668.6229106971223" y="1187.0" />
+      <point x="-86.90909090909099" y="-258.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineServiceTest" target="com.airline.app.services.AirlineService">
+      <point x="-104.0" y="-191.5" />
+      <point x="6027.434889695829" y="3104.0" />
+      <point x="5542.950077911217" y="3104.0" />
+      <point x="0.0" y="159.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.PassengerPlaneBuilderTest" target="com.airline.app.entities.builders.PassengerPlaneBuilder">
+      <point x="-118.0" y="-37.5" />
+      <point x="8438.921057968708" y="3184.0" />
+      <point x="8468.575077911217" y="3184.0" />
+      <point x="115.0" y="59.5" />
+    </edge>
+    <edge source="com.airline.app.controllers.AirlineController" target="com.airline.app.services.IAirlineService">
+      <point x="0.0" y="-82.0" />
+      <point x="5123.950077911217" y="2746.0" />
+      <point x="5083.23341124455" y="2746.0" />
+      <point x="106.40000000000009" y="114.0" />
+    </edge>
+    <edge source="com.airline.app.entities.AirshipTest" target="com.airline.app.entities.Airship">
+      <point x="43.374999999999545" y="-81.5" />
+      <point x="2061.429313390825" y="830.0" />
+      <point x="2339.226556362497" y="830.0" />
+      <point x="-98.08333333333303" y="70.5" />
+    </edge>
+    <edge source="com.airline.app.entities.CargoPlaneTest" target="com.airline.app.entities.exceptions.IllegalPassengerCapacityForCargoPlaneException">
+      <point x="192.0" y="-103.5" />
+      <point x="500.6015563624969" y="870.0" />
+      <point x="698.0022300574919" y="870.0" />
+      <point x="698.0022300574919" y="418.0" />
+      <point x="572.5022300574919" y="418.0" />
+      <point x="93.0" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.controllers.AirlineAircraftController" target="com.airline.app.entities.Aircraft">
+      <point x="-199.5" y="-93.0" />
+      <point x="4398.291666666668" y="2706.0" />
+      <point x="3226.05988969583" y="2706.0" />
+      <point x="3226.05988969583" y="1803.0" />
+      <point x="3718.762770836983" y="1803.0" />
+      <point x="-36.76923076923049" y="258.0" />
+    </edge>
+    <edge source="com.airline.app.ConsoleApp" target="com.airline.app.services.Menu">
+      <point x="32.0625" y="-26.0" />
+      <point x="5796.622389695829" y="3164.0" />
+      <point x="5965.950077911217" y="3164.0" />
+      <point x="0.0" y="70.5" />
+    </edge>
+    <edge source="com.airline.app.entities.Airplane" target="com.airline.app.entities.exceptions.IsNotFlyingYetException">
+      <point x="52.5" y="-93.0" />
+      <point x="1815.9861682728797" y="102.0" />
+      <point x="2115.0903349395458" y="102.0" />
+      <point x="-69.5" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineServiceTest" target="com.airline.app.entities.Airplane">
+      <point x="208.0" y="-191.5" />
+      <point x="6339.434889695829" y="3164.0" />
+      <point x="7319.075077911217" y="3164.0" />
+      <point x="7319.075077911217" y="358.0" />
+      <point x="1848.7986682728797" y="358.0" />
+      <point x="85.3125" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.config.AircraftDeserializer" target="com.airline.app.entities.Aircraft">
+      <point x="117.66666666666697" y="26.0" />
+      <point x="3146.3387142748543" y="1157.0" />
+      <point x="3733.8047288789403" y="1157.0" />
+      <point x="-21.727272727272975" y="-258.0" />
+    </edge>
+    <edge source="com.airline.app.entities.Helicopter" target="com.airline.app.entities.exceptions.IsAlreadyFlyingException">
+      <point x="-58.0" y="-126.0" />
+      <point x="7582.597389695829" y="348.0" />
+      <point x="1894.8299182728797" y="348.0" />
+      <point x="1894.8299182728797" y="72.0" />
+      <point x="938.8250779112163" y="72.0" />
+      <point x="117.08333333333303" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.services.IAirlineService" target="com.airline.app.entities.Aircraft">
+      <point x="-177.33333333333348" y="-114.0" />
+      <point x="4799.500077911216" y="2257.0" />
+      <point x="4765.777834939547" y="2257.0" />
+      <point x="4765.777834939547" y="1793.0" />
+      <point x="3829.070463144675" y="1793.0" />
+      <point x="73.53846153846189" y="258.0" />
+    </edge>
+    <edge source="com.airline.app.entities.AirlineTest" target="com.airline.app.entities.Airplane">
+      <point x="-121.5" y="-81.5" />
+      <point x="3641.05988969583" y="2267.0" />
+      <point x="1834.0543133908254" y="2267.0" />
+      <point x="1834.0543133908254" y="448.0" />
+      <point x="1783.1736682728797" y="448.0" />
+      <point x="19.6875" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.services.IAirlineService" target="com.airline.app.entities.Airline">
+      <point x="177.33333333333348" y="-114.0" />
+      <point x="5154.166744577884" y="2317.0" />
+      <point x="5853.194501606213" y="2317.0" />
+      <point x="-84.33333333333337" y="192.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.AirshipBuilder" target="com.airline.app.entities.builders.AircraftBuilder">
+      <point x="73.66666666666697" y="-37.0" />
+      <point x="2318.0543133908263" y="2377.0" />
+      <point x="2973.304313390826" y="2377.0" />
+      <point x="0.0" y="147.5" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineUtilServiceTest" target="com.airline.app.entities.Airship">
+      <point x="-158.75" y="-158.5" />
+      <point x="6873.825077911217" y="2656.0" />
+      <point x="2531.3876467241594" y="2656.0" />
+      <point x="2531.3876467241594" y="860.0" />
+      <point x="2446.226556362497" y="860.0" />
+      <point x="8.91666666666697" y="70.5" />
+    </edge>
+    <edge source="com.airline.app.entities.PassengerPlane" target="com.airline.app.entities.Airplane">
+      <point x="-83.0" y="-115.0" />
+      <point x="8358.616666666667" y="338.0" />
+      <point x="1861.9236682728797" y="338.0" />
+      <point x="98.4375" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.repositories.AirlineRepositoryTest" target="com.airline.app.entities.Airline">
+      <point x="100.0" y="-48.5" />
+      <point x="6463.325077911217" y="2726.0" />
+      <point x="6418.825077911217" y="2726.0" />
+      <point x="6418.825077911217" y="2327.0" />
+      <point x="6021.861168272881" y="2327.0" />
+      <point x="84.33333333333348" y="192.0" />
+    </edge>
+    <edge source="com.airline.app.controllers.AircraftController" target="com.airline.app.services.AircraftService">
+      <point x="31.25" y="-93.0" />
+      <point x="4002.518223029163" y="2746.0" />
+      <point x="4007.80988969583" y="2746.0" />
+      <point x="-63.25" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.ApplicationTest" target="com.airline.app.controllers.AircraftController">
+      <point x="33.25" y="-81.5" />
+      <point x="3608.101556362496" y="3174.0" />
+      <point x="3971.268223029163" y="3174.0" />
+      <point x="0.0" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.HelicopterBuilderTest" target="com.airline.app.entities.builders.HelicopterBuilder">
+      <point x="-99.0" y="-48.5" />
+      <point x="7864.075077911217" y="2736.0" />
+      <point x="7882.075077911217" y="2736.0" />
+      <point x="0.0" y="81.5" />
+    </edge>
+    <edge source="com.airline.app.entities.PassengerPlaneTest" target="com.airline.app.entities.exceptions.NotEnoughPlacesException">
+      <point x="154.66666666666606" y="-70.5" />
+      <point x="8988.087724635374" y="870.0" />
+      <point x="8934.327230057492" y="870.0" />
+      <point x="74.5" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.services.AircraftService" target="com.airline.app.services.IAircraftService">
+      <point x="-94.875" y="-93.0" />
+      <point x="3976.18488969583" y="2277.0" />
+      <point x="3765.12238969583" y="2277.0" />
+      <point x="62.0" y="70.0" />
+    </edge>
+    <edge source="com.airline.app.ApplicationTest" target="com.airline.app.entities.Airplane">
+      <point x="-99.75" y="-81.5" />
+      <point x="3475.101556362496" y="3174.0" />
+      <point x="1158.002230057492" y="3174.0" />
+      <point x="1158.002230057492" y="458.0" />
+      <point x="1704.4236682728797" y="458.0" />
+      <point x="-59.0625" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineServiceTest" target="com.airline.app.services.AirlineUtilService">
+      <point x="104.0" y="-191.5" />
+      <point x="6235.434889695829" y="3144.0" />
+      <point x="6768.075077911217" y="3144.0" />
+      <point x="67.75" y="70.0" />
+    </edge>
+    <edge source="com.airline.app.entities.Aircraft" target="com.airline.app.config.AircraftDeserializer">
+      <point x="-43.45454545454504" y="-258.0" />
+      <point x="3712.0774561516682" y="1167.0" />
+      <point x="3028.6720476081873" y="1167.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.AirplaneBuilder" target="com.airline.app.entities.Airplane">
+      <point x="-89.33333333333303" y="-59.5" />
+      <point x="1761.887646724159" y="2377.0" />
+      <point x="1757.4627246353757" y="2377.0" />
+      <point x="1757.4627246353757" y="478.0" />
+      <point x="1743.7986682728797" y="478.0" />
+      <point x="-19.6875" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.ApplicationTest" target="com.airline.app.entities.Aircraft">
+      <point x="-33.25" y="-81.5" />
+      <point x="3541.601556362496" y="3164.0" />
+      <point x="3129.804313390826" y="3164.0" />
+      <point x="3129.804313390826" y="1783.0" />
+      <point x="3681.9935400677514" y="1783.0" />
+      <point x="-73.53846153846189" y="258.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.AirplaneBuilderTest" target="com.airline.app.entities.builders.AirplaneBuilder">
+      <point x="87.5" y="-37.5" />
+      <point x="1786.720980057492" y="2746.0" />
+      <point x="1817.720980057492" y="2746.0" />
+      <point x="-33.5" y="59.5" />
+    </edge>
+    <edge source="com.airline.app.services.Menu" target="com.airline.app.services.AirlineUtilService">
+      <point x="62.5" y="-70.5" />
+      <point x="6028.450077911217" y="2746.0" />
+      <point x="6632.575077911217" y="2746.0" />
+      <point x="-67.75" y="70.0" />
+    </edge>
+    <edge source="com.airline.app.entities.CargoPlane" target="com.airline.app.entities.exceptions.IsTooHeavyException">
+      <point x="-77.66666666666674" y="-126.0" />
+      <point x="308.835563390825" y="478.0" />
+      <point x="199.5" y="478.0" />
+      <point x="66.5" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.ApplicationTest" target="com.airline.app.services.AircraftService">
+      <point x="99.75" y="-81.5" />
+      <point x="3674.601556362496" y="3184.0" />
+      <point x="4106.768223029163" y="3184.0" />
+      <point x="4106.768223029163" y="2726.0" />
+      <point x="4049.976556362497" y="2726.0" />
+      <point x="-21.08333333333303" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.repositories.AircraftRepositoryTest" target="com.airline.app.entities.Helicopter">
+      <point x="113.0" y="-48.5" />
+      <point x="4500.059889695829" y="2377.0" />
+      <point x="7709.075077911217" y="2377.0" />
+      <point x="7709.075077911217" y="810.0" />
+      <point x="7652.19738969583" y="810.0" />
+      <point x="11.600000000000364" y="126.0" />
+    </edge>
+    <edge source="com.airline.app.config.AircraftDeserializer" target="com.airline.app.entities.Helicopter">
+      <point x="70.60000000000036" y="-26.0" />
+      <point x="3099.2720476081877" y="820.0" />
+      <point x="7536.19738969583" y="820.0" />
+      <point x="-104.39999999999964" y="126.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineUtilServiceTest" target="com.airline.app.entities.Airline">
+      <point x="-31.75" y="-158.5" />
+      <point x="7000.825077911217" y="2746.0" />
+      <point x="7027.075077911217" y="2746.0" />
+      <point x="7027.075077911217" y="2307.0" />
+      <point x="6055.594501606213" y="2307.0" />
+      <point x="118.06666666666683" y="192.0" />
+    </edge>
+    <edge source="com.airline.app.services.AircraftServiceTest" target="com.airline.app.services.IAircraftService">
+      <point x="68.80000000000018" y="-114.5" />
+      <point x="3477.35988969583" y="2277.0" />
+      <point x="3641.12238969583" y="2277.0" />
+      <point x="-62.0" y="70.0" />
+    </edge>
+    <edge source="com.airline.app.entities.Airplane" target="com.airline.app.entities.exceptions.IsAlreadyFlyingException">
+      <point x="-52.5" y="-93.0" />
+      <point x="1710.9861682728797" y="82.0" />
+      <point x="891.9917445778833" y="82.0" />
+      <point x="70.25" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.Helicopter" target="com.airline.app.entities.Aircraft">
+      <point x="-34.80000000000018" y="126.0" />
+      <point x="7605.797389695829" y="830.0" />
+      <point x="7687.075077911217" y="830.0" />
+      <point x="7687.075077911217" y="1187.0" />
+      <point x="3820.7138197880313" y="1187.0" />
+      <point x="65.18181818181802" y="-258.0" />
+    </edge>
+    <edge source="com.airline.app.entities.HelicopterTest" target="com.airline.app.entities.Helicopter">
+      <point x="-43.375" y="-81.5" />
+      <point x="7459.700077911217" y="830.0" />
+      <point x="7559.39738969583" y="830.0" />
+      <point x="-81.19999999999982" y="126.0" />
+    </edge>
+    <edge source="com.airline.app.entities.CargoPlaneTest" target="com.airline.app.entities.CargoPlane">
+      <point x="64.0" y="-103.5" />
+      <point x="372.6015563624969" y="870.0" />
+      <point x="313.68973005749194" y="870.0" />
+      <point x="-72.8125" y="126.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.HelicopterBuilder" target="com.airline.app.entities.builders.AircraftBuilder">
+      <point x="-101.0" y="-81.5" />
+      <point x="7781.075077911217" y="2247.0" />
+      <point x="3070.637646724159" y="2247.0" />
+      <point x="97.33333333333303" y="147.5" />
+    </edge>
+    <edge source="com.airline.app.entities.Helicopter" target="com.airline.app.entities.exceptions.IsNotFlyingYetException">
+      <point x="58.0" y="-126.0" />
+      <point x="7698.597389695829" y="102.0" />
+      <point x="2254.0903349395458" y="102.0" />
+      <point x="69.5" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.ConsoleApp" target="com.airline.app.entities.Airline">
+      <point x="10.6875" y="-26.0" />
+      <point x="5775.247389695829" y="3154.0" />
+      <point x="5830.450077911217" y="3154.0" />
+      <point x="5830.450077911217" y="2357.0" />
+      <point x="5920.66116827288" y="2357.0" />
+      <point x="-16.866666666666788" y="192.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.CargoPlaneBuilder" target="com.airline.app.entities.CargoPlane">
+      <point x="-104.625" y="-59.5" />
+      <point x="1260.095980057492" y="2746.0" />
+      <point x="586.1015563624965" y="2746.0" />
+      <point x="586.1015563624965" y="850.0" />
+      <point x="371.93973005749194" y="850.0" />
+      <point x="-14.5625" y="126.0" />
+    </edge>
+    <edge source="com.airline.app.entities.AirlineTest" target="com.airline.app.entities.Airline">
+      <point x="40.5" y="-81.5" />
+      <point x="3803.05988969583" y="2297.0" />
+      <point x="5819.46116827288" y="2297.0" />
+      <point x="-118.0666666666666" y="192.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineServiceTest" target="com.airline.app.entities.Airline">
+      <point x="0.0" y="-191.5" />
+      <point x="6131.434889695829" y="3154.0" />
+      <point x="6191.825077911217" y="3154.0" />
+      <point x="6191.825077911217" y="2357.0" />
+      <point x="5971.26116827288" y="2357.0" />
+      <point x="33.73333333333335" y="192.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineServiceTest" target="com.airline.app.repositories.AirlineRepository">
+      <point x="-52.0" y="-191.5" />
+      <point x="6079.434889695829" y="3164.0" />
+      <point x="6101.450077911217" y="3164.0" />
+      <point x="26.625" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.PassengerPlaneBuilder" target="com.airline.app.entities.builders.AirplaneBuilder">
+      <point x="-115.0" y="-59.5" />
+      <point x="8238.575077911217" y="2646.0" />
+      <point x="1951.720980057492" y="2646.0" />
+      <point x="100.5" y="59.5" />
+    </edge>
+    <edge source="com.airline.app.config.ObjectMapperConfiguration" target="com.airline.app.entities.Aircraft">
+      <point x="58.0" y="-26.0" />
+      <point x="2749.304313390826" y="1763.0" />
+      <point x="3645.224309298521" y="1763.0" />
+      <point x="-110.30769230769238" y="258.0" />
+    </edge>
+    <edge source="com.airline.app.services.AircraftServiceTest" target="com.airline.app.entities.Aircraft">
+      <point x="0.0" y="-114.5" />
+      <point x="3408.55988969583" y="1813.0" />
+      <point x="3737.147386221598" y="1813.0" />
+      <point x="-18.384615384615245" y="258.0" />
+    </edge>
+    <edge source="com.airline.app.entities.Airline" target="com.airline.app.entities.Aircraft">
+      <point x="-84.33333333333326" y="-192.0" />
+      <point x="5853.194501606214" y="1773.0" />
+      <point x="3865.8396939139056" y="1773.0" />
+      <point x="110.30769230769238" y="258.0" />
+    </edge>
+    <edge source="com.airline.app.entities.Airplane" target="com.airline.app.entities.Aircraft">
+      <point x="59.0625" y="93.0" />
+      <point x="1822.5486682728797" y="378.0" />
+      <point x="3920.9410925153043" y="378.0" />
+      <point x="3920.9410925153043" y="1127.0" />
+      <point x="3777.2592743334862" y="1127.0" />
+      <point x="21.727272727272975" y="-258.0" />
+    </edge>
+    <edge source="com.airline.app.controllers.AirlineController" target="com.airline.app.entities.Airline">
+      <point x="88.66666666666652" y="-82.0" />
+      <point x="5212.616744577883" y="2746.0" />
+      <point x="5317.071428157368" y="2746.0" />
+      <point x="5317.071428157368" y="2327.0" />
+      <point x="5870.0611682728795" y="2327.0" />
+      <point x="-67.4666666666667" y="192.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.AirshipBuilderTest" target="com.airline.app.entities.Airship">
+      <point x="102.5" y="-81.5" />
+      <point x="2407.3876467241594" y="2746.0" />
+      <point x="2365.3876467241594" y="2746.0" />
+      <point x="2365.3876467241594" y="870.0" />
+      <point x="2410.55988969583" y="870.0" />
+      <point x="-26.75" y="70.5" />
+    </edge>
+    <edge source="com.airline.app.services.AircraftService" target="com.airline.app.entities.Aircraft">
+      <point x="-31.625" y="-93.0" />
+      <point x="4039.43488969583" y="2277.0" />
+      <point x="4018.55988969583" y="2277.0" />
+      <point x="4018.55988969583" y="1823.0" />
+      <point x="3773.9166169908285" y="1823.0" />
+      <point x="18.384615384615245" y="258.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.CargoPlaneBuilder" target="com.airline.app.entities.builders.AirplaneBuilder">
+      <point x="104.625" y="-59.5" />
+      <point x="1469.345980057492" y="2746.0" />
+      <point x="1750.720980057492" y="2746.0" />
+      <point x="-100.5" y="59.5" />
+    </edge>
+    <edge source="com.airline.app.services.AircraftServiceTest" target="com.airline.app.entities.Airplane">
+      <point x="-137.60000000000036" y="-114.5" />
+      <point x="3270.9598896958296" y="2347.0" />
+      <point x="1823.0543133908254" y="2347.0" />
+      <point x="1823.0543133908254" y="458.0" />
+      <point x="1770.0486682728797" y="458.0" />
+      <point x="6.5625" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.entities.AirplaneTest" target="com.airline.app.entities.exceptions.IsNotFlyingYetException">
+      <point x="-54.875" y="-103.5" />
+      <point x="873.1272300574919" y="418.0" />
+      <point x="865.6250000000005" y="418.0" />
+      <point x="865.6250000000005" y="92.0" />
+      <point x="2068.7570016062123" y="92.0" />
+      <point x="-115.83333333333348" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.PassengerPlane" target="com.airline.app.entities.exceptions.NoPassengersOnBoardException">
+      <point x="0.0" y="-115.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.HelicopterTest" target="com.airline.app.entities.exceptions.IsNotFlyingYetException">
+      <point x="130.125" y="-81.5" />
+      <point x="7633.200077911217" y="840.0" />
+      <point x="7788.133557968709" y="840.0" />
+      <point x="7788.133557968709" y="92.0" />
+      <point x="2300.4236682728792" y="92.0" />
+      <point x="115.83333333333348" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.AirshipTest" target="com.airline.app.entities.exceptions.IsNotFlyingYetException">
+      <point x="-43.375000000000455" y="-81.5" />
+      <point x="1974.679313390825" y="112.0" />
+      <point x="2161.4236682728792" y="112.0" />
+      <point x="-23.166666666666515" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.CargoPlane" target="com.airline.app.entities.Aircraft">
+      <point x="72.8125" y="126.0" />
+      <point x="459.31473005749194" y="820.0" />
+      <point x="619.1015563624965" y="820.0" />
+      <point x="619.1015563624965" y="1197.0" />
+      <point x="3646.8956379698493" y="1197.0" />
+      <point x="-108.63636363636397" y="-258.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineServiceTest" target="com.airline.app.services.AircraftService">
+      <point x="-156.0" y="-191.5" />
+      <point x="5975.434889695829" y="3114.0" />
+      <point x="4117.768223029163" y="3114.0" />
+      <point x="4117.768223029163" y="2716.0" />
+      <point x="4092.143223029163" y="2716.0" />
+      <point x="21.08333333333303" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.services.AircraftServiceTest" target="com.airline.app.repositories.AircraftRepository">
+      <point x="137.60000000000036" y="-114.5" />
+      <point x="3546.1598896958303" y="2287.0" />
+      <point x="4060.55988969583" y="2287.0" />
+      <point x="-94.5" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.controllers.AircraftController" target="com.airline.app.entities.Aircraft">
+      <point x="-93.75" y="-93.0" />
+      <point x="3877.518223029163" y="2746.0" />
+      <point x="3156.179313390826" y="2746.0" />
+      <point x="3156.179313390826" y="1793.0" />
+      <point x="3700.3781554523675" y="1793.0" />
+      <point x="-55.153846153845734" y="258.0" />
+    </edge>
+    <edge source="com.airline.app.entities.Aircraft" target="com.airline.app.entities.IAircraft">
+      <point x="43.45454545454504" y="-258.0" />
+      <point x="3798.9865470607583" y="1137.0" />
+      <point x="5688.288946050658" y="1137.0" />
+      <point x="-98.09999999999991" y="81.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineService" target="com.airline.app.services.IAirlineService">
+      <point x="-118.22222222222217" y="-159.0" />
+      <point x="5424.727855688994" y="2676.0" />
+      <point x="5189.633411244549" y="2676.0" />
+      <point x="212.79999999999973" y="114.0" />
+    </edge>
+    <edge source="com.airline.app.repositories.AirlineRepository" target="com.airline.app.entities.Airline">
+      <point x="0.0" y="-26.0" />
+      <point x="6074.825077911217" y="2367.0" />
+      <point x="5954.394501606213" y="2367.0" />
+      <point x="16.866666666666788" y="192.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineUtilServiceTest" target="com.airline.app.entities.Airplane">
+      <point x="95.25" y="-158.5" />
+      <point x="7127.825077911217" y="2726.0" />
+      <point x="7308.075077911217" y="2726.0" />
+      <point x="7308.075077911217" y="368.0" />
+      <point x="1835.6736682728797" y="368.0" />
+      <point x="72.1875" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.HelicopterBuilder" target="com.airline.app.entities.Helicopter">
+      <point x="0.0" y="-81.5" />
+      <point x="7882.075077911217" y="2377.0" />
+      <point x="7918.421057968709" y="2377.0" />
+      <point x="7918.421057968709" y="790.0" />
+      <point x="7698.597389695829" y="790.0" />
+      <point x="58.0" y="126.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.AircraftBuilder" target="com.airline.app.entities.Aircraft">
+      <point x="0.0" y="-147.5" />
+      <point x="2973.304313390826" y="1773.0" />
+      <point x="3663.608924683136" y="1773.0" />
+      <point x="-91.92307692307713" y="258.0" />
+    </edge>
+    <edge source="com.airline.app.services.IAirlineService" target="com.airline.app.entities.IAircraft">
+      <point x="0.0" y="-114.0" />
+      <point x="4976.83341124455" y="2287.0" />
+      <point x="5214.35988969583" y="2287.0" />
+      <point x="5214.35988969583" y="1167.0" />
+      <point x="5753.688946050657" y="1167.0" />
+      <point x="-32.700000000000045" y="81.0" />
+    </edge>
+    <edge source="com.airline.app.config.AircraftDeserializer" target="com.airline.app.entities.PassengerPlane">
+      <point x="141.19999999999982" y="-26.0" />
+      <point x="3169.872047608187" y="850.0" />
+      <point x="8332.679166666667" y="850.0" />
+      <point x="-108.9375" y="115.0" />
+    </edge>
+    <edge source="com.airline.app.entities.AirlineTest" target="com.airline.app.entities.Airship">
+      <point x="-40.5" y="-81.5" />
+      <point x="3722.05988969583" y="2257.0" />
+      <point x="2553.3876467241594" y="2257.0" />
+      <point x="2553.3876467241594" y="840.0" />
+      <point x="2481.893223029163" y="840.0" />
+      <point x="44.58333333333303" y="70.5" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineServiceTest" target="com.airline.app.entities.Airship">
+      <point x="-208.0" y="-191.5" />
+      <point x="5923.434889695829" y="3124.0" />
+      <point x="2520.3876467241594" y="3124.0" />
+      <point x="2520.3876467241594" y="870.0" />
+      <point x="2428.393223029163" y="870.0" />
+      <point x="-8.91666666666697" y="70.5" />
+    </edge>
+    <edge source="com.airline.app.controllers.AirlineAircraftController" target="com.airline.app.entities.IAircraft">
+      <point x="-66.5" y="-93.0" />
+      <point x="4531.291666666668" y="2746.0" />
+      <point x="4638.450077911217" y="2746.0" />
+      <point x="4638.450077911217" y="2277.0" />
+      <point x="5019.309889695829" y="2277.0" />
+      <point x="5019.309889695829" y="1157.0" />
+      <point x="5731.888946050658" y="1157.0" />
+      <point x="-54.5" y="81.0" />
+    </edge>
+    <edge source="com.airline.app.entities.CargoPlane" target="com.airline.app.entities.Airplane">
+      <point x="77.66666666666652" y="-126.0" />
+      <point x="464.16889672415846" y="428.0" />
+      <point x="1665.0486682728797" y="428.0" />
+      <point x="-98.4375" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.AirplaneBuilderTest" target="com.airline.app.entities.Airplane">
+      <point x="-87.5" y="-37.5" />
+      <point x="1611.720980057492" y="478.0" />
+      <point x="1730.6736682728797" y="478.0" />
+      <point x="-32.8125" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.repositories.AircraftRepository" target="com.airline.app.entities.Aircraft">
+      <point x="0.0" y="-26.0" />
+      <point x="4155.05988969583" y="1813.0" />
+      <point x="3792.3012323754438" y="1813.0" />
+      <point x="36.76923076923049" y="258.0" />
+    </edge>
+    <edge source="com.airline.app.entities.Airship" target="com.airline.app.entities.exceptions.IsNotFlyingYetException">
+      <point x="53.5" y="-70.5" />
+      <point x="2490.80988969583" y="112.0" />
+      <point x="2207.7570016062123" y="112.0" />
+      <point x="23.166666666666515" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.CargoPlaneBuilderTest" target="com.airline.app.entities.CargoPlane">
+      <point x="-95.5" y="-37.5" />
+      <point x="864.8771612445507" y="3184.0" />
+      <point x="575.1015563624965" y="3184.0" />
+      <point x="575.1015563624965" y="860.0" />
+      <point x="342.81473005749194" y="860.0" />
+      <point x="-43.6875" y="126.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineService" target="com.airline.app.entities.IAircraft">
+      <point x="0.0" y="-159.0" />
+      <point x="5542.950077911217" y="2746.0" />
+      <point x="5567.005633466772" y="2746.0" />
+      <point x="5567.005633466772" y="1177.0" />
+      <point x="5775.488946050657" y="1177.0" />
+      <point x="-10.900000000000091" y="81.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.AirshipBuilderTest" target="com.airline.app.entities.builders.AirshipBuilder">
+      <point x="-102.5" y="-81.5" />
+      <point x="2202.3876467241594" y="2746.0" />
+      <point x="2244.3876467241594" y="2746.0" />
+      <point x="0.0" y="37.0" />
+    </edge>
+    <edge source="com.airline.app.services.AircraftService" target="com.airline.app.repositories.AircraftRepository">
+      <point x="31.625" y="-93.0" />
+      <point x="4102.68488969583" y="2287.0" />
+      <point x="4123.55988969583" y="2287.0" />
+      <point x="-31.5" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineUtilServiceTest" target="com.airline.app.entities.Helicopter">
+      <point x="158.75" y="-158.5" />
+      <point x="7191.325077911217" y="2736.0" />
+      <point x="7720.075077911217" y="2736.0" />
+      <point x="7720.075077911217" y="800.0" />
+      <point x="7675.39738969583" y="800.0" />
+      <point x="34.80000000000018" y="126.0" />
+    </edge>
+    <edge source="com.airline.app.config.AircraftDeserializer" target="com.airline.app.entities.CargoPlane">
+      <point x="-141.19999999999982" y="-26.0" />
+      <point x="2887.4720476081875" y="810.0" />
+      <point x="488.43973005749194" y="810.0" />
+      <point x="101.9375" y="126.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineUtilServiceTest" target="com.airline.app.entities.IAircraft">
+      <point x="31.75" y="-158.5" />
+      <point x="7064.325077911217" y="2746.0" />
+      <point x="7038.075077911217" y="2746.0" />
+      <point x="7038.075077911217" y="1147.0" />
+      <point x="5862.688946050658" y="1147.0" />
+      <point x="76.30000000000018" y="81.0" />
+    </edge>
+    <edge source="com.airline.app.entities.PassengerPlane" target="com.airline.app.entities.Aircraft">
+      <point x="-77.8125" y="115.0" />
+      <point x="8363.804166666667" y="860.0" />
+      <point x="8118.71264672416" y="860.0" />
+      <point x="8118.71264672416" y="1207.0" />
+      <point x="3864.1683652425772" y="1207.0" />
+      <point x="108.63636363636397" y="-258.0" />
+    </edge>
+    <edge source="com.airline.app.config.AircraftDeserializer" target="com.airline.app.entities.Airplane">
+      <point x="0.0" y="-26.0" />
+      <point x="3028.6720476081873" y="398.0" />
+      <point x="1796.2986682728797" y="398.0" />
+      <point x="32.8125" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineService" target="com.airline.app.services.AirlineUtilService">
+      <point x="236.44444444444434" y="-159.0" />
+      <point x="5779.394522355661" y="2736.0" />
+      <point x="6497.075077911217" y="2736.0" />
+      <point x="-203.25" y="70.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.PassengerPlaneBuilder" target="com.airline.app.entities.PassengerPlane">
+      <point x="0.0" y="-59.5" />
+      <point x="8353.575077911217" y="2746.0" />
+      <point x="8405.575077911217" y="2746.0" />
+      <point x="8405.575077911217" y="860.0" />
+      <point x="8426.054166666667" y="860.0" />
+      <point x="-15.5625" y="115.0" />
+    </edge>
+    <edge source="com.airline.app.controllers.AircraftController" target="com.airline.app.entities.IAircraft">
+      <point x="93.75" y="-93.0" />
+      <point x="4065.018223029163" y="2736.0" />
+      <point x="4567.059889695829" y="2736.0" />
+      <point x="4567.059889695829" y="2267.0" />
+      <point x="4961.541666666668" y="2267.0" />
+      <point x="4961.541666666668" y="1147.0" />
+      <point x="5710.088946050658" y="1147.0" />
+      <point x="-76.29999999999995" y="81.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineUtilServiceTest" target="com.airline.app.entities.PassengerPlane">
+      <point x="222.25" y="-158.5" />
+      <point x="7254.825077911217" y="2746.0" />
+      <point x="8129.71264672416" y="2746.0" />
+      <point x="8129.71264672416" y="870.0" />
+      <point x="8394.929166666667" y="870.0" />
+      <point x="-46.6875" y="115.0" />
+    </edge>
+    <edge source="com.airline.app.controllers.AirlineAircraftController" target="com.airline.app.services.IAirlineService">
+      <point x="66.5" y="-93.0" />
+      <point x="4664.291666666668" y="2746.0" />
+      <point x="4764.03341124455" y="2746.0" />
+      <point x="-212.80000000000018" y="114.0" />
+    </edge>
+    <edge source="com.airline.app.config.ObjectMapperConfiguration" target="com.airline.app.config.AircraftDeserializer">
+      <point x="-58.0" y="-26.0" />
+      <point x="2633.304313390826" y="1207.0" />
+      <point x="2911.0053809415203" y="1207.0" />
+      <point x="-117.66666666666697" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.CargoPlaneBuilderTest" target="com.airline.app.entities.builders.CargoPlaneBuilder">
+      <point x="95.5" y="-37.5" />
+      <point x="1055.8771612445507" y="3184.0" />
+      <point x="1271.720980057492" y="3184.0" />
+      <point x="-93.0" y="59.5" />
+    </edge>
+    <edge source="com.airline.app.ConsoleApp" target="com.airline.app.entities.builders.PassengerPlaneBuilder">
+      <point x="74.8125" y="-26.0" />
+      <point x="5839.372389695829" y="3184.0" />
+      <point x="8353.575077911217" y="3184.0" />
+      <point x="0.0" y="59.5" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.HelicopterBuilderTest" target="com.airline.app.entities.Helicopter">
+      <point x="99.0" y="-48.5" />
+      <point x="8062.075077911217" y="2736.0" />
+      <point x="8044.075077911217" y="2736.0" />
+      <point x="8044.075077911217" y="770.0" />
+      <point x="7744.997389695829" y="770.0" />
+      <point x="104.39999999999964" y="126.0" />
+    </edge>
+    <edge source="com.airline.app.repositories.AirlineRepositoryTest" target="com.airline.app.repositories.AirlineRepository">
+      <point x="-100.0" y="-48.5" />
+      <point x="6263.325077911217" y="2726.0" />
+      <point x="6154.700077911217" y="2726.0" />
+      <point x="79.875" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.AirplaneTest" target="com.airline.app.entities.Airplane">
+      <point x="54.875" y="-103.5" />
+      <point x="982.8772300574919" y="438.0" />
+      <point x="1678.1736682728797" y="438.0" />
+      <point x="-85.3125" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineUtilService" target="com.airline.app.entities.Airline">
+      <point x="-135.5" y="-70.0" />
+      <point x="6564.825077911217" y="2317.0" />
+      <point x="6038.7278349395465" y="2317.0" />
+      <point x="101.20000000000005" y="192.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineService" target="com.airline.app.repositories.AirlineRepository">
+      <point x="177.33333333333326" y="-159.0" />
+      <point x="5720.28341124455" y="2726.0" />
+      <point x="6048.200077911217" y="2726.0" />
+      <point x="-26.625" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.Airship" target="com.airline.app.entities.exceptions.IsAlreadyFlyingException">
+      <point x="-53.5" y="-70.5" />
+      <point x="2383.80988969583" y="408.0" />
+      <point x="791.4084112445507" y="408.0" />
+      <point x="791.4084112445507" y="112.0" />
+      <point x="845.1584112445503" y="112.0" />
+      <point x="23.41666666666697" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.config.AircraftDeserializer" target="com.airline.app.entities.Airship">
+      <point x="-70.60000000000036" y="-26.0" />
+      <point x="2958.072047608187" y="800.0" />
+      <point x="2535.393223029163" y="800.0" />
+      <point x="98.08333333333303" y="70.5" />
+    </edge>
+    <edge source="com.airline.app.entities.Airline" target="com.airline.app.entities.IAircraft">
+      <point x="0.0" y="-192.0" />
+      <point x="5937.527834939547" y="1823.0" />
+      <point x="5974.194501606213" y="1823.0" />
+      <point x="5974.194501606213" y="1177.0" />
+      <point x="5797.288946050658" y="1177.0" />
+      <point x="10.900000000000091" y="81.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineUtilService" target="com.airline.app.entities.IAircraft">
+      <point x="135.5" y="-70.0" />
+      <point x="6835.825077911217" y="2367.0" />
+      <point x="6839.684889695829" y="2367.0" />
+      <point x="6839.684889695829" y="1157.0" />
+      <point x="5840.888946050658" y="1157.0" />
+      <point x="54.5" y="81.0" />
+    </edge>
+    <edge source="com.airline.app.entities.PassengerPlaneTest" target="com.airline.app.entities.PassengerPlane">
+      <point x="0.0" y="-70.5" />
+      <point x="8833.421057968708" y="850.0" />
+      <point x="8550.554166666667" y="850.0" />
+      <point x="108.9375" y="115.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineServiceTest" target="com.airline.app.entities.IAircraft">
+      <point x="156.0" y="-191.5" />
+      <point x="6287.434889695829" y="3154.0" />
+      <point x="7297.075077911217" y="3154.0" />
+      <point x="7297.075077911217" y="1137.0" />
+      <point x="5884.488946050658" y="1137.0" />
+      <point x="98.10000000000014" y="81.0" />
+    </edge>
+    <edge source="com.airline.app.entities.HelicopterTest" target="com.airline.app.entities.exceptions.IsAlreadyFlyingException">
+      <point x="-130.125" y="-81.5" />
+      <point x="7372.950077911217" y="790.0" />
+      <point x="687.0022300574919" y="790.0" />
+      <point x="687.0022300574919" y="112.0" />
+      <point x="751.4917445778833" y="112.0" />
+      <point x="-70.25" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.AirshipBuilder" target="com.airline.app.entities.Airship">
+      <point x="-73.66666666666697" y="-37.0" />
+      <point x="2170.7209800574924" y="2357.0" />
+      <point x="2202.054313390826" y="2357.0" />
+      <point x="2202.054313390826" y="850.0" />
+      <point x="2374.893223029163" y="850.0" />
+      <point x="-62.41666666666697" y="70.5" />
+    </edge>
+    <edge source="com.airline.app.entities.PassengerPlane" target="com.airline.app.entities.exceptions.NotEnoughPlacesException">
+      <point x="83.0" y="-115.0" />
+      <point x="8524.616666666667" y="478.0" />
+      <point x="8785.327230057492" y="478.0" />
+      <point x="-74.5" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.ConsoleApp" target="com.airline.app.entities.builders.CargoPlaneBuilder">
+      <point x="-53.4375" y="-26.0" />
+      <point x="5711.122389695829" y="3144.0" />
+      <point x="1457.720980057492" y="3144.0" />
+      <point x="93.0" y="59.5" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineUtilServiceTest" target="com.airline.app.services.AirlineUtilService">
+      <point x="-95.25" y="-158.5" />
+      <point x="6937.325077911217" y="2746.0" />
+      <point x="6903.575077911217" y="2746.0" />
+      <point x="203.25" y="70.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineUtilServiceTest" target="com.airline.app.entities.CargoPlane">
+      <point x="-222.25" y="-158.5" />
+      <point x="6810.325077911217" y="2666.0" />
+      <point x="608.1015563624965" y="2666.0" />
+      <point x="608.1015563624965" y="830.0" />
+      <point x="430.18973005749194" y="830.0" />
+      <point x="43.6875" y="126.0" />
+    </edge>
+    <edge source="com.airline.app.entities.CargoPlaneTest" target="com.airline.app.entities.exceptions.IsTooHeavyException">
+      <point x="-192.0" y="-103.5" />
+      <point x="116.60155636249692" y="870.0" />
+      <point x="66.5" y="870.0" />
+      <point x="-66.5" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineService" target="com.airline.app.entities.Airline">
+      <point x="59.111111111111086" y="-159.0" />
+      <point x="5602.061189022328" y="2746.0" />
+      <point x="5647.332091168604" y="2746.0" />
+      <point x="5647.332091168604" y="2337.0" />
+      <point x="5886.927834939546" y="2337.0" />
+      <point x="-50.59999999999991" y="192.0" />
+    </edge>
+    <edge source="com.airline.app.entities.AirplaneTest" target="com.airline.app.entities.exceptions.IsAlreadyFlyingException">
+      <point x="-164.625" y="-103.5" />
+      <point x="763.3772300574919" y="418.0" />
+      <point x="780.4084112445507" y="418.0" />
+      <point x="780.4084112445507" y="102.0" />
+      <point x="798.3250779112163" y="102.0" />
+      <point x="-23.41666666666697" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.CargoPlaneBuilder" target="com.airline.app.entities.Airplane">
+      <point x="34.875" y="-59.5" />
+      <point x="1399.595980057492" y="468.0" />
+      <point x="1717.5486682728797" y="468.0" />
+      <point x="-45.9375" y="93.0" />
+    </edge>
+    <edge source="com.airline.app.repositories.AircraftRepositoryTest" target="com.airline.app.entities.Aircraft">
+      <point x="0.0" y="-48.5" />
+      <point x="4387.059889695829" y="1803.0" />
+      <point x="3810.685847760059" y="1803.0" />
+      <point x="55.153846153845734" y="258.0" />
+    </edge>
+    <edge source="com.airline.app.ConsoleApp" target="com.airline.app.entities.builders.AirplaneBuilder">
+      <point x="-32.0625" y="-26.0" />
+      <point x="5732.497389695829" y="3134.0" />
+      <point x="1884.720980057492" y="3134.0" />
+      <point x="33.5" y="59.5" />
+    </edge>
+    <edge source="com.airline.app.entities.builders.AirplaneBuilder" target="com.airline.app.entities.builders.AircraftBuilder">
+      <point x="89.33333333333303" y="-59.5" />
+      <point x="1940.554313390825" y="2367.0" />
+      <point x="2875.970980057493" y="2367.0" />
+      <point x="-97.33333333333303" y="147.5" />
+    </edge>
+    <edge source="com.airline.app.entities.AirshipTest" target="com.airline.app.entities.exceptions.IsAlreadyFlyingException">
+      <point x="-130.12500000000045" y="-81.5" />
+      <point x="1887.929313390825" y="860.0" />
+      <point x="676.0022300574919" y="860.0" />
+      <point x="676.0022300574919" y="102.0" />
+      <point x="704.6584112445503" y="102.0" />
+      <point x="-117.08333333333303" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.services.IAircraftService" target="com.airline.app.entities.Aircraft">
+      <point x="0.0" y="-70.0" />
+      <point x="3703.12238969583" y="1823.0" />
+      <point x="3755.5320016062133" y="1823.0" />
+      <point x="0.0" y="258.0" />
+    </edge>
+    <edge source="com.airline.app.repositories.AircraftRepositoryTest" target="com.airline.app.repositories.AircraftRepository">
+      <point x="-113.0" y="-48.5" />
+      <point x="4274.059889695829" y="2287.0" />
+      <point x="4249.55988969583" y="2287.0" />
+      <point x="94.5" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.entities.CargoPlane" target="com.airline.app.entities.exceptions.IllegalPassengerCapacityForCargoPlaneException">
+      <point x="0.0" y="-126.0" />
+      <point x="-93.0" y="26.0" />
+    </edge>
+    <edge source="com.airline.app.services.Menu" target="com.airline.app.entities.Airline">
+      <point x="-62.5" y="-70.5" />
+      <point x="5903.450077911217" y="2367.0" />
+      <point x="5937.527834939547" y="2367.0" />
+      <point x="0.0" y="192.0" />
+    </edge>
+    <edge source="com.airline.app.services.AirlineService" target="com.airline.app.services.AircraftService">
+      <point x="-236.44444444444434" y="-159.0" />
+      <point x="5306.505633466772" y="2696.0" />
+      <point x="4134.30988969583" y="2696.0" />
+      <point x="63.25" y="93.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.1" x="3973.3333333333317" y="1434.6666666666663" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -1,2 +1,8 @@
 com.airline.app
-com.airline.app.aircrafts
+com.airline.app.config
+com.airline.app.controllers
+com.airline.app.entities
+com.airline.app.entities.builders
+com.airline.app.entities.exceptions
+com.airline.app.repositories
+com.airline.app.services
