@@ -13,8 +13,7 @@ import com.airline.app.services.Menu;
  */
 public class ConsoleApp {
     public static void main(String[] args) {
-
-//        Airline airline = Airline.getInstance();
+//      Airline airline = Airline.getInstance();
         Airline airline = new Airline();
         airline.setName("UkraineAir");
 

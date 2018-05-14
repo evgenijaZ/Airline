@@ -3,7 +3,6 @@ package com.airline.app.entities.builders;
 import com.airline.app.entities.Airplane;
 import org.springframework.stereotype.Component;
 
-@Component("airplaneBuilder")
 public class AirplaneBuilder extends AircraftBuilder {
     private int cruisingSpeed;
 

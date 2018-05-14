@@ -27,7 +27,7 @@ public class CargoPlane extends Airplane {
     private int cargoWeight;
 
     /**
-     * Inherited from the Airplane method of takeoff
+     * Inherited from the Airplane method of flying
      */
     @Override
     public void goUp() {
@@ -82,5 +82,4 @@ public class CargoPlane extends Airplane {
         return "The cargo plane " + super.toString() +
                 "\tcargo weight: " + cargoWeight + "kg;\n";
     }
-
 }

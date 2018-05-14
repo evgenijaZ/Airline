@@ -28,7 +28,7 @@ public class Airplane extends Aircraft {
     private int cruisingSpeed;
 
     /**
-     * Inherited from the Aircraft method of takeoff
+     * Inherited from the Aircraft method of flying
      */
     @Override
     public void goUp() {

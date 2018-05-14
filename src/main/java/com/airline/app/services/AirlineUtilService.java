@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+
+/**
+ * Utility class for Airline
+ */
 @Service
 public class AirlineUtilService {
 
@@ -66,7 +70,14 @@ public class AirlineUtilService {
         return (List<IAircraft>) filtered;
     }
 
-
+    /**
+     * Find  all airplanes corresponding to the passenger capacity and flight range(kmph)
+     *
+     * @param airline  the airline
+     * @param passengerCapacity passenger capacity
+     * @param flightRange flight range
+     * @return list of elements that satisfy the conditions
+     */
     public List<IAircraft> getFilteredByPassengerCapacityAndFlightRangeAircraftList(Airline airline, int passengerCapacity, int flightRange) {
         List<IAircraft> aircraftList = airline.getAircraftList();
         Iterable<IAircraft> filtered = aircraftList.stream().filter(airplane -> airplane.getPassengerCapacity() == passengerCapacity && airplane.getFlightRange() == flightRange).collect(Collectors.toList());

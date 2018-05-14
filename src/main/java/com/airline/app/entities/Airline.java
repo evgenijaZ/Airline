@@ -49,6 +49,9 @@ public class Airline {
     @Setter(AccessLevel.NONE)
     private List<IAircraft> aircraftList;
 
+    /**
+     * Public constructor
+     */
     public Airline() {
         aircraftList = new ArrayList<>();
     }

@@ -18,7 +18,7 @@ import javax.persistence.Entity;
 @JsonDeserialize(using=JsonDeserializer.None.class)
 public class Airship extends Aircraft {
     /**
-     * Inherited from the Aircraft method of takeoff
+     * Inherited from the Aircraft method of flying
      */
     @Override
     public void goUp() {

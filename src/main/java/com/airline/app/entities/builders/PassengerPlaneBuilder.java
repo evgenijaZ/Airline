@@ -3,7 +3,7 @@ package com.airline.app.entities.builders;
 import com.airline.app.entities.PassengerPlane;
 import org.springframework.stereotype.Component;
 
-@Component("passengerPlaneBuilder")
+
 public class PassengerPlaneBuilder extends AirplaneBuilder {
     private int numberOfPassengers;
 
