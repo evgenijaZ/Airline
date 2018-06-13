@@ -5,6 +5,8 @@ import com.airline.app.entities.Airline;
 import com.airline.app.entities.IAircraft;
 import com.airline.app.repositories.AirlineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,12 +16,13 @@ import java.util.List;
 public class AirlineService implements IAirlineService {
     private final AirlineRepository airlineRepository;
     private final AircraftService aircraftService;
-    @Autowired AirlineUtilService airlineUtilService;
+    final AirlineUtilService airlineUtilService;
 
     @Autowired
-    public AirlineService(AirlineRepository airlineRepository, AircraftService aircraftService) {
+    public AirlineService(AirlineRepository airlineRepository, AircraftService aircraftService, AirlineUtilService airlineUtilService) {
         this.airlineRepository = airlineRepository;
         this.aircraftService = aircraftService;
+        this.airlineUtilService = airlineUtilService;
     }
 
     @Override
@@ -78,5 +81,15 @@ public class AirlineService implements IAirlineService {
     public List<IAircraft> getFilteredByPassengerCapacityAndFlightRangeAircraftList(long id, int passengerCapacity, int flightRange) {
         Airline airline = airlineRepository.getOne(id);
         return airlineUtilService.getFilteredByPassengerCapacityAndFlightRangeAircraftList(airline, passengerCapacity, flightRange);
+    }
+
+    @Override
+    public List<Airline> getAll() {
+        return airlineRepository.findAll();
+    }
+
+    @Override
+    public Page<Airline> findAllPageable(Pageable pageable) {
+        return airlineRepository.findAll(pageable);
     }
 }
