@@ -31,8 +31,8 @@ public class AirlineService implements IAirlineService {
     }
 
     @Override
-    public Airline searchByName(String name) {
-        return airlineRepository.findByName(name);
+    public List<Airline> searchAllByName(String name) {
+        return airlineRepository.findAllByNameContains(name);
     }
 
     @Override

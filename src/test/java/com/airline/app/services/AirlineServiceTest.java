@@ -58,10 +58,10 @@ public class AirlineServiceTest {
         when(airlineRepository.findByName(airline.getName()))
                 .thenReturn(airline);
         // when
-        Airline found = airlineService.searchByName(name);
+        List<Airline> found = airlineService.searchAllByName(name);
 
         // then
-        assertEquals(found.getName(), name);
+        found.forEach(airline -> assertEquals(airline.getName(), name));
     }
 
     @Test
@@ -201,8 +201,8 @@ public class AirlineServiceTest {
     @TestConfiguration
     static class AirlineServiceTestContextConfiguration {
         @Bean
-        public IAirlineService airlineService(AirlineRepository airlineRepository, AircraftService aircraftService) {
-            return new AirlineService(airlineRepository, aircraftService);
+        public IAirlineService airlineService(AirlineRepository airlineRepository, AircraftService aircraftService, AirlineUtilService airlineUtilService) {
+            return new AirlineService(airlineRepository, aircraftService, airlineUtilService);
         }
     }
 

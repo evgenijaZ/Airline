@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -26,10 +27,14 @@ public class AirlineController {
         this.airlineService = airlineService;
     }
 
-//    @GetMapping
-//    public Airline getAirlineByName(@RequestParam String name){
-//        return airlineService.searchByName(name);
-//    }
+    @GetMapping("/search")
+    public ModelAndView getAirlineByName(@RequestParam String name){
+        if(name==null || name.isEmpty()) return new ModelAndView("redirect:/airlines");
+        ModelAndView modelAndView = new ModelAndView("airlines-search");
+        List<Airline> airlines = airlineService.searchAllByName(name);
+        modelAndView.addObject("airlineList", airlines);
+        return modelAndView;
+    }
 
 
     @GetMapping("/{id}")

@@ -12,7 +12,7 @@ public interface IAirlineService {
 
     Airline getById(long id);
 
-    Airline searchByName(String name);
+    List<Airline> searchAllByName(String name);
 
     IAircraft addAircraft(long id, Aircraft aircraft);
 
