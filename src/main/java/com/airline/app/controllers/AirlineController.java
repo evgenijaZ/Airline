@@ -38,8 +38,12 @@ public class AirlineController {
 
 
     @GetMapping("/{id}")
-    public Airline getAirlineById(@PathVariable Integer id) {
-        return airlineService.getById(id);
+    public ModelAndView getAirlineById(@PathVariable Integer id) {
+        ModelAndView modelAndView = new ModelAndView("airline-page");
+        modelAndView.addObject("airline", airlineService.getById(id));
+        modelAndView.addObject("totalPassengerCapacity", getTotalPassengerCapacity(Long.valueOf(id)));
+        modelAndView.addObject("totalCarryingCapacity", getTotalCarryingCapacity(Long.valueOf(id)));
+        return modelAndView;
     }
 
     @GetMapping("/{id}/total-passenger-capacity")
