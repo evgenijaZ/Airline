@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Aircraft | SkyBrowser</title>
-    <link rel="icon" href="img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="/css/style.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -25,7 +26,7 @@
         <!-- Brand -->
         <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/material-design-for-bootstrap/"
            target="_blank">
-            <strong class="blue-text">SkyBrowser</strong>
+            <strong class="dark-grey-text">SkyBrowser</strong>
         </a>
 
         <!-- Collapse -->
@@ -40,14 +41,14 @@
 
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/airlines">Airlines</a>
+                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/home">Home </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" target="_blank">Airlines</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" target="_blank">Aircraft</a>
+                    <a class="nav-link" href="/aircraft">Aircraft</a>
                 </li>
             </ul>
 
@@ -70,7 +71,6 @@
                 </li>
             </ul>
 
-
         </div>
 
     </div>
@@ -87,53 +87,29 @@
             <!--Grid column-->
             <div class="col-md-6 mb-4">
 
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg" class="img-fluid"
-                     alt="">
+                <img th:src="'/img/aircraft-photos/'+${id}+'.jpg'" class="img-fluid"
+                     th:alt="${modelName}">
 
             </div>
             <!--Grid column-->
 
             <!--Grid column-->
             <div class="col-md-6 mb-4">
-
-                <!--Content-->
-                <div class="p-4">
-
-                    <p class="lead font-weight-bold">Airplane</p>
-
+               <div class="row"> <p class="lead font-weight-bold" th:text="${modelName}"></p>
+                   <a href="">
+                       <span class="badge blue mr-1 mx-2" th:text="${type}"></span>
+                   </a>
+               </div>
+                <div th:each="entry : ${entries}">
                     <div class="row">
                         <div class="col-1">
                             <i class="fa fa-check-circle 5blue-grey-text"></i>
                         </div>
                         <div class="col-7">
-                            <h6 class="feature-title">Fuel consumption</h6>
+                            <h6 class="feature-title" th:text="${entry.key}"></h6>
                         </div>
                         <div class="col-4">
-                           <p>345</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-1">
-                            <i class="fa fa-check-circle 5blue-grey-text"></i>
-                        </div>
-                        <div class="col-7">
-                            <h6 class="feature-title">Fuel consumption</h6>
-                        </div>
-                        <div class="col-4">
-                            <p>345</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-1">
-                            <i class="fa fa-check-circle 5blue-grey-text"></i>
-                        </div>
-                        <div class="col-7">
-                            <h6 class="feature-title">Fuel consumption</h6>
-                        </div>
-                        <div class="col-4">
-                            <p>345</p>
+                            <p th:text="${entry.value}"></p>
                         </div>
                     </div>
                 </div>

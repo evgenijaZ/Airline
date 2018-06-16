@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AircraftRepository extends JpaRepository<Aircraft, Long> {
     Aircraft findByModelName(String modelName);
+    Aircraft findById(long id);
 }

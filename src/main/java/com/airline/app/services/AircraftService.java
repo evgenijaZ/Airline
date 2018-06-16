@@ -1,7 +1,6 @@
 package com.airline.app.services;
 
 import com.airline.app.entities.Aircraft;
-import com.airline.app.entities.IAircraft;
 import com.airline.app.repositories.AircraftRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +25,7 @@ public class AircraftService implements IAircraftService{
     }
 
     public Aircraft get(long id) {
-        return repository.getOne(id);
+        return repository.findById(id);
     }
 
     public List<Aircraft> getAll() {
