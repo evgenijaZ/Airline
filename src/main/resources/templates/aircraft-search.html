@@ -138,20 +138,20 @@
                     </li>
                     <li th:class="${type == 'airplane'} ? 'nav-item active' : 'nav-item'">
 
-                    <a class="nav-link" href="/aircraft/type/airplane">Airplanes</a>
+                        <a class="nav-link" href="/aircraft/type/airplane">Airplanes</a>
                     </li>
                     <li th:class="${type == 'airship'} ? 'nav-item active' : 'nav-item'">
 
-                    <a class="nav-link" href="/aircraft/type/airship">Airships</a>
+                        <a class="nav-link" href="/aircraft/type/airship">Airships</a>
                     </li>
                     <li th:class="${type == 'helicopter'} ? 'nav-item active' : 'nav-item'">
 
-                    <a class="nav-link" href="/aircraft/type/helicopter">Helicopters</a>
+                        <a class="nav-link" href="/aircraft/type/helicopter">Helicopters</a>
                     </li>
                 </ul>
                 <!-- Links -->
                 <!--Search-->
-                <form class="form-inline mr-auto" th:action="@{aircraft/search}" method="get">
+                <form class="form-inline" th:action="@{/aircraft/search}" method="get">
                     <div class="md-form my-0">
                         <input class="form-control mr-sm-2" type="search" name="name" placeholder="Search"
                                aria-label="Search">
@@ -159,19 +159,11 @@
                     <button type="submit" class="btn btn-search mdb-color"><i class="fa fa-search fa-fw"></i></button>
                 </form>
                 <!--Search-->
-                <div class="form-inline pl-md-2 justify-content-start">
-                    <label class="white-text mr-sm-2 ml-1" for="pageSizeSelect">Display items on page: </label>
-                    <select class="btn mdb-color" id="pageSizeSelect">
-                        <option class="text-center" th:each="pageSize : ${pageSizes}" th:text="${pageSize}"
-                                th:value="${pageSize}"
-                                th:selected="${pageSize} == ${selectedPageSize}"></option>
-                    </select>
-                </div>
             </div>
             <!-- Collapsible content -->
         </nav>
         <!--/.Navbar-->
-        <div th:if="${not #lists.isEmpty(aircraftList)}" style="height:90vh">
+        <div th:if="${not #lists.isEmpty(aircraftList)}">
             <!--Card container-->
             <div class="container-fluid card-columns">
                 <!--Card-->
@@ -200,34 +192,7 @@
             </div>
             <!--Card container-->
         </div>
-        <div th:if="${#lists.isEmpty(aircraftList)}" style="height: 90vh"></div>
-        <!--Pagination-->
-        <nav th:if="${aircraftList.totalPages != 1}" class="d-flex justify-content-center wow fadeIn mt-5">
-            <ul class="pagination pagination-circle pg-dark">
-                <li th:class="${aircraftList.number == 0} ? 'page-item disabled' : 'page-item'">
-                    <a class="page-link" th:href="@{/aircraft(pageSize=${selectedPageSize}, page=1)}">First</a>
-                </li>
-                <li th:class="${aircraftList.number == 0} ? 'page-item disabled' : 'page-item'">
-                    <a class="page-link"
-                       th:href="@{/aircraft(pageSize=${selectedPageSize}, page=${aircraftList.number})}">&laquo;</a>
-                </li>
-                <li th:class="${aircraftList.number == (page - 1)} ? 'page-item active pointer-disabled' : 'page-item'"
-                    th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">
-                    <a class="page-link" th:href="@{/aircraft(pageSize=${selectedPageSize}, page=${page})}"
-                       th:text="${page}"></a>
-                </li>
-                <li th:class="${aircraftList.number + 1 == aircraftList.totalPages} ? 'page-item disabled' : 'page-item'">
-                    <a class="page-link"
-                       th:href="@{/aircraft(pageSize=${selectedPageSize}, page=${aircraftList.number + 2})}">&raquo;</a>
-                </li>
-                <li th:class="${aircraftList.number + 1 == aircraftList.totalPages} ? 'page-item disabled' : 'page-item'">
-                    <a class="page-link"
-                       th:href="@{/aircraft(pageSize=${selectedPageSize}, page=${aircraftList.totalPages})}">Last</a>
-                </li>
-            </ul>
-        </nav>
-        <!--Pagination-->
-    </div>
+        <div th:if="${#lists.isEmpty(aircraftList)}" style="height:90vh"></div>
 </main>
 <!--Main layout-->
 <!--Footer-->
@@ -267,17 +232,6 @@
 <script type="text/javascript">
     // Animations initialization
     new WOW().init();
-
-    $(document).ready(function () {
-        changePageAndSize();
-    });
-
-    //Pagination
-    function changePageAndSize() {
-        $('#pageSizeSelect').change(function (evt) {
-            window.location.replace("aircraft?pageSize=" + this.value + "&page=1");
-        });
-    }
 </script>
 </body>
 </html>

@@ -1,11 +1,14 @@
 package com.airline.app.controllers;
 
+import com.airline.app.domain.Pager;
 import com.airline.app.entities.Aircraft;
 import com.airline.app.entities.IAircraft;
 import com.airline.app.services.AircraftService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,14 +16,16 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @RequestMapping("aircraft")
 public class AircraftController {
+    private static final int BUTTONS_TO_SHOW = 5;
+    private static final int INITIAL_PAGE = 0;
+    private static final int INITIAL_PAGE_SIZE = 6;
+    private static final int[] PAGE_SIZES = {6, 12, 20};
+
     private final AircraftService aircraftService;
 
     @Autowired
@@ -29,10 +34,22 @@ public class AircraftController {
     }
 
     @GetMapping
-    public List<Aircraft> getAll() {
-        return aircraftService.getAll();
-    }
+    public ModelAndView getAllPageable(@RequestParam("pageSize") Optional<Integer> pageSize,
+                                       @RequestParam("page") Optional<Integer> page) {
+        ModelAndView modelAndView = new ModelAndView("aircraft");
+        int evalPageSize = pageSize.orElse(INITIAL_PAGE_SIZE);
+        int evalPage = (page.orElse(0) < 1) ? INITIAL_PAGE : page.get() - 1;
 
+        Page<Aircraft> aircraft = aircraftService.findAllPageable(PageRequest.of(evalPage, evalPageSize));
+        Pager pager = new Pager(aircraft.getTotalPages(), aircraft.getNumber(), BUTTONS_TO_SHOW);
+
+        modelAndView.addObject("aircraftList", aircraft);
+        modelAndView.addObject("selectedPageSize", evalPageSize);
+        modelAndView.addObject("pageSizes", PAGE_SIZES);
+        modelAndView.addObject("pager", pager);
+        modelAndView.addObject("type", "all");
+        return modelAndView;
+    }
 
     @GetMapping("/{id}")
     public ModelAndView getById(@PathVariable("id") long id) throws IOException {
@@ -47,7 +64,7 @@ public class AircraftController {
         Map props = mapper.convertValue(aircraft, Map.class);
 
 
-        modelAndView.addObject("type",  aircraft.getClass().getSimpleName());
+        modelAndView.addObject("type", aircraft.getClass().getSimpleName());
 
         Set<Map.Entry> entries = props.entrySet();
 
@@ -84,5 +101,39 @@ public class AircraftController {
     @DeleteMapping
     public void delete(@RequestParam long id) {
         aircraftService.delete(id);
+    }
+
+    @GetMapping("/search")
+    public ModelAndView getAircraftByName(@RequestParam String name) {
+        if (name == null || name.isEmpty()) return new ModelAndView("redirect:/aircraft");
+        ModelAndView modelAndView = new ModelAndView("aircraft-search");
+        List<Aircraft> aircraft = aircraftService.searchAllByName(name);
+        modelAndView.addObject("type", "all");
+        modelAndView.addObject("aircraftList", aircraft);
+        return modelAndView;
+    }
+
+    @GetMapping("/type/{type}")
+    public ModelAndView getAircraftByType(@PathVariable String type) {
+        if (type == null || type.isEmpty()) return new ModelAndView("redirect:/aircraft");
+        ModelAndView modelAndView = new ModelAndView("aircraft-search");
+        List<Aircraft> aircraft = new ArrayList<>();
+        switch (type) {
+            case "airplane": {
+                aircraft = aircraftService.getAllAirplanes();
+                break;
+            }
+            case "airship": {
+                aircraft = aircraftService.getAllAirships();
+                break;
+            }
+            case "helicopter": {
+                aircraft = aircraftService.getAllHelicopters();
+                break;
+            }
+        }
+        modelAndView.addObject("type", type);
+        modelAndView.addObject("aircraftList", aircraft);
+        return modelAndView;
     }
 }

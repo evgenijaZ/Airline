@@ -1,18 +1,25 @@
 package com.airline.app.services;
 
 import com.airline.app.entities.Aircraft;
+import com.airline.app.entities.Airline;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface IAircraftService {
 
-    public Aircraft save(Aircraft aircraft);
+    Aircraft save(Aircraft aircraft);
 
-    public void delete(long id);
+    void delete(long id);
 
-    public Aircraft get(long id);
+    Aircraft get(long id);
 
-    public List<Aircraft> getAll();
+    List<Aircraft> getAll();
 
-    public Aircraft getByModelName(String modelName);
+    Aircraft getByModelName(String modelName);
+
+    Page<Aircraft> findAllPageable(Pageable pageable);
+
+    List<Aircraft> searchAllByName(String name);
 }
