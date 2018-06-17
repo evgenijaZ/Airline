@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Log in | SkyBrowser</title>
-    <link rel="icon" href="img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="/css/style.min.css" rel="stylesheet">
     <style type="text/css">
         @media (min-width: 800px) and (max-width: 850px) {
             .navbar:not(.top-nav-collapse) {
@@ -64,7 +65,7 @@
 <!-- Navbar -->
 
 <!-- Full Page Intro -->
-<div class="view full-page-intro" style="background-image: url('img/sky03.jpg'); background-repeat: no-repeat; background-size: cover;">
+<div class="view full-page-intro" style="background-image: url('img/sky.jpg'); background-repeat: no-repeat; background-size: cover;">
 
     <!-- Mask & flexbox options-->
     <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
@@ -85,7 +86,7 @@
                         <div class="card-body">
 
                             <!-- Form -->
-                            <form name="">
+                            <form th:action="@{/login}" method="POST">
                                 <!-- Heading -->
                                 <h3 class="dark-grey-text text-center">
                                     <strong>Log In</strong>
@@ -93,18 +94,22 @@
                                 <hr>
                                 <div class="md-form">
                                     <i class="fa fa-envelope prefix grey-text"></i>
-                                    <input type="text" id="email" class="form-control" required>
+                                    <input type="text" id="email" name="email" class="form-control" required>
                                     <label for="email">Email</label>
                                 </div>
 
                                 <div class="md-form">
                                     <i class="fa fa-lock prefix grey-text"></i>
-                                    <input type="password" id="password" class="form-control" minlength="8" required>
+                                    <input type="password" id="password"  name="password" class="form-control" minlength="6" required>
                                     <label for="password">Password</label>
                                 </div>
-
+                                <div align="center" th:if="${param.error}">
+                                    <div class="form-control-feedback text-danger">
+                                        Email or Password invalid, please verify
+                                    </div>
+                                </div>
                                 <div class="text-center">
-                                    <button class="btn btn-indigo">Log in</button>
+                                    <button type="submit" class="btn btn-indigo">Log in</button>
                                     <hr>
                                     <a href="/create_account">Haven't any account yet?</a>
                                 </div>

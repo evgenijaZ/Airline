@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Create account | SkyBrowser</title>
-    <link rel="icon" href="img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="/css/style.min.css" rel="stylesheet">
     <style type="text/css">
         @media (min-width: 800px) and (max-width: 850px) {
             .navbar:not(.top-nav-collapse) {
@@ -30,7 +32,7 @@
     <div class="container">
 
         <!-- Brand -->
-        <a class="navbar-brand" href="/home" target="_blank">
+        <a class="navbar-brand" href="/home">
             <strong>SkyBrowser</strong>
         </a>
 
@@ -50,13 +52,20 @@
                     <a class="nav-link" href="/home">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" target="_blank">Airlines</a>
+                    <a class="nav-link" href="/airlines" target="_blank">Airlines</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" target="_blank">Aircraft</a>
+                    <a class="nav-link" href="/aircraft" target="_blank">Aircraft</a>
                 </li>
             </ul>
 
+            <div sec:authorize="!isAuthenticated()">
+                <li class="nav-item">
+                    <a th:href="@{/login}" class="nav-link border border-light rounded">
+                        <i class="fa fa-user-circle mr-2"></i>Log in
+                    </a>
+                </li>
+            </div>
         </div>
 
     </div>
@@ -86,29 +95,46 @@
                         <div class="card-body">
 
                             <!-- Form -->
-                            <form name="">
+                            <form autocomplete="off" action="#" th:action="@{/create_account}"
+                                  th:object="${user}" method="post" class="form-horizontal"
+                                  role="form">
                                 <!-- Heading -->
                                 <h3 class="dark-grey-text text-center">
                                     <strong>Create account</strong>
                                 </h3>
+                                <span th:utext="${successMessage}"></span>
                                 <hr>
                                 <div class="md-form">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    <label th:if="${#fields.hasErrors('name')}"
+                                           th:errors="*{name}" class="validation-message">
+                                    </label>
+                                    <input type="text" th:field="*{name}"
+                                           placeholder="Name" class="form-control" required>
+                                </div>
+
+                                <div class="md-form">
                                     <i class="fa fa-envelope prefix grey-text"></i>
-                                    <input type="text" id="form_email" class="form-control" required>
-                                    <label for="form_email">Email</label>
+                                    <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                                           class="validation-message">
+                                    </label>
+                                    <input type="text" th:field="*{email}"
+                                           placeholder="Email" class="form-control" required>
                                 </div>
 
                                 <div class="md-form">
                                     <i class="fa fa-lock prefix grey-text"></i>
-                                    <input type="password" id="form_password" class="form-control" minlength="8"
-                                           required>
-                                    <label for="form_password">Password</label>
+                                    <label
+                                            th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                                            class="validation-message">
+                                    </label>
+                                    <input type="password" th:field="*{password}"
+                                           placeholder="Password" class="form-control" required>
                                 </div>
 
                                 <div class="text-center">
-                                    <button class="btn btn-indigo">Confirm</button>
+                                    <button type="submit" class="btn btn-indigo">Confirm</button>
                                 </div>
-
                             </form>
                             <!-- Form -->
 

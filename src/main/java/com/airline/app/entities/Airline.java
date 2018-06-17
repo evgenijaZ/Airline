@@ -1,5 +1,6 @@
 package com.airline.app.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -22,7 +23,7 @@ import java.util.List;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Airline {
-//    private static class AirlineHolder {
+    //    private static class AirlineHolder {
 //        static final Airline HOLDER_INSTANCE = new Airline();
 //    }
 //
@@ -48,6 +49,14 @@ public class Airline {
             inverseJoinColumns = @JoinColumn(name = "aircraft_id", referencedColumnName = "id"))
     @Setter(AccessLevel.NONE)
     private List<IAircraft> aircraftList;
+
+    /**
+     * Author
+     */
+    @ManyToOne
+    @JoinColumn(name = "author", nullable = false)
+    @JsonBackReference
+    private User author;
 
     /**
      * Public constructor

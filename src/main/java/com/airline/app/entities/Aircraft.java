@@ -1,6 +1,7 @@
 package com.airline.app.entities;
 
 import com.airline.app.config.AircraftDeserializer;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
@@ -54,6 +55,14 @@ public abstract class Aircraft implements IAircraft {
      * Default value is false
      */
     private boolean isFlying;
+
+    /**
+     * Author
+     */
+    @ManyToOne
+    @JoinColumn(name = "author", nullable = false)
+    @JsonBackReference
+    private User author;
 
     @Override
     public int getPassengerCapacity() {

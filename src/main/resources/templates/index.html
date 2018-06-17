@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>SkyBrowser</title>
-    <link rel="icon" href="img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="/css/style.min.css" rel="stylesheet">
     <style type="text/css">
         @media (min-width: 800px) and (max-width: 850px) {
             .navbar:not(.top-nav-collapse) {
@@ -30,7 +32,7 @@
     <div class="container">
 
         <!-- Brand -->
-        <a class="navbar-brand" href="/home" target="_blank">
+        <a class="navbar-brand" href="/home">
             <strong>SkyBrowser</strong>
         </a>
 
@@ -71,15 +73,22 @@
                         <i class="fa fa-twitter"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="/login" class="nav-link border border-light rounded">
-                        <i class="fa fa-user-circle mr-2"></i>Log in
-                    </a>
-                </li>
+                <div sec:authorize="!isAuthenticated()">
+                    <li class="nav-item">
+                        <a th:href="@{/login}" class="nav-link border border-light rounded">
+                            <i class="fa fa-user-circle mr-2"></i>Log in
+                        </a>
+                    </li>
+                </div>
+                <div sec:authorize="isAuthenticated()">
+                    <li class="nav-item">
+                        <a th:href="@{/logout}" class="nav-link border border-light rounded">
+                            <i class="fa fa-user-circle mr-2"></i>Log out
+                        </a>
+                    </li>
+                </div>
             </ul>
-
-    </div>
-
+        </div>
     </div>
 </nav>
 <!-- Navbar -->
