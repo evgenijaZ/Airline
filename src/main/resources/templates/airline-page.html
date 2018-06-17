@@ -4,7 +4,8 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Airline | SkyBrowser</title>
     <link rel="icon" href="/img/favicon.png">
@@ -17,28 +18,22 @@
     <!-- Your custom styles (optional) -->
     <link href="/css/style.min.css" rel="stylesheet">
 </head>
-
 <body>
-
 <!-- Navbar -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
     <div class="container">
-
         <!-- Brand -->
         <a class="navbar-brand waves-effect" href="/home">
             <strong class="dark-grey-text">SkyBrowser</strong>
         </a>
-
         <!-- Collapse -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <!-- Links -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -51,7 +46,6 @@
                     <a class="nav-link" href="/airlines">Aircraft</a>
                 </li>
             </ul>
-
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
@@ -79,44 +73,32 @@
                     </li>
                 </div>
             </ul>
-
         </div>
-
     </div>
 </nav>
 <!-- Navbar -->
-
 <!--Main layout-->
 <main class="mt-5 pt-4">
     <div class="container dark-grey-text mt-5">
-
         <!--Grid row-->
         <div class="row wow fadeIn">
-
             <!--Grid column-->
             <div class="col-md-6 mb-4">
                 <img th:src="'/img/airline-logos/'+${airline.id}+'.jpg'" class="img-fluid z-depth-1-half"
                      th:alt="${airline.name}">
             </div>
             <!--Grid column-->
-
             <!--Grid column-->
             <div class="col-md-6 mb-4">
-
                 <!--Content-->
                 <div class="p-4">
-
                     <p class="lead font-weight-bold" th:text="${airline.name}"></p>
-
                 </div>
                 <!--Content-->
-
             </div>
             <!--Grid column-->
-
         </div>
         <!--Grid row-->
-
         <!--Aircraft table-->
         <div th:if="${not #lists.isEmpty(airline.aircraftList)}">
             <div class="row">
@@ -158,42 +140,32 @@
         <!--Aircraft table-->
         <div th:if="${#lists.isEmpty(airline.aircraftList)}" style="height:35vh"></div>
     </div>
-
 </main>
 <!--Main layout-->
-
 <!--Footer-->
 <footer class="page-footer text-center font-small mt-4 wow fadeIn">
-
     <hr class="my-4">
-
     <!-- Social icons -->
     <div class="pb-4">
         <a href="https://www.facebook.com/" target="_blank">
             <i class="fa fa-facebook mr-3"></i>
         </a>
-
         <a href="https://twitter.com/" target="_blank">
             <i class="fa fa-twitter mr-3"></i>
         </a>
-
         <a href="https://github.com/" target="_blank">
             <i class="fa fa-github mr-3"></i>
         </a>
     </div>
     <!-- Social icons -->
-
     <!--Copyright-->
     <div class="footer-copyright py-3">
         © 2018 Copyright:
         <a href="#" target="_blank"> SkyBrowser.com </a>
     </div>
     <!--/.Copyright-->
-
 </footer>
 <!--/.Footer-->
-
-
 <!-- SCRIPTS -->
 <!-- JQuery -->
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
@@ -209,5 +181,4 @@
     new WOW().init();
 </script>
 </body>
-
 </html>

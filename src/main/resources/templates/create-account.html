@@ -4,7 +4,8 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Create account | SkyBrowser</title>
     <link rel="icon" href="/img/favicon.png">
@@ -24,28 +25,22 @@
         }
     </style>
 </head>
-
 <body>
-
 <!-- Navbar -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
     <div class="container">
-
         <!-- Brand -->
         <a class="navbar-brand" href="/home">
             <strong>SkyBrowser</strong>
         </a>
-
         <!-- Collapse -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <!-- Links -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -58,7 +53,6 @@
                     <a class="nav-link" href="/aircraft" target="_blank">Aircraft</a>
                 </li>
             </ul>
-
             <div sec:authorize="!isAuthenticated()">
                 <li class="nav-item">
                     <a th:href="@{/login}" class="nav-link border border-light rounded">
@@ -67,33 +61,24 @@
                 </li>
             </div>
         </div>
-
     </div>
 </nav>
 <!-- Navbar -->
-
 <!-- Full Page Intro -->
 <div class="view full-page-intro"
      style="background-image: url('img/sky.jpg'); background-repeat: no-repeat; background-size: cover;">
-
     <!-- Mask & flexbox options-->
     <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
-
         <!-- Content -->
         <div class="container">
-
             <!--Grid row-->
             <div class="row wow fadeIn justify-content-center">
-
                 <!--Grid column-->
                 <div class="col-md-6 col-xl-5 mb-4 ">
-
                     <!--Card-->
                     <div class="card">
-
                         <!--Card content-->
                         <div class="card-body">
-
                             <!-- Form -->
                             <form autocomplete="off" action="#" th:action="@{/create_account}"
                                   th:object="${user}" method="post" class="form-horizontal"
@@ -112,7 +97,6 @@
                                     <input type="text" th:field="*{name}"
                                            placeholder="Name" class="form-control" required>
                                 </div>
-
                                 <div class="md-form">
                                     <i class="fa fa-envelope prefix grey-text"></i>
                                     <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
@@ -121,7 +105,6 @@
                                     <input type="text" th:field="*{email}"
                                            placeholder="Email" class="form-control" required>
                                 </div>
-
                                 <div class="md-form">
                                     <i class="fa fa-lock prefix grey-text"></i>
                                     <label
@@ -131,65 +114,48 @@
                                     <input type="password" th:field="*{password}"
                                            placeholder="Password" class="form-control" required>
                                 </div>
-
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-indigo">Confirm</button>
                                 </div>
                             </form>
                             <!-- Form -->
-
                         </div>
-
                     </div>
                     <!--/.Card-->
-
                 </div>
                 <!--Grid column-->
-
             </div>
             <!--Grid row-->
-
         </div>
         <!-- Content -->
-
     </div>
     <!-- Mask & flexbox options-->
-
 </div>
 <!-- Full Page Intro -->
-
-
 <!--Footer-->
 <footer class="page-footer text-center font-small mt-4 wow fadeIn">
-
     <hr class="my-4">
-
     <!-- Social icons -->
     <div class="pb-4">
         <a href="https://www.facebook.com/" target="_blank">
             <i class="fa fa-facebook mr-3"></i>
         </a>
-
         <a href="https://twitter.com/" target="_blank">
             <i class="fa fa-twitter mr-3"></i>
         </a>
-
         <a href="https://github.com/" target="_blank">
             <i class="fa fa-github mr-3"></i>
         </a>
     </div>
     <!-- Social icons -->
-
     <!--Copyright-->
     <div class="footer-copyright py-3">
         © 2018 Copyright:
         <a href="#" target="_blank"> SkyBrowser.com </a>
     </div>
     <!--/.Copyright-->
-
 </footer>
 <!--/.Footer-->
-
 <!-- SCRIPTS -->
 <!-- JQuery -->
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
@@ -205,5 +171,4 @@
     new WOW().init();
 </script>
 </body>
-
 </html>
