@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -41,6 +42,7 @@ public class AirlineAircraftControllerTest {
     private MockMvc mockMvc;
 
     @Test
+    @WithMockUser
     public void shouldReturnAircraftList() throws Exception {
         // given
         long airlineId = 1, aircraftId = 10;
@@ -60,6 +62,7 @@ public class AirlineAircraftControllerTest {
     }
 
     @Test
+    @WithMockUser
     public void shouldReturnFilteredByFuelConsumptionAircraftList() throws Exception {
         // given
         long airlineId = 1, airplaneId = 10, helicopterId = 10;
@@ -85,6 +88,7 @@ public class AirlineAircraftControllerTest {
     }
 
     @Test
+    @WithMockUser
     public void shouldReturnFilteredByCapacityAndrangeAircraftList() throws Exception {
         // given
         long airlineId = 1, airplaneId = 10, helicopterId = 10;
@@ -109,6 +113,7 @@ public class AirlineAircraftControllerTest {
     }
 
     @Test
+    @WithMockUser
     public void shouldReturnSortedAircraftList() throws Exception {
         // given
         long airlineId = 1, airplaneId = 10, helicopterId = 10;

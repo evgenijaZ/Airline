@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -17,6 +19,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import java.util.Collections;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.mockito.ArgumentMatchers.any;
@@ -24,12 +27,14 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(AircraftController.class)
 @EnableWebMvc
+@ContextConfiguration
 public class AircraftControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -38,6 +43,7 @@ public class AircraftControllerTest {
     AircraftService aircraftService;
 
     @Test
+    @WithMockUser
     public void shouldReturnAircraftList() throws Exception {
         // given
         Aircraft airplane = new Airplane();
@@ -54,6 +60,7 @@ public class AircraftControllerTest {
     }
 
     @Test
+    @WithMockUser
     public void shouldReturnAircraftById() throws Exception {
         // given
         long id = 10;
@@ -66,10 +73,11 @@ public class AircraftControllerTest {
         mockMvc.perform(get("/aircraft/" + id)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.modelName", is(airplane.getModelName())));
+                .andExpect(content().string(containsString(airplane.getModelName())));
     }
 
     @Test
+    @WithMockUser
     public void shouldSaveAndReturnAircraft() throws Exception {
         // given
         CargoPlane airplane = new CargoPlane();
@@ -88,7 +96,5 @@ public class AircraftControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(aircraftJsonRequest))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.modelName", is(airplane.getModelName())))
-                .andExpect(jsonPath("$.cargoWeight", is(airplane.getCargoWeight())));
-    }
+                .andExpect(content().string(containsString(airplane.getModelName()))); }
 }

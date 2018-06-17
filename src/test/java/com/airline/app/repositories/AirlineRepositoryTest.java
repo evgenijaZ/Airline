@@ -1,6 +1,7 @@
 package com.airline.app.repositories;
 
 import com.airline.app.entities.Airline;
+import com.airline.app.entities.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,11 @@ public class AirlineRepositoryTest {
         // given
         Airline airline=new Airline();
         airline.setName("WindRose");
+        User author = new User();
+        author.setEmail("email@example.com");
+        author.setPassword("password");
+        airline.setAuthor(author);
+        entityManager.persist(author);
         entityManager.persist(airline);
         entityManager.flush();
 

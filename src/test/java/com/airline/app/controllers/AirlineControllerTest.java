@@ -8,14 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -30,6 +33,7 @@ public class AirlineControllerTest {
     AirlineService airlineService;
 
     @Test
+    @WithMockUser
     public void shouldReturnTotalPassengerCapacity() throws Exception {
         // given
         long airlineId = 1;
@@ -47,6 +51,7 @@ public class AirlineControllerTest {
     }
 
     @Test
+    @WithMockUser
     public void shouldReturnTotalCarryingCapacity() throws Exception {
         // given
         long airlineId = 1;
@@ -65,6 +70,7 @@ public class AirlineControllerTest {
 
 
     @Test
+    @WithMockUser
     public void shouldReturnAirlineById() throws Exception {
         // given
         long id = 10;
@@ -78,6 +84,6 @@ public class AirlineControllerTest {
         mockMvc.perform(get("/airlines/" + id)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name", is(airline.getName())));
+                .andExpect(content().string(containsString(airline.getName())));
     }
 }

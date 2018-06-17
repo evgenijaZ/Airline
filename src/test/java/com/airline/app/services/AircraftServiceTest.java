@@ -3,6 +3,7 @@ package com.airline.app.services;
 import com.airline.app.entities.Aircraft;
 import com.airline.app.entities.Airplane;
 import com.airline.app.entities.Airship;
+import com.airline.app.entities.User;
 import com.airline.app.repositories.AircraftRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -55,7 +56,7 @@ public class AircraftServiceTest {
     @Test
     public void whenValidId_thenAircraftShouldBeFound() {
         long id = 100;
-        when(aircraftRepository.getOne(airship.getId()))
+        when(aircraftRepository.findById(airship.getId()))
                 .thenReturn(airship);
         //when
         Aircraft found = aircraftService.get(id);

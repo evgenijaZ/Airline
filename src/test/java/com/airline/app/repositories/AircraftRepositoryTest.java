@@ -2,6 +2,7 @@ package com.airline.app.repositories;
 
 import com.airline.app.entities.Aircraft;
 import com.airline.app.entities.Helicopter;
+import com.airline.app.entities.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,11 @@ public class AircraftRepositoryTest {
         // given
         Aircraft helicopter = new Helicopter();
         helicopter.setModelName("Sikorsky XBLR-3");
+        User author = new User();
+        author.setEmail("email@example.com");
+        author.setPassword("password");
+        helicopter.setAuthor(author);
+        entityManager.persist(author);
         entityManager.persist(helicopter);
         entityManager.flush();
 
