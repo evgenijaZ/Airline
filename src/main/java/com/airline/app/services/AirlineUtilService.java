@@ -22,11 +22,9 @@ public class AirlineUtilService {
      */
     public int getTotalPassengerCapacity(Airline airline) {
         List<IAircraft> aircraftList = airline.getAircraftList();
-        int totalCapacity = 0;
-        for (IAircraft airplane : aircraftList) {
-            totalCapacity += airplane.getPassengerCapacity();
-        }
-        return totalCapacity;
+        return aircraftList.stream()
+                .mapToInt(IAircraft::getPassengerCapacity)
+                .sum();
     }
 
 
@@ -38,11 +36,9 @@ public class AirlineUtilService {
      */
     public int getTotalCarryingCapacity(Airline airline) {
         List<IAircraft> aircraftList = airline.getAircraftList();
-        int totalCapacity = 0;
-        for (IAircraft airplane : aircraftList) {
-            totalCapacity += airplane.getCarryingCapacity();
-        }
-        return totalCapacity;
+        return aircraftList.stream()
+                .mapToInt(IAircraft::getCarryingCapacity)
+                .sum();
     }
 
     /**
@@ -73,9 +69,9 @@ public class AirlineUtilService {
     /**
      * Find  all airplanes corresponding to the passenger capacity and flight range(kmph)
      *
-     * @param airline  the airline
+     * @param airline           the airline
      * @param passengerCapacity passenger capacity
-     * @param flightRange flight range
+     * @param flightRange       flight range
      * @return list of elements that satisfy the conditions
      */
     public List<IAircraft> getFilteredByPassengerCapacityAndFlightRangeAircraftList(Airline airline, int passengerCapacity, int flightRange) {

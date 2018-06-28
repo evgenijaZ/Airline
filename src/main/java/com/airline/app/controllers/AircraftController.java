@@ -15,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.IOException;
 import java.util.*;
 
 @RestController
@@ -52,7 +51,7 @@ public class AircraftController {
     }
 
     @GetMapping("/{id}")
-    public ModelAndView getById(@PathVariable("id") long id) throws IOException {
+    public ModelAndView getById(@PathVariable("id") long id) {
         ModelAndView modelAndView = new ModelAndView("aircraft-page");
         Aircraft aircraft = aircraftService.get(id);
 
@@ -135,5 +134,10 @@ public class AircraftController {
         modelAndView.addObject("type", type);
         modelAndView.addObject("aircraftList", aircraft);
         return modelAndView;
+    }
+
+    @GetMapping("/create")
+    public ModelAndView create() {
+        return new ModelAndView("aircraft-create");
     }
 }

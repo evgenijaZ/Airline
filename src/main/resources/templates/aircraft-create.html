@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Aircraft | SkyBrowser</title>
+    <link rel="icon" href="/img/favicon.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="/css/style.min.css" rel="stylesheet">
+</head>
+<body class="grey lighten-3">
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="/home">
+            <strong class="dark-grey-text">SkyBrowser</strong>
+        </a>
+        <!-- Collapse -->
+        <button class="navbar-toggler"
+                type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/airlines">Airlines</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/aircraft">Aircraft</a>
+                </li>
+            </ul>
+            <!-- Right -->
+            <ul class="navbar-nav nav-flex-icons">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" target="_blank">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <div sec:authorize="!isAuthenticated()">
+                    <li class="nav-item">
+                        <a th:href="@{/login}" class="nav-link border border-light rounded">
+                            <i class="fa fa-user-circle mr-2"></i>Log in
+                        </a>
+                    </li>
+                </div>
+                <div sec:authorize="isAuthenticated()">
+                    <li class="nav-item">
+                        <a th:href="@{/logout}" class="nav-link border border-light rounded">
+                            <i class="fa fa-user-circle mr-2"></i>Log out
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Navbar -->
+<!--Main layout-->
+<main class="mt-5 pt-4">
+    <div class="container wow fadeIn">
+
+        <!-- Heading -->
+        <h2 class="my-5 h2 text-center">Create aircraft</h2>
+
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-8 mb-4">
+
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card content-->
+                    <form class="card-body">
+
+
+                        <!--modelName-->
+                        <div class="md-form ">
+                            <input type="text" id="modelName" class="form-control">
+                            <label for="modelName" class="">Model name</label>
+                        </div>
+
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-lg-6 col-md-6 mb-6  pt-4">
+
+                                <label for="carryingCapacity">Carrying capacity</label>
+                                <input type="text" class="form-control" id="carryingCapacity" placeholder="" required>
+                                <small class="text-muted">Maximum cargo weight in kg</small>
+                                <div class="invalid-feedback">
+                                    Carrying capacity required.
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-lg-6 col-md-6 mb-6 pt-4">
+
+                                <label for="passengerCapacity">Passenger capacity</label>
+                                <input type="text" class="form-control" id="passengerCapacity" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Passenger capacity required.
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-lg-6 col-md-6 mb-6 pt-4">
+
+                                <label for="flightRange">Flight range</label>
+                                <input type="text" class="form-control" id="flightRange" placeholder="" required>
+                                <small class="text-muted">Fligth range in km</small>
+                                <div class="invalid-feedback">
+                                    Flight range required.
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-lg-6 col-md-6 mb-6 pt-4">
+                                <label for="fuelConsumption">Fuel consumption</label>
+                                <input type="text" class="form-control" id="fuelConsumption" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Fuel consumption required.
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <hr>
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="isFlying">
+                            <label class="custom-control-label" for="isFlying">Is flying</label>
+                        </div>
+
+                        <hr>
+
+                        <!--Grid column-->
+                        <div class="mb-4">
+
+                            <label for="type">Aircraft type</label>
+                            <select class="custom-select d-block w-100" id="type" name="type" required>
+                                <option value="aircraft">Choose..</option>
+                                <option value="airplane">Airplane</option>
+                                <option value="passengerPlane">Passenger plane</option>
+                                <option value="cargoPlane">Cargo plane</option>
+                                <option value="airship">Airship</option>
+                                <option value="helicopter">Helicopter</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please provide a valid type.
+                            </div>
+
+                        </div>
+                        <!--Grid column-->
+
+                        <div id="airplaneSpecificFields" style="display: none">
+                            <label for="cruisingSpeed">Cruising speed</label>
+                            <input type="text" class="form-control" id="cruisingSpeed" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Cruising speed required.
+                            </div>
+                        </div>
+
+                        <div id="passengerPlaneSpecificFields" style="display: none">
+                            <label for="numberOfPassengers">Number of passengers</label>
+                            <input type="text" class="form-control" id="numberOfPassengers" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Number of passengers required.
+                            </div>
+                        </div>
+
+                        <div id="cargoPlaneSpecificFields" style="display: none">
+                            <label for="cargoWeight">Cargo weight</label>
+                            <input type="text" class="form-control" id="cargoWeight" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Cargo weight required.
+                            </div>
+                        </div>
+
+                        <div id="helicopterSpecificFields" style="display: none">
+                            <label for="rotorDiameter">Rotor diameter</label>
+                            <input type="text" class="form-control" id="rotorDiameter" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Rotor diameter required.
+                            </div>
+                        </div>
+
+
+                        <hr class="mb-4">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Create aircraft</button>
+
+                    </form>
+
+                </div>
+                <!--/.Card-->
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-4 mb-4">
+
+                <!-- Heading -->
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Your aircraft</span>
+                    <span class="badge badge-secondary badge-pill">3</span>
+                </h4>
+
+                <!-- Aircraft list -->
+                <ul class="list-group mb-3 z-depth-1">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Embraer E-120 Brasilia</h6>
+                            <small class="text-muted">Passenger plane</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Embraer E-120 Brasilia</h6>
+                            <small class="text-muted">Passenger plane</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Embraer E-120 Brasilia</h6>
+                            <small class="text-muted">Passenger plane</small>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Aircraft list -->
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+    </div>
+</main>
+<!--Main layout-->
+<!--Footer-->
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+    <hr class="my-4">
+    <!-- Social icons -->
+    <div class="pb-4">
+        <a href="https://www.facebook.com/" target="_blank">
+            <i class="fa fa-facebook mr-3"></i>
+        </a>
+        <a href="https://twitter.com/" target="_blank">
+            <i class="fa fa-twitter mr-3"></i>
+        </a>
+        <a href="https://github.com/" target="_blank">
+            <i class="fa fa-github mr-3"></i>
+        </a>
+    </div>
+    <!-- Social icons -->
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+        © 2018 Copyright:
+        <a href="#" target="_blank"> SkyBrowser.com </a>
+    </div>
+    <!--/.Copyright-->
+</footer>
+<!--/.Footer-->
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="/js/mdb.min.js"></script>
+<!-- Initializations -->
+<script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+
+    $(document).ready(function () {
+        type();
+    });
+
+
+    function hideAll() {
+        $("#airplaneSpecificFields").hide();
+        $("#passengerPlaneSpecificFields").hide();
+        $("#cargoPlaneSpecificFields").hide();
+        $("#helicopterSpecificFields").hide()
+    }
+
+    function type() {
+        $('#type').on('change', function () {
+            var selection = $(this).val();
+            hideAll();
+            switch (selection) {
+                case "airplane":
+                    $("#airplaneSpecificFields").show();
+                    break;
+                case "passengerPlane":
+                    $("#passengerPlaneSpecificFields").show();
+                    break;
+                case "cargoPlane":
+                    $("#cargoPlaneSpecificFields").show();
+                    break;
+                case "helicopter":
+                    $("#helicopterSpecificFields").show();
+                    break;
+                default:
+                    hideAll()
+            }
+        })
+    }
+
+
+</script>
+</body>
+</html>
